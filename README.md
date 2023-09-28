@@ -11,7 +11,10 @@ Install the Git software locally if you don't have it already
    * Github Desktop for an easier UI experience: https://desktop.github.com/
 
 ## If using Git Bash:
-  a) Run: `git clone git@github.com:ObliteratedEntertainment/LudumDare54.git`
+
+Ensure you have your SSH keys configured with Github or use GitBash's OAUTH login process.
+
+Run: `git clone git@github.com:ObliteratedEntertainment/LudumDare54.git`
 
 ## If using Github Desktop:
   1) On initial install it should prompt you to login with GitHub.com
