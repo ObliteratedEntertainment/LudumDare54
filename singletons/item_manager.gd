@@ -5,6 +5,7 @@ signal item_dragging_stopped(Item)
 
 signal inventory_slot_hovered(InventorySlot, Item)
 signal inventory_slot_dropped(InventorySlot, Item)
+signal inventory_added(Item)
 
 signal inventory_staged_remove(Item)
 signal inventory_final_remove(Item) # TODO: remove is potentially only temporary, if it is readded to inventory this isn't called

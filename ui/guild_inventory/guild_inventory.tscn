@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://djtrj5g657g3j"]
 
 [ext_resource type="Script" path="res://ui/guild_inventory/guild_inventory.gd" id="1_yrsfj"]
-[ext_resource type="PackedScene" uid="uid://dfyeff3hhnvwv" path="res://ui/guild_inventory/inventory_icon_slot.tscn" id="2_1bctj"]
+[ext_resource type="PackedScene" uid="uid://dfyeff3hhnvwv" path="res://ui/guild_inventory/guild_item_slot.tscn" id="2_1bctj"]
 [ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="3_ebpkw"]
 [ext_resource type="PackedScene" uid="uid://tqthhc2qhn71" path="res://items/cross.tscn" id="4_fg584"]
 
@@ -30,32 +30,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+color = Color(0.796078, 0.796078, 0.796078, 1)
 
-[node name="HFlowContainer" type="HFlowContainer" parent="."]
-custom_minimum_size = Vector2(100, 200)
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="InventoryIcon" parent="HFlowContainer" instance=ExtResource("2_1bctj")]
+[node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="InventoryIcon" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 packed_item = ExtResource("3_ebpkw")
 
-[node name="InventoryIcon2" parent="HFlowContainer" instance=ExtResource("2_1bctj")]
+[node name="InventoryIcon2" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 packed_item = ExtResource("4_fg584")
 
-[node name="InventoryIcon3" parent="HFlowContainer" instance=ExtResource("2_1bctj")]
+[node name="InventoryIcon3" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 packed_item = ExtResource("3_ebpkw")
 
-[node name="InventoryIcon4" parent="HFlowContainer" instance=ExtResource("2_1bctj")]
+[node name="InventoryIcon4" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 packed_item = ExtResource("4_fg584")
