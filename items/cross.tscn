@@ -13,4 +13,4 @@ texture = ExtResource("2_1gwsn")
 
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource("3_2lq7n")
-offset = Vector2(0, 9)
+offset = Vector2(0, 8)
