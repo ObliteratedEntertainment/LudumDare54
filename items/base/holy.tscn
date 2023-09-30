@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://da0itpwo2s5ah"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_f1ev3"]
+
+[node name="Holy" type="Node2D"]
+script = ExtResource("1_f1ev3")
+stat = 2
+amount = 10

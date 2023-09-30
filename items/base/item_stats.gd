@@ -3,7 +3,8 @@ class_name ItemStats
 
 enum Stat {
 	ATTACK,
-	DEFENSE
+	DEFENSE,
+	HOLY
 }
 
 @export var stat:Stat
