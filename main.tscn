@@ -11,6 +11,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -240.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -26,16 +28,73 @@ offset_bottom = 1126.0
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 anchors_preset = 0
-offset_top = 260.0
-offset_right = 512.0
-offset_bottom = 516.0
+offset_left = -6.0
+offset_top = 116.0
+offset_right = 506.0
+offset_bottom = 372.0
+scale = Vector2(2, 2)
 
 [node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 195.0
+offset_bottom = 122.0
+
+[node name="Slot1" parent="DragAndDropContainer/Inventory" index="1"]
+blocked = true
+
+[node name="Slot7" parent="DragAndDropContainer/Inventory" index="7"]
+blocked = true
+
+[node name="Slot8" parent="DragAndDropContainer/Inventory" index="8"]
+blocked = true
+
+[node name="Slot9" parent="DragAndDropContainer/Inventory" index="9"]
+blocked = true
+
+[node name="Slot41" parent="DragAndDropContainer/Inventory" index="37"]
+blocked = true
+
+[node name="Slot47" parent="DragAndDropContainer/Inventory" index="43"]
+blocked = true
+
+[node name="Slot48" parent="DragAndDropContainer/Inventory" index="44"]
+blocked = true
+
+[node name="Slot49" parent="DragAndDropContainer/Inventory" index="45"]
+blocked = true
+
+[node name="Inventory3" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
+visible = false
 layout_mode = 2
-offset_top = -12.0
-offset_right = 0.0
-offset_bottom = 244.0
-blocked_slots = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 5), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0), Vector2i(7, 5), Vector2i(8, 5), Vector2i(9, 5)])
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 3.0
+offset_bottom = 266.0
+
+[node name="Slot36" parent="DragAndDropContainer/Inventory3" index="33"]
+blocked = true
+
+[node name="Slot37" parent="DragAndDropContainer/Inventory3" index="34"]
+blocked = true
+
+[node name="Slot38" parent="DragAndDropContainer/Inventory3" index="35"]
+blocked = true
+
+[node name="Slot39" parent="DragAndDropContainer/Inventory3" index="36"]
+blocked = true
+
+[node name="Slot46" parent="DragAndDropContainer/Inventory3" index="42"]
+blocked = true
+
+[node name="Slot47" parent="DragAndDropContainer/Inventory3" index="43"]
+blocked = true
+
+[node name="Slot48" parent="DragAndDropContainer/Inventory3" index="44"]
+blocked = true
+
+[node name="Slot49" parent="DragAndDropContainer/Inventory3" index="45"]
+blocked = true
 
 [node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
 custom_minimum_size = Vector2(0, 0)
@@ -45,10 +104,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 192.0
-offset_top = -12.0
-offset_right = 360.0
-offset_bottom = 100.0
+offset_left = 195.0
+offset_top = 10.0
+offset_right = 243.0
+offset_bottom = 122.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -73,3 +132,6 @@ script = ExtResource("5_154nt")
 quest = NodePath("../HolyQuest")
 
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
+
+[editable path="DragAndDropContainer/Inventory"]
+[editable path="DragAndDropContainer/Inventory3"]

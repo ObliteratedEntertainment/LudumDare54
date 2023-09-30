@@ -1,8 +1,6 @@
 extends Control
 class_name Inventory
 
-@export var blocked_slots: Array[Vector2i] = []
-
 var last_slot: InventorySlot = null
 var last_hover_slots = []
 
@@ -25,13 +23,8 @@ func _ready():
 		if child is InventorySlot:
 			child.coord = Vector2i(x,y)
 			
-			for coord in blocked_slots:
-				if coord == child.coord:
-					child.set_blocked()
-					break
-			
-			# Grid is 10x6 (X by Y)
-			x = (x + 1) %10
+			# Grid is 9x5 (X by Y)
+			x = (x + 1) %9
 			if x == 0:
 				y += 1
 
@@ -39,14 +32,14 @@ func _ready():
 func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		
 	for item_block in item.get_item_cells():
-		var hover_slot = _get_inventory_slot(slot.coord + item_block)
+		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
 		if hover_slot == null or hover_slot.is_filled():
 			return false
 	
 	
 	# If we none of the inventory slots are filled, lets set this item on them
 	for item_block in item.get_item_cells():
-		var hover_slot = _get_inventory_slot(slot.coord + item_block)
+		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
 		hover_slot.set_item(item, item_block == item.item_center)
 	
 	ItemManager.inventory_added.emit(item)
@@ -75,7 +68,7 @@ func _slot_hovered(slot: InventorySlot, item: Item):
 	last_slot = slot
 		
 	for item_block in item.get_item_cells():
-		var hover_slot = _get_inventory_slot(slot.coord + item_block)
+		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
 		if hover_slot == null:
 			continue
 		hover_slot.highlight()
