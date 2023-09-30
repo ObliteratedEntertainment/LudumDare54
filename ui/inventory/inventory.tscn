@@ -19,570 +19,427 @@ texture = ExtResource("2_cfk34")
 
 [node name="Slot1" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 8.0
-offset_right = 32.0
-offset_bottom = 24.0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 39.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot2" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 32.0
-offset_top = 8.0
-offset_right = 48.0
-offset_bottom = 24.0
+offset_left = 39.0
+offset_top = 16.0
+offset_right = 55.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot3" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 24.0
+offset_left = 55.0
+offset_top = 16.0
+offset_right = 71.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot4" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 64.0
-offset_top = 8.0
-offset_right = 80.0
-offset_bottom = 24.0
+offset_left = 71.0
+offset_top = 16.0
+offset_right = 87.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot5" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 8.0
-offset_right = 96.0
-offset_bottom = 24.0
+offset_left = 87.0
+offset_top = 16.0
+offset_right = 103.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot6" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 96.0
-offset_top = 8.0
-offset_right = 112.0
-offset_bottom = 24.0
+offset_left = 103.0
+offset_top = 16.0
+offset_right = 119.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot7" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 8.0
-offset_right = 128.0
-offset_bottom = 24.0
+offset_left = 119.0
+offset_top = 16.0
+offset_right = 135.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot8" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 128.0
-offset_top = 8.0
-offset_right = 144.0
-offset_bottom = 24.0
+offset_left = 135.0
+offset_top = 16.0
+offset_right = 151.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot9" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 8.0
-offset_right = 160.0
-offset_bottom = 24.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot10" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 160.0
-offset_top = 8.0
-offset_right = 176.0
-offset_bottom = 24.0
+offset_left = 151.0
+offset_top = 16.0
+offset_right = 167.0
+offset_bottom = 32.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot11" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 16.0
-offset_top = 24.0
-offset_right = 32.0
-offset_bottom = 40.0
+offset_left = 23.0
+offset_top = 32.0
+offset_right = 39.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot12" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 24.0
-offset_right = 48.0
-offset_bottom = 40.0
+offset_left = 39.0
+offset_top = 32.0
+offset_right = 55.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot13" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 48.0
-offset_top = 24.0
-offset_right = 64.0
-offset_bottom = 40.0
+offset_left = 55.0
+offset_top = 32.0
+offset_right = 71.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot14" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 24.0
-offset_right = 80.0
-offset_bottom = 40.0
+offset_left = 71.0
+offset_top = 32.0
+offset_right = 87.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot15" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 80.0
-offset_top = 24.0
-offset_right = 96.0
-offset_bottom = 40.0
+offset_left = 87.0
+offset_top = 32.0
+offset_right = 103.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot16" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 24.0
-offset_right = 112.0
-offset_bottom = 40.0
+offset_left = 103.0
+offset_top = 32.0
+offset_right = 119.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot17" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 112.0
-offset_top = 24.0
-offset_right = 128.0
-offset_bottom = 40.0
+offset_left = 119.0
+offset_top = 32.0
+offset_right = 135.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot18" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 24.0
-offset_right = 144.0
-offset_bottom = 40.0
+offset_left = 135.0
+offset_top = 32.0
+offset_right = 151.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot19" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 144.0
-offset_top = 24.0
-offset_right = 160.0
-offset_bottom = 40.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot20" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 24.0
-offset_right = 176.0
-offset_bottom = 40.0
+offset_left = 151.0
+offset_top = 32.0
+offset_right = 167.0
+offset_bottom = 48.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot21" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 40.0
-offset_right = 32.0
-offset_bottom = 56.0
+offset_left = 23.0
+offset_top = 48.0
+offset_right = 39.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot22" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 48.0
-offset_bottom = 56.0
+offset_left = 39.0
+offset_top = 48.0
+offset_right = 55.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot23" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 40.0
-offset_right = 64.0
-offset_bottom = 56.0
+offset_left = 55.0
+offset_top = 48.0
+offset_right = 71.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot24" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 64.0
-offset_top = 40.0
-offset_right = 80.0
-offset_bottom = 56.0
+offset_left = 71.0
+offset_top = 48.0
+offset_right = 87.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot25" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 40.0
-offset_right = 96.0
-offset_bottom = 56.0
+offset_left = 87.0
+offset_top = 48.0
+offset_right = 103.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot26" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 96.0
-offset_top = 40.0
-offset_right = 112.0
-offset_bottom = 56.0
+offset_left = 103.0
+offset_top = 48.0
+offset_right = 119.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot27" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 40.0
-offset_right = 128.0
-offset_bottom = 56.0
+offset_left = 119.0
+offset_top = 48.0
+offset_right = 135.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot28" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 128.0
-offset_top = 40.0
-offset_right = 144.0
-offset_bottom = 56.0
+offset_left = 135.0
+offset_top = 48.0
+offset_right = 151.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot29" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 40.0
-offset_right = 160.0
-offset_bottom = 56.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot30" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 160.0
-offset_top = 40.0
-offset_right = 176.0
-offset_bottom = 56.0
+offset_left = 151.0
+offset_top = 48.0
+offset_right = 167.0
+offset_bottom = 64.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot31" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 16.0
-offset_top = 56.0
-offset_right = 32.0
-offset_bottom = 72.0
+offset_left = 23.0
+offset_top = 64.0
+offset_right = 39.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot32" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 56.0
-offset_right = 48.0
-offset_bottom = 72.0
+offset_left = 39.0
+offset_top = 64.0
+offset_right = 55.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot33" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 48.0
-offset_top = 56.0
-offset_right = 64.0
-offset_bottom = 72.0
+offset_left = 55.0
+offset_top = 64.0
+offset_right = 71.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot34" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 56.0
-offset_right = 80.0
-offset_bottom = 72.0
+offset_left = 71.0
+offset_top = 64.0
+offset_right = 87.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot35" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 80.0
-offset_top = 56.0
-offset_right = 96.0
-offset_bottom = 72.0
+offset_left = 87.0
+offset_top = 64.0
+offset_right = 103.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot36" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 96.0
-offset_top = 56.0
-offset_right = 112.0
-offset_bottom = 72.0
+offset_left = 103.0
+offset_top = 64.0
+offset_right = 119.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot37" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 112.0
-offset_top = 56.0
-offset_right = 128.0
-offset_bottom = 72.0
+offset_left = 119.0
+offset_top = 64.0
+offset_right = 135.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot38" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 56.0
-offset_right = 144.0
-offset_bottom = 72.0
+offset_left = 135.0
+offset_top = 64.0
+offset_right = 151.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot39" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 144.0
-offset_top = 56.0
-offset_right = 160.0
-offset_bottom = 72.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot40" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 56.0
-offset_right = 176.0
-offset_bottom = 72.0
+offset_left = 151.0
+offset_top = 64.0
+offset_right = 167.0
+offset_bottom = 80.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot41" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 72.0
-offset_right = 32.0
-offset_bottom = 88.0
+offset_left = 23.0
+offset_top = 80.0
+offset_right = 39.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot42" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 32.0
-offset_top = 72.0
-offset_right = 48.0
-offset_bottom = 88.0
+offset_left = 39.0
+offset_top = 80.0
+offset_right = 55.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot43" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 72.0
-offset_right = 64.0
-offset_bottom = 88.0
+offset_left = 55.0
+offset_top = 80.0
+offset_right = 71.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot44" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 64.0
-offset_top = 72.0
-offset_right = 80.0
-offset_bottom = 88.0
+offset_left = 71.0
+offset_top = 80.0
+offset_right = 87.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot45" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 72.0
-offset_right = 96.0
-offset_bottom = 88.0
+offset_left = 87.0
+offset_top = 80.0
+offset_right = 103.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot46" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 96.0
-offset_top = 72.0
-offset_right = 112.0
-offset_bottom = 88.0
+offset_left = 103.0
+offset_top = 80.0
+offset_right = 119.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot47" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 72.0
-offset_right = 128.0
-offset_bottom = 88.0
+offset_left = 119.0
+offset_top = 80.0
+offset_right = 135.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot48" type="TextureRect" parent="."]
 self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
 layout_mode = 0
-offset_left = 128.0
-offset_top = 72.0
-offset_right = 144.0
-offset_bottom = 88.0
+offset_left = 135.0
+offset_top = 80.0
+offset_right = 151.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")
 
 [node name="Slot49" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 144.0
-offset_top = 72.0
-offset_right = 160.0
-offset_bottom = 88.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot50" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 160.0
-offset_top = 72.0
-offset_right = 176.0
-offset_bottom = 88.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot51" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 16.0
-offset_top = 88.0
-offset_right = 32.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot52" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 88.0
-offset_right = 48.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot53" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 48.0
-offset_top = 88.0
-offset_right = 64.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot54" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 88.0
-offset_right = 80.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot55" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 80.0
-offset_top = 88.0
-offset_right = 96.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot56" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 88.0
-offset_right = 112.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot57" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 112.0
-offset_top = 88.0
-offset_right = 128.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot58" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 88.0
-offset_right = 144.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot59" type="TextureRect" parent="."]
-self_modulate = Color(0.870588, 0.870588, 0.870588, 1)
-layout_mode = 0
-offset_left = 144.0
-offset_top = 88.0
-offset_right = 160.0
-offset_bottom = 104.0
-texture = ExtResource("2_6rkcj")
-script = ExtResource("3_037xa")
-
-[node name="Slot60" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 88.0
-offset_right = 176.0
-offset_bottom = 104.0
+offset_left = 151.0
+offset_top = 80.0
+offset_right = 167.0
+offset_bottom = 96.0
 texture = ExtResource("2_6rkcj")
 script = ExtResource("3_037xa")

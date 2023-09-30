@@ -5,23 +5,21 @@
 [node name="InventoryIcon" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 16.0
-offset_bottom = 16.0
 script = ExtResource("1_lm46h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
+offset_right = 12.0
+offset_bottom = 12.0
 mouse_filter = 2
 color = Color(0.882353, 0.882353, 0.882353, 1)
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 12.0
-offset_bottom = 12.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 10.0
+offset_bottom = 10.0
 mouse_filter = 2
 stretch_mode = 2
 
