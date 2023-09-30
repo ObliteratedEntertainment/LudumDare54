@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqg31t5d8c1q5"]
+
+[ext_resource type="Script" path="res://singletons/item_manager.gd" id="1_ul41r"]
+
+[node name="ItemManager" type="Node2D"]
+script = ExtResource("1_ul41r")

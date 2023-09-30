@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://djtrj5g657g3j"]
+[gd_scene load_steps=5 format=3 uid="uid://djtrj5g657g3j"]
 
 [ext_resource type="Script" path="res://ui/guild_inventory/guild_inventory.gd" id="1_yrsfj"]
 [ext_resource type="PackedScene" uid="uid://dfyeff3hhnvwv" path="res://ui/guild_inventory/inventory_icon_slot.tscn" id="2_1bctj"]
-[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/inventory/shield.tscn" id="3_j2b36"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="3_ebpkw"]
+[ext_resource type="PackedScene" uid="uid://tqthhc2qhn71" path="res://items/cross.tscn" id="4_fg584"]
 
 [node name="GuildInventory" type="Control"]
 layout_mode = 3
@@ -21,9 +22,23 @@ offset_bottom = 104.0
 [node name="InventoryIcon" parent="." instance=ExtResource("2_1bctj")]
 offset_right = 8.0
 offset_bottom = 8.0
-packed_item = ExtResource("3_j2b36")
+packed_item = ExtResource("3_ebpkw")
 
 [node name="InventoryIcon2" parent="." instance=ExtResource("2_1bctj")]
-offset_left = 9.0
+offset_left = 11.0
 offset_right = 19.0
-packed_item = ExtResource("3_j2b36")
+offset_bottom = 8.0
+packed_item = ExtResource("4_fg584")
+
+[node name="InventoryIcon3" parent="." instance=ExtResource("2_1bctj")]
+offset_left = 26.0
+offset_top = 18.0
+offset_right = 34.0
+offset_bottom = 26.0
+packed_item = ExtResource("3_ebpkw")
+
+[node name="InventoryIcon4" parent="." instance=ExtResource("2_1bctj")]
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 32.0
+packed_item = ExtResource("4_fg584")

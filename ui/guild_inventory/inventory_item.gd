@@ -18,7 +18,7 @@ func _ready():
 	add_child(item)
 	item.visible = false
 	
-	icon.texture = item.get_icon().texture
+	icon.texture = item.icon.texture
 
 
 func _on_focus_entered():
@@ -31,6 +31,7 @@ func _on_focus_exited():
 
 func _get_drag_data(at_position):
 	
+	item.slot_rotation = 0
 	var data = {
 		"item": item
 	}
