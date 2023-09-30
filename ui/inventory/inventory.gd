@@ -4,6 +4,7 @@ class_name Inventory
 signal started_dragging(Item)
 signal ended_dragging()
 
+var last_slot: InventorySlot = null
 var last_hover_slots = []
 
 # Called when the node enters the scene tree for the first time.
@@ -11,6 +12,8 @@ func _ready():
 	
 	var x = 0
 	var y = 0
+	
+	ItemManager.item_rotated.connect(_item_rotated)
 	
 	# Register all of the Inventory Slots
 	for child in get_children():
@@ -26,6 +29,8 @@ func _ready():
 			if x == 0:
 				y += 1
 
+func _item_rotated(item: Item):
+	slot_hovered(last_slot, item)
 
 func slot_hovered(slot: InventorySlot, item: Item):
 	
@@ -34,8 +39,9 @@ func slot_hovered(slot: InventorySlot, item: Item):
 			hover_slot.unhighlight()
 	
 	last_hover_slots.clear()
+	last_slot = slot
 		
-	for item_block in item.cells:
+	for item_block in item.get_item_cells():
 		var hover_slot = _get_inventory_slot(slot.coord + item_block)
 		if hover_slot == null:
 			continue
@@ -78,23 +84,22 @@ func find_item_slots_for(item: Item):
 	return item_slots
 
 func remove_item(item: Item):
-	var slots = find_item_slots_for(item)
 	
-	for slot in slots:
-		slot.remove_item()
+	for slot in get_children():
+		slot.remove_item(item)
 
 func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		
-	for item_block in item.cells:
+	for item_block in item.get_item_cells():
 		var hover_slot = _get_inventory_slot(slot.coord + item_block)
 		if hover_slot == null or hover_slot.is_filled():
 			return false
 	
 	
 	# If we none of the inventory slots are filled, lets set this item on them
-	for item_block in item.cells:
+	for item_block in item.get_item_cells():
 		var hover_slot = _get_inventory_slot(slot.coord + item_block)
-		hover_slot.contains_item = item
+		hover_slot.set_item(item, item_block == item.item_center)
 	
 	return true
 	

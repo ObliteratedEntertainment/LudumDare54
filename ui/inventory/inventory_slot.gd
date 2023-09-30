@@ -16,11 +16,13 @@ var inventory = null
 
 var contains_item: Item = null
 
-var displaying = null
+var displaying: Sprite2D = null
+
+var original_modulation = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	original_modulation = self_modulate
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,18 +34,39 @@ func is_filled() -> bool:
 
 func highlight():
 	if contains_item == null:
-		modulate = Color.CADET_BLUE
+		self_modulate = Color.CADET_BLUE + (Color.WHITE - original_modulation)
 	else:
-		modulate = Color.DARK_RED
+		if displaying != null:
+			displaying.self_modulate = Color.DARK_RED
+		self_modulate = Color.DARK_RED + (Color.WHITE - original_modulation)
+		
 
 func unhighlight():
-	modulate = Color.WHITE
-
-func remove_item():
-	contains_item = null
-	
+	self_modulate = original_modulation
 	if displaying != null:
-		remove_child(displaying)
+		displaying.self_modulate = Color.WHITE
+
+func set_item(item: Item, display: bool):
+	contains_item = item
+	
+	
+	if display:
+		displaying = Sprite2D.new()
+		displaying.texture = item.sprite.texture
+		displaying.position = Vector2i(8,8)
+		displaying.offset = item.sprite.offset
+		displaying.rotation_degrees = item.slot_rotation
+		displaying.z_index = 1
+		
+		add_child(displaying)
+
+func remove_item(item: Item):
+	print("remove from: ", name)
+	if contains_item == item:
+		contains_item = null
+	
+		if displaying != null:
+			remove_child(displaying)
 
 func _get_drag_data(at_position):
 	
@@ -56,8 +79,6 @@ func _get_drag_data(at_position):
 	var data = {
 		"item": item
 	}
-	started_dragging.emit()
-	
 	
 	inventory.remove_item(item)
 	
@@ -76,13 +97,6 @@ func _drop_data(at_position, data):
 	var item: Item = data["item"]
 	
 	var worked = inventory.try_item_at_slot(self, item)
-	
-	if worked:
-		displaying = TextureRect.new()
-		displaying.texture = item.get_sprite().texture
-		displaying.z_index = 1
-		
-		add_child(displaying)
 	
 	ended_dragging.emit()
 	
