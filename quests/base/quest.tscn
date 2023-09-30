@@ -14,3 +14,7 @@ script = ExtResource("1_hpfed")
 script = ExtResource("2_xmsws")
 
 [node name="Rewards" type="Node2D" parent="."]
+
+[node name="Success" type="Node2D" parent="Rewards"]
+
+[node name="Failure" type="Node2D" parent="Rewards"]
