@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=10 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
 [ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
+[ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
+[ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -26,14 +28,36 @@ offset_top = 1086.0
 offset_right = 316.0
 offset_bottom = 1126.0
 
+[node name="CharacterContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+script = ExtResource("5_jqe66")
+
+[node name="Background" type="Sprite2D" parent="CharacterContainer"]
+position = Vector2(120, 49)
+texture = ExtResource("6_rq4n8")
+
+[node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
+position = Vector2(88.5, 56.5)
+
+[node name="ColorRect" type="ColorRect" parent="CharacterContainer"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = -1.0
+offset_right = 281.0
+offset_bottom = 99.0
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
+
 [node name="DragAndDropContainer" type="Control" parent="."]
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 anchors_preset = 0
-offset_left = 19.0
-offset_top = 118.0
-offset_right = 531.0
-offset_bottom = 374.0
+offset_left = 15.0
+offset_top = 150.0
+offset_right = 527.0
+offset_bottom = 406.0
 scale = Vector2(2, 2)
 
 [node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
@@ -50,8 +74,8 @@ offset_bottom = 132.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="DragAndDropContainer"]
-position = Vector2(88.5, 73.5)
+[node name="Table" type="Sprite2D" parent="DragAndDropContainer"]
+position = Vector2(88, 74)
 texture = ExtResource("3_1y038")
 
 [node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
@@ -94,32 +118,37 @@ blocked = true
 
 [node name="QuestContainer" type="Control" parent="."]
 anchors_preset = 0
+offset_left = 23.0
+offset_top = 8.5
+offset_right = 23.0
+offset_bottom = 8.5
+
+[node name="Sprite2D" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(279, 2.5)
+scale = Vector2(2, 2)
+texture = ExtResource("7_liept")
+
+[node name="Sprite2D3" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(279, 129)
+scale = Vector2(2, 2)
+texture = ExtResource("7_liept")
+
+[node name="Sprite2D2" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(279, 65)
+scale = Vector2(2, 2)
+texture = ExtResource("8_4cm77")
 
 [node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 311.0
-offset_top = 2.0
-offset_right = 479.0
-offset_bottom = 134.0
-theme_override_font_sizes/normal_font_size = 8
-theme_override_font_sizes/bold_font_size = 4
+offset_left = 316.0
+offset_top = -3.0
+offset_right = 521.0
+offset_bottom = 158.0
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
-
-[node name="CharacterContainer" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_jqe66")
-
-[node name="Background" type="Sprite2D" parent="CharacterContainer"]
-position = Vector2(156, 84)
-scale = Vector2(1.29057, 1.70815)
-texture = ExtResource("6_rq4n8")
-
-[node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
-position = Vector2(92, 129)
 
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 

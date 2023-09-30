@@ -22,10 +22,9 @@ GameManager="*res://singletons/game_manager.tscn"
 
 [display]
 
-window/size/viewport_width=1110
-window/size/viewport_height=720
+window/size/viewport_width=550
+window/size/viewport_height=410
 window/stretch/mode="viewport"
-window/stretch/scale=2.0
 
 [dotnet]
 
