@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0fwn8bg426t3"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_l313i"]
+
+[node name="Defense" type="Node2D"]
+script = ExtResource("1_l313i")
+stat = 1
+amount = 10

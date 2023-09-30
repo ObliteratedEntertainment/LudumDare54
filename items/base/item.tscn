@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bobnpytkcupti"]
+
+[ext_resource type="Script" path="res://items/base/item.gd" id="1_qg1lj"]
+
+[node name="Item" type="Node2D"]
+script = ExtResource("1_qg1lj")
+
+[node name="Icon" type="Sprite2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Stats" type="Node2D" parent="."]
