@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="3_i4enc"]
 [ext_resource type="PackedScene" uid="uid://2pd4dff7sypl" path="res://items/sword.tscn" id="4_d8r6f"]
 
-[node name="HolyQuest" instance=ExtResource("1_f7h36")]
+[node name="Holy Quest to Town" instance=ExtResource("1_f7h36")]
 
 [node name="Holy" parent="StatRequiements" index="0" instance=ExtResource("2_vt8qv")]
 amount = 30
