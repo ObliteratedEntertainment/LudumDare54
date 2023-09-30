@@ -17,7 +17,7 @@ func show_dragging(item: Item):
 	visible = true
 	dragging_item = item
 	sprite_2d.texture = item.sprite.texture
-	#sprite_2d.position = item.item_center * -16.0 + Vector2(-8,-8)
+	#sprite_2d.position = item.item_center * 16.0 + Vector2(8,8)
 	sprite_2d.rotation_degrees = dragging_item.slot_rotation
 	sprite_2d.scale = Vector2.ONE*1.2
 	#sprite_2d.size = item.sprite.texture.get_size() * 1.2

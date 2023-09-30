@@ -21,14 +21,6 @@ func _ready():
 	ItemManager.inventory_staged_remove.connect(_on_inv_item_removed)
 
 
-func _on_focus_entered():
-	pass # Replace with function body.
-
-
-func _on_focus_exited():
-	pass # Replace with function body.
-
-
 func _get_drag_data(_at_position):
 	
 	item.slot_rotation = 0
