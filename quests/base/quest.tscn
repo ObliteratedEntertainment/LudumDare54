@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybgfquxsc5de"]
+
+[ext_resource type="Script" path="res://quests/base/quest.gd" id="1_hpfed"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_xmsws"]
+
+[node name="Quest" type="Node2D"]
+script = ExtResource("1_hpfed")
+
+[node name="Icon" type="Sprite2D" parent="."]
+
+[node name="StatRequiements" type="Node2D" parent="."]
+
+[node name="Lore" type="Node2D" parent="."]
+script = ExtResource("2_xmsws")
+
+[node name="Rewards" type="Node2D" parent="."]
