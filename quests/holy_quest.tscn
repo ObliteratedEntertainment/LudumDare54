@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="3_i4enc"]
 [ext_resource type="PackedScene" uid="uid://2pd4dff7sypl" path="res://items/sword.tscn" id="4_d8r6f"]
 
-[node name="HolyQuest" instance=ExtResource("1_f7h36")]
+[node name="Holy Quest to Town" instance=ExtResource("1_f7h36")]
 
 [node name="Holy" parent="StatRequiements" index="0" instance=ExtResource("2_vt8qv")]
 amount = 30
@@ -21,4 +21,8 @@ text = "Yes, and it's brought about due to a lack of faith.  I must bring faith 
 script = ExtResource("3_i4enc")
 text = "If only there was some symbol of my holy order I could use to inspire people."
 
-[node name="Sword" parent="Rewards" index="0" instance=ExtResource("4_d8r6f")]
+[node name="Sword" parent="Rewards/Success" index="0" instance=ExtResource("4_d8r6f")]
+
+[node name="TownRatLore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("3_i4enc")
+text = "The town is infested with rats."
