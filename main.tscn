@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=5 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
+[ext_resource type="PackedScene" uid="uid://tqthhc2qhn71" path="res://items/cross.tscn" id="3_stofg"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -29,6 +30,9 @@ offset_left = 22.0
 offset_top = 58.0
 offset_right = 22.0
 offset_bottom = 58.0
+
+[node name="InventoryIcon2" parent="DragAndDropContainer/GuildInventory" index="2"]
+packed_item = ExtResource("3_stofg")
 
 [node name="DragItem" parent="DragAndDropContainer" instance=ExtResource("3_7hncm")]
 

@@ -3,7 +3,7 @@ class_name InventorySlot
 
 
 
-signal started_dragging()
+signal started_dragging(Item)
 signal ended_dragging()
 
 signal slot_hovered(InventorySlot, Item)
@@ -15,6 +15,8 @@ signal slot_hovered(InventorySlot, Item)
 var inventory = null
 
 var contains_item: Item = null
+
+var displaying = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,16 +38,32 @@ func highlight():
 
 func unhighlight():
 	modulate = Color.WHITE
+
+func remove_item():
+	contains_item = null
 	
+	if displaying != null:
+		remove_child(displaying)
+
 func _get_drag_data(at_position):
 	
 	if contains_item == null:
 		return null
 	
+	var item := contains_item
+	
+	
 	var data = {
-		"item": contains_item
+		"item": item
 	}
 	started_dragging.emit()
+	
+	
+	inventory.remove_item(item)
+	
+	started_dragging.emit(item)
+	
+	
 	
 	return data
 
@@ -60,11 +78,11 @@ func _drop_data(at_position, data):
 	var worked = inventory.try_item_at_slot(self, item)
 	
 	if worked:
-		var item_texture = TextureRect.new()
-		item_texture.texture = item.get_sprite().texture
-		item_texture.z_index = 1
+		displaying = TextureRect.new()
+		displaying.texture = item.get_sprite().texture
+		displaying.z_index = 1
 		
-		add_child(item_texture)
+		add_child(displaying)
 	
 	ended_dragging.emit()
 	

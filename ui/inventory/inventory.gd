@@ -12,6 +12,7 @@ func _ready():
 	var x = 0
 	var y = 0
 	
+	# Register all of the Inventory Slots
 	for child in get_children():
 		if child is InventorySlot:
 			child.inventory = self
@@ -75,6 +76,12 @@ func find_item_slots_for(item: Item):
 			item_slots.append(child)
 			
 	return item_slots
+
+func remove_item(item: Item):
+	var slots = find_item_slots_for(item)
+	
+	for slot in slots:
+		slot.remove_item()
 
 func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		
