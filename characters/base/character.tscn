@@ -8,8 +8,10 @@ script = ExtResource("1_vj0js")
 [node name="Neutral" type="Sprite2D" parent="."]
 
 [node name="Success" type="Sprite2D" parent="."]
+visible = false
 
 [node name="Failure" type="Sprite2D" parent="."]
+visible = false
 
 [node name="Quest" type="Node2D" parent="."]
 

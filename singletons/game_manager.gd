@@ -1,11 +1,16 @@
 extends Node2D
 
+const zofra_prefab = preload("res://characters/zofra.tscn")
 
-# Called when the node enters the scene tree for the first time.
+signal character_changed
+
+var character:Character
+var state:int
+
 func _ready():
-	pass # Replace with function body.
+	# Init first character
+	character = zofra_prefab.instantiate()
+	state = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func next():
+	character_changed.emit(character, state)
