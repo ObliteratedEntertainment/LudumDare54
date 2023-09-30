@@ -18,7 +18,7 @@ func _ready():
 	icon.texture = item.icon.texture
 	
 	ItemManager.inventory_added.connect(_on_item_dropped)
-	ItemManager.inventory_staged_remove.connect(_on_inv_item_removed)
+	ItemManager.inventory_final_remove.connect(_on_inv_item_removed)
 
 
 func _get_drag_data(_at_position):
@@ -29,12 +29,13 @@ func _get_drag_data(_at_position):
 	}
 	
 	ItemManager.item_dragging_started.emit(item)
+	visible = false
 	
 	return data
 
 func _drop_data(_at_position, data):
 	var dropped_item = data["item"]
-	ItemManager.item_dragging_stopped.emit(dropped_item)
+	ItemManager.item_dragging_stopped.emit(dropped_item, false)
 	
 func _can_drop_data(_at_position, data):
 	var dropped_item = data["item"]
@@ -51,8 +52,8 @@ func _on_item_dropped(dropped_item: Item):
 
 
 func _on_mouse_entered():
-	color_rect.self_modulate = Color.CADET_BLUE
+	color_rect.self_modulate = Color(1,1,1,1)
 
 
 func _on_mouse_exited():
-	color_rect.self_modulate = Color.WHITE
+	color_rect.self_modulate = Color(0,0,0,0)

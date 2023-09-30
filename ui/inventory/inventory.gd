@@ -84,8 +84,11 @@ func _slot_hovered(slot: InventorySlot, item: Item):
 		last_hover_slots.append(hover_slot)
 
 
-func _on_stop_drag_item(_item: Item):
+func _on_stop_drag_item(item: Item,  is_inventory: bool):
 	_clear_hover()
+	
+	if not is_inventory:
+		ItemManager.inventory_final_remove.emit(item)
 
 
 func _clear_hover():

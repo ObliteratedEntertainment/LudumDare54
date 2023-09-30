@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctlql0mi8eihj"]
+[gd_scene load_steps=2 format=3 uid="uid://ctlql0mi8eihj"]
 
 [ext_resource type="Script" path="res://characters/base/character.gd" id="1_vj0js"]
-[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="2_othlv"]
-[ext_resource type="Script" path="res://quests/base/lore.gd" id="3_7tytr"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_vj0js")
@@ -10,10 +8,11 @@ script = ExtResource("1_vj0js")
 [node name="Neutral" type="Sprite2D" parent="."]
 
 [node name="Success" type="Sprite2D" parent="."]
+visible = false
 
 [node name="Failure" type="Sprite2D" parent="."]
+visible = false
 
-[node name="Quest" parent="." instance=ExtResource("2_othlv")]
+[node name="Quest" type="Node2D" parent="."]
 
 [node name="Lore" type="Node2D" parent="."]
-script = ExtResource("3_7tytr")

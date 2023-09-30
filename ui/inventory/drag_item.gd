@@ -32,8 +32,8 @@ func _process(_delta):
 	global_position = get_global_mouse_position()
 	
 	if Input.is_action_just_released("ui_click") and dragging_item != null:
+		ItemManager.item_dragging_stopped.emit(dragging_item, false)
 		hide_dragging(null)
-		ItemManager.item_dragging_stopped.emit(dragging_item)
 	
 	if Input.is_action_just_pressed("item_rotate") and dragging_item != null:
 		dragging_item.slot_rotation = (dragging_item.slot_rotation + 90) % 360
