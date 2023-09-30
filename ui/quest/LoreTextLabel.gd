@@ -8,8 +8,10 @@ const stat_template = "[b][color=orange]stat[/color][/b]"
 @export var quest:Quest
 var lores:Array[Lore]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func set_quest(quest:Quest):
+	lores.clear()
+	self.quest = quest
+	text = "[b]" + quest.name + ":[/b]\n"
 	lores.append(quest.lore)
 	add_lore_text(quest.lore)
 

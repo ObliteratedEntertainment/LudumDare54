@@ -4,5 +4,11 @@ class_name Character
 @onready var neutral_sprite = $Neutral
 @onready var success_sprite = $Success
 @onready var failure_sprite = $Failure
-@onready var quest = $Quest
-@onready var lore = $Lore
+@onready var quest_node = $Quest
+@onready var lore_node = $Lore
+
+func get_quest():
+	return quest_node.get_child(0)
+
+func get_lore():
+	return lore_node.get_child(0)
