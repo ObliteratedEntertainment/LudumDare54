@@ -1,4 +1,5 @@
 extends Node2D
+class_name Character
 
 @onready var neutral_sprite = $Neutral
 @onready var success_sprite = $Success
