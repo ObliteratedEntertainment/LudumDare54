@@ -19,4 +19,3 @@ offset = Vector2(0, 8)
 
 [node name="Holy" parent="Stats" index="0" instance=ExtResource("4_rr0q5")]
 amount = 30
-
