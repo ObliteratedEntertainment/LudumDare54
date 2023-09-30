@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="3_1y038"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
-[ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="6_yl8le"]
+[ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
+[ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -93,23 +94,32 @@ blocked = true
 
 [node name="QuestContainer" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -6.0
-offset_top = -54.0
-offset_right = 72.0
-offset_bottom = 35.0
 
-[node name="HolyQuest" parent="QuestContainer" instance=ExtResource("6_yl8le")]
-
-[node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer" node_paths=PackedStringArray("quest")]
+[node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
 layout_mode = 0
-offset_right = 127.0
-offset_bottom = 87.0
-theme_override_font_sizes/normal_font_size = 10
-theme_override_font_sizes/bold_font_size = 10
+offset_left = 311.0
+offset_top = 2.0
+offset_right = 479.0
+offset_bottom = 134.0
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 4
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
-quest = NodePath("../HolyQuest")
+
+[node name="CharacterContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_jqe66")
+
+[node name="Background" type="Sprite2D" parent="CharacterContainer"]
+position = Vector2(156, 84)
+scale = Vector2(1.29057, 1.70815)
+texture = ExtResource("6_rq4n8")
+
+[node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
+position = Vector2(92, 129)
 
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 

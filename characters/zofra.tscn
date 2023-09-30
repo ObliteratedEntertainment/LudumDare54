@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://m2ex314n2dva"]
+
+[ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_vn3pn"]
+[ext_resource type="Texture2D" uid="uid://c4uoyj6tp0ab0" path="res://characters/art/charactersketches.png" id="2_nhvv5"]
+[ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="3_vg03k"]
+
+[node name="Zofra" instance=ExtResource("1_vn3pn")]
+
+[node name="Neutral" parent="." index="0"]
+texture = ExtResource("2_nhvv5")
+hframes = 3
+vframes = 4
+
+[node name="Success" parent="." index="1"]
+texture = ExtResource("2_nhvv5")
+hframes = 3
+vframes = 4
+frame = 1
+
+[node name="Failure" parent="." index="2"]
+texture = ExtResource("2_nhvv5")
+hframes = 3
+vframes = 4
+frame = 2
+
+[node name="Holy Quest to Town" parent="Quest" index="0" instance=ExtResource("3_vg03k")]
