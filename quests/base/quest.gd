@@ -1,7 +1,9 @@
 extends Node2D
+class_name Quest
 
-@onready var requirements = $StatRequiements
 @onready var icon = $Icon
+@onready var requirements = $StatRequiements
+@onready var lore = $Lore
 @onready var rewards = $Rewards
 
 @export var region:Region.RegionType

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccaiaumd08nbv"]
 
-[ext_resource type="Script" path="res://quests/base/region.gd" id="1_icxj2"]
+[ext_resource type="Script" path="res://quests/base/region.gd" id="1_hx5io"]
 
 [node name="Region" type="Node2D"]
-script = ExtResource("1_icxj2")
+script = ExtResource("1_hx5io")
 
 [node name="Lores" type="Node2D" parent="."]

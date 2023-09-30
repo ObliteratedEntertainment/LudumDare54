@@ -11,7 +11,7 @@
 amount = 30
 
 [node name="Lore" parent="." index="2"]
-text = "The good people of the town are aflicted by a terrible plauge."
+text = "The good people of the town are aflicted by a terrible plague."
 
 [node name="plague" type="Node2D" parent="Lore" index="0"]
 script = ExtResource("3_i4enc")
