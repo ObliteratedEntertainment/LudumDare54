@@ -1,15 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://7f5ydk4irjho"]
 
 [ext_resource type="PackedScene" uid="uid://bobnpytkcupti" path="res://items/base/item.tscn" id="1_t0cl4"]
-[ext_resource type="Texture2D" uid="uid://dxtxwt1021yrj" path="res://items/icons/shield_icon.png" id="2_673y1"]
-[ext_resource type="Texture2D" uid="uid://c2vroexd3hwfi" path="res://items/inventory/shield.png" id="3_xnhx3"]
+[ext_resource type="Texture2D" uid="uid://dsq7ur2rhxc23" path="res://sprites/item_icons1.png" id="2_g283s"]
+[ext_resource type="Texture2D" uid="uid://dhmm7dtj7vkd7" path="res://sprites/shield_item.png" id="3_girh3"]
 
 [node name="Item" instance=ExtResource("1_t0cl4")]
 cells = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1)])
 
 [node name="Icon" parent="." index="0"]
-texture = ExtResource("2_673y1")
+texture = ExtResource("2_g283s")
+region_enabled = true
+region_rect = Rect2(32, 0, 16, 16)
 
 [node name="Sprite" parent="." index="1"]
-texture = ExtResource("3_xnhx3")
+texture = ExtResource("3_girh3")
 offset = Vector2(8, 8)

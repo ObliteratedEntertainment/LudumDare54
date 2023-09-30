@@ -1,0 +1,42 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
+func _on_quest_accept_button_pressed():
+	GameManager.quest_accepted.emit()
+	
+	var quest = GameManager.character.get_quest()
+
+	var current_inventory_stats = {}
+	
+	for item in ItemManager.active_inventory:
+		print(current_inventory_stats)
+		for stats in item.get_stats():
+			if stats.stat in current_inventory_stats:
+				current_inventory_stats[stats.stat] += stats.amount
+			else:
+				current_inventory_stats[stats.stat] = stats.amount
+
+	print(current_inventory_stats)
+	var passed_quest := true
+	
+	for req_stat in quest.get_requirements():
+		if req_stat.stat not in current_inventory_stats:
+			passed_quest = false
+		elif current_inventory_stats[req_stat.stat] < req_stat.amount:
+			passed_quest = false
+	
+	if passed_quest:
+		print("Passed Quest!")
+	else:
+		print("Failed Quest!")
+	

@@ -8,7 +8,7 @@ const stat_template = "[b][color=orange]stat[/color][/b]"
 @export var quest:Quest
 var lores:Array[Lore]
 
-func set_quest(quest:Quest):
+func set_quest(quest: Quest):
 	lores.clear()
 	self.quest = quest
 	text = "[b]" + quest.name + ":[/b]\n"

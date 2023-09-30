@@ -7,5 +7,5 @@ enum Stat {
 	HOLY
 }
 
-@export var stat:Stat
+@export var stat: Stat
 @export var amount:int

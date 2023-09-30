@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://djtrj5g657g3j"]
+[gd_scene load_steps=10 format=3 uid="uid://djtrj5g657g3j"]
 
 [ext_resource type="Script" path="res://ui/guild_inventory/guild_inventory.gd" id="1_yrsfj"]
 [ext_resource type="PackedScene" uid="uid://dfyeff3hhnvwv" path="res://ui/guild_inventory/guild_item_slot.tscn" id="2_1bctj"]
 [ext_resource type="Texture2D" uid="uid://dub23opx8l732" path="res://sprites/drawer.png" id="2_6uilv"]
 [ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="3_ebpkw"]
-[ext_resource type="PackedScene" uid="uid://tqthhc2qhn71" path="res://items/cross.tscn" id="4_fg584"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="4_xy52p"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="5_y0aml"]
+[ext_resource type="PackedScene" uid="uid://bkkymw1qarjpp" path="res://items/boss_key.tscn" id="6_elcgx"]
+[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="6_qxrbv"]
+[ext_resource type="PackedScene" uid="uid://cu8y2rxid2y4l" path="res://items/white_flag.tscn" id="8_o8vgy"]
 
 [node name="GuildInventory" type="Control"]
 layout_mode = 3
@@ -28,15 +32,10 @@ texture = ExtResource("2_6uilv")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = 14.0
 offset_right = 80.0
 offset_bottom = 110.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -46,19 +45,29 @@ theme_override_constants/v_separation = 8
 [node name="InventoryIcon" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-packed_item = ExtResource("3_ebpkw")
+packed_item = ExtResource("4_xy52p")
 
 [node name="InventoryIcon2" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-packed_item = ExtResource("4_fg584")
+packed_item = ExtResource("5_y0aml")
 
 [node name="InventoryIcon3" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-packed_item = ExtResource("3_ebpkw")
+packed_item = ExtResource("6_qxrbv")
 
 [node name="InventoryIcon4" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
 custom_minimum_size = Vector2(8, 8)
 layout_mode = 2
-packed_item = ExtResource("4_fg584")
+packed_item = ExtResource("6_elcgx")
+
+[node name="InventoryIcon5" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+packed_item = ExtResource("8_o8vgy")
+
+[node name="InventoryIcon6" parent="MarginContainer/HFlowContainer" instance=ExtResource("2_1bctj")]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+packed_item = ExtResource("3_ebpkw")

@@ -34,8 +34,8 @@ func set_blocked():
 func is_filled() -> bool:
 	return contains_item != null or blocked
 
-func highlight():
-	if contains_item == null:
+func highlight(can_place=true):
+	if contains_item == null and can_place:
 		self_modulate = Color.CADET_BLUE + (Color.WHITE - original_modulation)
 	else:
 		if displaying != null:
@@ -54,6 +54,8 @@ func set_item(item: Item, display: bool):
 	
 	if display:
 		displaying = Sprite2D.new()
+		displaying.region_enabled = item.sprite.region_enabled
+		displaying.region_rect = item.sprite.region_rect
 		displaying.texture = item.sprite.texture
 		displaying.position = Vector2i(8,8)
 		displaying.offset = item.sprite.offset
@@ -63,7 +65,6 @@ func set_item(item: Item, display: bool):
 		add_child(displaying)
 
 func remove_item(item: Item):
-	print("remove from: ", name)
 	if contains_item == item:
 		contains_item = null
 	

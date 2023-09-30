@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=15 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
 [ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
+[ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
 [ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
@@ -130,6 +131,7 @@ offset_top = 8.5
 offset_right = 23.0
 offset_bottom = 8.5
 mouse_filter = 1
+script = ExtResource("7_gsruu")
 
 [node name="Sprite2D" type="Sprite2D" parent="QuestContainer"]
 position = Vector2(279, 2.5)
@@ -169,7 +171,14 @@ texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("11_repym")
 texture_hover = ExtResource("12_1ksbc")
 
+[node name="ResultContainer" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
+[connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
 
 [editable path="DragAndDropContainer/Inventory"]
 [editable path="DragAndDropContainer/Inventory3"]

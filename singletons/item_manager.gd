@@ -16,3 +16,16 @@ signal item_dropped(Item, added_inventory: bool)
 
 signal item_rotated(Item)
 
+
+var active_inventory: Array[Item] = []
+
+
+func add_item(item: Item):
+	if item not in active_inventory:
+		active_inventory.append(item)
+
+func remove_item(item: Item):
+	active_inventory.erase(item)
+
+func has_item(item: Item):
+	return item in active_inventory

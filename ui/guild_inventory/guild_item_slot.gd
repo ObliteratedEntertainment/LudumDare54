@@ -3,7 +3,7 @@ class_name GuildItemSlot
 
 @export var packed_item: PackedScene = null
 
-@onready var icon: TextureRect = $Icon
+@onready var icon: Sprite2D = $Sprite2D
 
 @onready var color_rect = $ColorRect
 
@@ -16,6 +16,8 @@ func _ready():
 	item.visible = false
 	
 	icon.texture = item.icon.texture
+	icon.region_enabled = item.icon.region_enabled
+	icon.region_rect = item.icon.region_rect
 	
 	ItemManager.inventory_added.connect(_on_item_dropped)
 	ItemManager.inventory_final_remove.connect(_on_inv_item_removed)
@@ -43,7 +45,7 @@ func _can_drop_data(_at_position, data):
 	return true
 
 func _on_inv_item_removed(removed_item: Item):
-	if item == removed_item:
+	if item == removed_item and not ItemManager.has_item(removed_item):
 		visible = true
 
 func _on_item_dropped(dropped_item: Item):

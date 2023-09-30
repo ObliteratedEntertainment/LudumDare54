@@ -42,6 +42,7 @@ func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
 		hover_slot.set_item(item, item_block == item.item_center)
 	
+	ItemManager.add_item(item)
 	ItemManager.inventory_added.emit(item)
 	
 	return true
@@ -52,6 +53,8 @@ func remove_item(item: Item):
 	for slot in get_children():
 		if slot is InventorySlot:
 			slot.remove_item(item)
+			
+	ItemManager.remove_item(item)
 
 
 func _item_rotated(item: Item):
@@ -66,18 +69,29 @@ func _slot_hovered(slot: InventorySlot, item: Item):
 	
 	last_hover_slots.clear()
 	last_slot = slot
+	
+	var can_fit_fully = true
+	for item_block in item.get_item_cells():
+		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
+		if hover_slot == null:
+			can_fit_fully = false
+			break
 		
+		can_fit_fully = can_fit_fully and hover_slot.contains_item == null
+	
+	print("Can fit: ", can_fit_fully)
+	
 	for item_block in item.get_item_cells():
 		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
 		if hover_slot == null:
 			continue
-		hover_slot.highlight()
+		hover_slot.highlight(can_fit_fully)
 		
 		if hover_slot.contains_item != null:
 			var more_item_slots = _find_item_slots_for(hover_slot.contains_item)
 			
 			for item_slot in more_item_slots:
-				item_slot.highlight()
+				item_slot.highlight(can_fit_fully)
 				
 			last_hover_slots.append_array(more_item_slots)
 		
