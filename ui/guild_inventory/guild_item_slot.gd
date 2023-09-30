@@ -5,6 +5,7 @@ class_name GuildItemSlot
 
 @onready var icon: TextureRect = $Icon
 
+@onready var color_rect = $ColorRect
 
 var item: Item = null
 
@@ -15,6 +16,9 @@ func _ready():
 	item.visible = false
 	
 	icon.texture = item.icon.texture
+	
+	ItemManager.inventory_added.connect(_on_item_dropped)
+	ItemManager.inventory_staged_remove.connect(_on_inv_item_removed)
 
 
 func _on_focus_entered():
@@ -45,3 +49,18 @@ func _can_drop_data(_at_position, data):
 	ItemManager.guild_inventory_hovered.emit(dropped_item)
 	return true
 
+func _on_inv_item_removed(removed_item: Item):
+	if item == removed_item:
+		visible = true
+
+func _on_item_dropped(dropped_item: Item):
+	if item == dropped_item:
+		visible = false
+
+
+func _on_mouse_entered():
+	color_rect.self_modulate = Color.CADET_BLUE
+
+
+func _on_mouse_exited():
+	color_rect.self_modulate = Color.WHITE

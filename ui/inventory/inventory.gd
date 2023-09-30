@@ -49,6 +49,8 @@ func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		var hover_slot = _get_inventory_slot(slot.coord + item_block)
 		hover_slot.set_item(item, item_block == item.item_center)
 	
+	ItemManager.inventory_added.emit(item)
+	
 	return true
 
 

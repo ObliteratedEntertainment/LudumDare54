@@ -22,38 +22,33 @@ offset_top = 1086.0
 offset_right = 316.0
 offset_bottom = 1126.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
+[node name="DragAndDropContainer" type="Control" parent="."]
+custom_minimum_size = Vector2(512, 256)
+layout_mode = 2
+anchors_preset = 0
+offset_top = 260.0
 offset_right = 512.0
-offset_bottom = 356.0
+offset_bottom = 516.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(512, 256)
+[node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
 layout_mode = 2
-
-[node name="DragAndDropContainer" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(512, 256)
-layout_mode = 2
-
-[node name="Inventory" parent="VBoxContainer/DragAndDropContainer" instance=ExtResource("1_c6u1d")]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 142.0
-offset_right = 32.0
-offset_bottom = 398.0
+offset_top = -12.0
+offset_right = 0.0
+offset_bottom = 244.0
 blocked_slots = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 5), Vector2i(7, 0), Vector2i(8, 0), Vector2i(9, 0), Vector2i(7, 5), Vector2i(8, 5), Vector2i(9, 5)])
 
-[node name="GuildInventory" parent="VBoxContainer/DragAndDropContainer" instance=ExtResource("2_lbyju")]
+[node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 264.0
-offset_top = 131.0
-offset_right = 556.0
-offset_bottom = 263.0
+offset_left = 192.0
+offset_top = -12.0
+offset_right = 360.0
+offset_bottom = 100.0
 grow_horizontal = 0
 grow_vertical = 0
 
