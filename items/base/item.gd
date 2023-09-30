@@ -14,6 +14,7 @@ class_name Item
 
 @onready var slot_rotation := 0
 
+
 func get_stats() -> Array:
 	return stats.get_children()
 
@@ -30,5 +31,3 @@ func get_item_cells():
 			rotated_cells.append(item_center + Vector2i(roundi(rotated.x), roundi(rotated.y)))
 		return rotated_cells
 
-	
-	

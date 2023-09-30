@@ -1,21 +1,14 @@
 extends Control
 class_name GuildInventory
 
-signal started_dragging(Item)
-signal ended_dragging()
+const prefab_item_slot = preload("res://ui/guild_inventory/guild_item_slot.tscn")
 
+# List of Prefab Scene Items that are available in the guild inventory
+@export var available_item_list = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	for child in get_children():
-		if child is GuildInventorySlot:
-			child.started_dragging.connect(start_drag_item)
-			child.ended_dragging.connect(stop_drag_item)
-
-
-func start_drag_item(item: Item):
-	started_dragging.emit(item)
-
-
-func stop_drag_item():
-	ended_dragging.emit()
+	
+	for item in available_item_list:
+		var slot := prefab_item_slot.instantiate()
+		slot.packed_item = item

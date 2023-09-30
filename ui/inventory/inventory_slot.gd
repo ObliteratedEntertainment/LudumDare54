@@ -1,36 +1,38 @@
 extends TextureRect
 class_name InventorySlot
 
-
-
-signal started_dragging(Item)
-signal ended_dragging()
-
-signal slot_hovered(InventorySlot, Item)
-
+# Inventory Slots are blocked for certain bag types
+@export var blocked := false
 
 @export var coord := Vector2i.ZERO
 
-# Reference to your parent inventory
-var inventory = null
-
+# Track if this slot contains part of an item. 
+# This same item can be in multiple InventorySlots based on its item shape
 var contains_item: Item = null
 
+# Only one of the InventorySlots will be responsible for displaying the item even if it spans multiple slots
+# The InventorySlot that displays the item will be the "center_slot" of the item
 var displaying: Sprite2D = null
 
+# Track the original modulation of the InventorySlot to give it its checkboard appearance even when we tweak modulation
 var original_modulation = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if blocked:
+		set_blocked()
+	
 	original_modulation = self_modulate
+	original_modulation.a = 0.7
+	self_modulate = original_modulation
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func set_blocked():
+	blocked = true
+	modulate = Color(0,0,0,0)
 
 func is_filled() -> bool:
-	return contains_item != null
+	return contains_item != null or blocked
 
 func highlight():
 	if contains_item == null:
@@ -68,38 +70,33 @@ func remove_item(item: Item):
 		if displaying != null:
 			remove_child(displaying)
 
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	
 	if contains_item == null:
 		return null
 	
 	var item := contains_item
-	
-	
 	var data = {
 		"item": item
 	}
 	
-	inventory.remove_item(item)
-	
-	started_dragging.emit(item)
-	
-	
+	ItemManager.inventory_staged_remove.emit(item)
+	ItemManager.item_dragging_started.emit(item)
 	
 	return data
 
-func _drop_data(at_position, data):
+func _drop_data(_at_position, data):
 	
 	if "item" not in data and data["item"] == null:
 		return
 	
-	print("dropping item into slot: ", name)
 	var item: Item = data["item"]
 	
-	var worked = inventory.try_item_at_slot(self, item)
 	
-	ended_dragging.emit()
+	ItemManager.inventory_slot_dropped.emit(self, item)
+	ItemManager.item_dragging_stopped.emit(item)
 	
-func _can_drop_data(at_position, data):
-	slot_hovered.emit(self, data["item"])
+func _can_drop_data(_at_position, data):
+	var item = data["item"]
+	ItemManager.inventory_slot_hovered.emit(self, item)
 	return true

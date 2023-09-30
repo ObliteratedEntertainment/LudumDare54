@@ -1,9 +1,5 @@
 extends Control
-class_name GuildInventorySlot
-
-
-signal started_dragging(item: Item)
-signal ended_dragging()
+class_name GuildItemSlot
 
 @export var packed_item: PackedScene = null
 
@@ -29,20 +25,23 @@ func _on_focus_exited():
 	pass # Replace with function body.
 
 
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	
 	item.slot_rotation = 0
 	var data = {
 		"item": item
 	}
 	
-	started_dragging.emit(item)
+	ItemManager.item_dragging_started.emit(item)
 	
 	return data
 
-func _drop_data(at_position, data):
-	ended_dragging.emit()
+func _drop_data(_at_position, data):
+	var dropped_item = data["item"]
+	ItemManager.item_dragging_stopped.emit(dropped_item)
 	
-func _can_drop_data(at_position, data):
+func _can_drop_data(_at_position, data):
+	var dropped_item = data["item"]
+	ItemManager.guild_inventory_hovered.emit(dropped_item)
 	return true
 

@@ -1,8 +1,7 @@
 extends Control
 class_name Inventory
 
-signal started_dragging(Item)
-signal ended_dragging()
+@export var blocked_slots: Array[Vector2i] = []
 
 var last_slot: InventorySlot = null
 var last_hover_slots = []
@@ -13,80 +12,29 @@ func _ready():
 	var x = 0
 	var y = 0
 	
+	ItemManager.item_dragging_stopped.connect(_on_stop_drag_item)
+	
 	ItemManager.item_rotated.connect(_item_rotated)
+	ItemManager.inventory_slot_hovered.connect(_slot_hovered)
+	
+	ItemManager.inventory_slot_dropped.connect(try_item_at_slot)
+	ItemManager.inventory_staged_remove.connect(remove_item)
 	
 	# Register all of the Inventory Slots
 	for child in get_children():
 		if child is InventorySlot:
-			child.inventory = self
 			child.coord = Vector2i(x,y)
-			child.started_dragging.connect(start_drag_item)
-			child.ended_dragging.connect(stop_drag_item)
-			child.slot_hovered.connect(slot_hovered)
+			
+			for coord in blocked_slots:
+				if coord == child.coord:
+					child.set_blocked()
+					break
 			
 			# Grid is 10x6 (X by Y)
 			x = (x + 1) %10
 			if x == 0:
 				y += 1
 
-func _item_rotated(item: Item):
-	slot_hovered(last_slot, item)
-
-func slot_hovered(slot: InventorySlot, item: Item):
-	
-	if len(last_hover_slots) > 0:
-		for hover_slot in last_hover_slots:
-			hover_slot.unhighlight()
-	
-	last_hover_slots.clear()
-	last_slot = slot
-		
-	for item_block in item.get_item_cells():
-		var hover_slot = _get_inventory_slot(slot.coord + item_block)
-		if hover_slot == null:
-			continue
-		hover_slot.highlight()
-		
-		if hover_slot.contains_item != null:
-			var more_item_slots = find_item_slots_for(hover_slot.contains_item)
-			
-			for item_slot in more_item_slots:
-				item_slot.highlight()
-				
-			last_hover_slots.append_array(more_item_slots)
-		
-		last_hover_slots.append(hover_slot)
-	
-
-func start_drag_item(item: Item):
-	print("inventory started dragging")
-	started_dragging.emit(item)
-	
-func stop_drag_item():
-	print("inventory stopped dragging")
-	ended_dragging.emit()
-	
-	if len(last_hover_slots) > 0:
-		for hover_slot in last_hover_slots:
-			hover_slot.unhighlight()
-	
-	last_hover_slots.clear()
-
-
-func find_item_slots_for(item: Item):
-	
-	var item_slots = []
-	
-	for child in get_children():
-		if child is InventorySlot and child.contains_item == item:
-			item_slots.append(child)
-			
-	return item_slots
-
-func remove_item(item: Item):
-	
-	for slot in get_children():
-		slot.remove_item(item)
 
 func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		
@@ -102,7 +50,57 @@ func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 		hover_slot.set_item(item, item_block == item.item_center)
 	
 	return true
+
+
+func remove_item(item: Item):
 	
+	for slot in get_children():
+		if slot is InventorySlot:
+			slot.remove_item(item)
+
+
+func _item_rotated(item: Item):
+	_slot_hovered(last_slot, item)
+
+
+func _slot_hovered(slot: InventorySlot, item: Item):
+	
+	if len(last_hover_slots) > 0:
+		for hover_slot in last_hover_slots:
+			hover_slot.unhighlight()
+	
+	last_hover_slots.clear()
+	last_slot = slot
+		
+	for item_block in item.get_item_cells():
+		var hover_slot = _get_inventory_slot(slot.coord + item_block)
+		if hover_slot == null:
+			continue
+		hover_slot.highlight()
+		
+		if hover_slot.contains_item != null:
+			var more_item_slots = _find_item_slots_for(hover_slot.contains_item)
+			
+			for item_slot in more_item_slots:
+				item_slot.highlight()
+				
+			last_hover_slots.append_array(more_item_slots)
+		
+		last_hover_slots.append(hover_slot)
+
+
+func _on_stop_drag_item(_item: Item):
+	_clear_hover()
+
+
+func _clear_hover():
+	
+	if len(last_hover_slots) > 0:
+		for hover_slot in last_hover_slots:
+			hover_slot.unhighlight()
+	
+	last_hover_slots.clear()
+
 
 func _get_inventory_slot(coord: Vector2i) -> InventorySlot:
 	
@@ -111,3 +109,15 @@ func _get_inventory_slot(coord: Vector2i) -> InventorySlot:
 			return child
 	
 	return null
+
+
+func _find_item_slots_for(item: Item):
+	
+	var item_slots = []
+	
+	for child in get_children():
+		if child is InventorySlot and child.contains_item == item:
+			item_slots.append(child)
+			
+	return item_slots
+
