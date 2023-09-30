@@ -51,8 +51,8 @@ func _on_item_dropped(dropped_item: Item):
 
 
 func _on_mouse_entered():
-	color_rect.self_modulate = Color.CADET_BLUE
+	color_rect.self_modulate = Color(1,1,1,1)
 
 
 func _on_mouse_exited():
-	color_rect.self_modulate = Color.WHITE
+	color_rect.self_modulate = Color(0,0,0,0)

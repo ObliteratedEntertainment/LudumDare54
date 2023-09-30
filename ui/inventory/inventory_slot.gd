@@ -23,7 +23,7 @@ func _ready():
 		set_blocked()
 	
 	original_modulation = self_modulate
-	original_modulation.a = 0.7
+	original_modulation.a = 0.2
 	self_modulate = original_modulation
 
 

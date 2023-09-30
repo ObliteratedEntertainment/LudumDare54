@@ -21,9 +21,10 @@ ItemManager="*res://singletons/item_manager.tscn"
 
 [display]
 
-window/size/viewport_width=480
-window/size/viewport_height=360
+window/size/viewport_width=1110
+window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/stretch/scale=2.0
 
 [dotnet]
 

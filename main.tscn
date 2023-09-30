@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=7 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
+[ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="3_1y038"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="6_yl8le"]
@@ -28,41 +29,35 @@ offset_bottom = 1126.0
 custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
 anchors_preset = 0
-offset_left = -6.0
-offset_top = 116.0
-offset_right = 506.0
-offset_bottom = 372.0
+offset_left = 19.0
+offset_top = 118.0
+offset_right = 531.0
+offset_bottom = 374.0
 scale = Vector2(2, 2)
+
+[node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 179.0
+offset_top = 20.0
+offset_right = 227.0
+offset_bottom = 132.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="DragAndDropContainer"]
+position = Vector2(88.5, 73.5)
+texture = ExtResource("3_1y038")
 
 [node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
 offset_left = 3.0
 offset_top = 10.0
 offset_right = 195.0
 offset_bottom = 122.0
-
-[node name="Slot1" parent="DragAndDropContainer/Inventory" index="1"]
-blocked = true
-
-[node name="Slot7" parent="DragAndDropContainer/Inventory" index="7"]
-blocked = true
-
-[node name="Slot8" parent="DragAndDropContainer/Inventory" index="8"]
-blocked = true
-
-[node name="Slot9" parent="DragAndDropContainer/Inventory" index="9"]
-blocked = true
-
-[node name="Slot41" parent="DragAndDropContainer/Inventory" index="37"]
-blocked = true
-
-[node name="Slot47" parent="DragAndDropContainer/Inventory" index="43"]
-blocked = true
-
-[node name="Slot48" parent="DragAndDropContainer/Inventory" index="44"]
-blocked = true
-
-[node name="Slot49" parent="DragAndDropContainer/Inventory" index="45"]
-blocked = true
 
 [node name="Inventory3" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
 visible = false
@@ -72,44 +67,29 @@ offset_top = 10.0
 offset_right = 3.0
 offset_bottom = 266.0
 
-[node name="Slot36" parent="DragAndDropContainer/Inventory3" index="33"]
+[node name="Slot36" parent="DragAndDropContainer/Inventory3" index="34"]
 blocked = true
 
-[node name="Slot37" parent="DragAndDropContainer/Inventory3" index="34"]
+[node name="Slot37" parent="DragAndDropContainer/Inventory3" index="35"]
 blocked = true
 
-[node name="Slot38" parent="DragAndDropContainer/Inventory3" index="35"]
+[node name="Slot38" parent="DragAndDropContainer/Inventory3" index="36"]
 blocked = true
 
-[node name="Slot39" parent="DragAndDropContainer/Inventory3" index="36"]
+[node name="Slot39" parent="DragAndDropContainer/Inventory3" index="37"]
 blocked = true
 
-[node name="Slot46" parent="DragAndDropContainer/Inventory3" index="42"]
+[node name="Slot46" parent="DragAndDropContainer/Inventory3" index="43"]
 blocked = true
 
-[node name="Slot47" parent="DragAndDropContainer/Inventory3" index="43"]
+[node name="Slot47" parent="DragAndDropContainer/Inventory3" index="44"]
 blocked = true
 
-[node name="Slot48" parent="DragAndDropContainer/Inventory3" index="44"]
+[node name="Slot48" parent="DragAndDropContainer/Inventory3" index="45"]
 blocked = true
 
-[node name="Slot49" parent="DragAndDropContainer/Inventory3" index="45"]
+[node name="Slot49" parent="DragAndDropContainer/Inventory3" index="46"]
 blocked = true
-
-[node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
-custom_minimum_size = Vector2(0, 0)
-layout_mode = 2
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 195.0
-offset_top = 10.0
-offset_right = 243.0
-offset_bottom = 122.0
-grow_horizontal = 0
-grow_vertical = 0
 
 [node name="QuestContainer" type="Control" parent="."]
 anchors_preset = 0
