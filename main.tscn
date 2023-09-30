@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=14 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -9,6 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
 [ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
+[ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
+[ext_resource type="Texture2D" uid="uid://o13ndrnc7ro" path="res://sprites/accept_button_highlight.png" id="11_repym"]
+[ext_resource type="Texture2D" uid="uid://mb7fa33mswfd" path="res://sprites/accept_button_select.png" id="12_1ksbc"]
+
+[sub_resource type="Theme" id="Theme_es6dv"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -59,6 +64,7 @@ offset_top = 150.0
 offset_right = 527.0
 offset_bottom = 406.0
 scale = Vector2(2, 2)
+mouse_filter = 1
 
 [node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
 layout_mode = 2
@@ -73,6 +79,7 @@ offset_right = 227.0
 offset_bottom = 132.0
 grow_horizontal = 0
 grow_vertical = 0
+mouse_filter = 1
 
 [node name="Table" type="Sprite2D" parent="DragAndDropContainer"]
 position = Vector2(88, 74)
@@ -122,6 +129,7 @@ offset_left = 23.0
 offset_top = 8.5
 offset_right = 23.0
 offset_bottom = 8.5
+mouse_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="QuestContainer"]
 position = Vector2(279, 2.5)
@@ -143,12 +151,23 @@ layout_mode = 0
 offset_left = 316.0
 offset_top = -3.0
 offset_right = 521.0
-offset_bottom = 158.0
+offset_bottom = 155.0
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
+
+[node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 150.5
+offset_right = 530.0
+offset_bottom = 182.5
+theme = SubResource("Theme_es6dv")
+texture_normal = ExtResource("10_amun7")
+texture_pressed = ExtResource("11_repym")
+texture_hover = ExtResource("12_1ksbc")
 
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 

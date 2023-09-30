@@ -94,7 +94,7 @@ func _drop_data(_at_position, data):
 	
 	
 	ItemManager.inventory_slot_dropped.emit(self, item)
-	ItemManager.item_dragging_stopped.emit(item)
+	ItemManager.item_dragging_stopped.emit(item, true)
 	
 func _can_drop_data(_at_position, data):
 	var item = data["item"]

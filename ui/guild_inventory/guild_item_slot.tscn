@@ -5,6 +5,8 @@
 [node name="InventoryIcon" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 16.0
+offset_bottom = 16.0
 script = ExtResource("1_lm46h")
 
 [node name="ColorRect" type="ColorRect" parent="."]
