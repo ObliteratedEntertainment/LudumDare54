@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://634q8wglwew8"]
+
+[ext_resource type="Script" path="res://ui/inventory/drag_item.gd" id="1_33383"]
+
+[node name="DragItem" type="Control"]
+process_mode = 4
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -134.0
+offset_top = 62.0
+offset_right = -94.0
+offset_bottom = 102.0
+mouse_filter = 2
+script = ExtResource("1_33383")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2

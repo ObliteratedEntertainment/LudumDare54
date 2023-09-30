@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqlvmmdix1v1d"]
+
+[ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
+[ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
+[ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 255.0
+offset_top = 284.0
+offset_right = 255.0
+offset_bottom = 284.0
+
+[node name="DragAndDropContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
+layout_mode = 1
+offset_left = -183.0
+offset_top = 47.0
+offset_right = -183.0
+offset_bottom = 47.0
+
+[node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("2_lbyju")]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 58.0
+offset_right = 22.0
+offset_bottom = 58.0
+
+[node name="DragItem" parent="DragAndDropContainer" instance=ExtResource("3_7hncm")]
+
+[connection signal="ended_dragging" from="DragAndDropContainer/Inventory" to="DragAndDropContainer/DragItem" method="hide_dragging"]
+[connection signal="started_dragging" from="DragAndDropContainer/Inventory" to="DragAndDropContainer/DragItem" method="show_dragging"]
+[connection signal="ended_dragging" from="DragAndDropContainer/GuildInventory" to="DragAndDropContainer/DragItem" method="hide_dragging"]
+[connection signal="started_dragging" from="DragAndDropContainer/GuildInventory" to="DragAndDropContainer/DragItem" method="show_dragging"]
+
+[editable path="DragAndDropContainer/GuildInventory"]
