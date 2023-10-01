@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="7_846hx"]
 [ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="8_i5smy"]
 [ext_resource type="Script" path="res://ui/quest/quest_selector.gd" id="9_4euak"]
-[ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="10_fr20x"]
+[ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="10_1slqb"]
 [ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="11_nptme"]
 [ext_resource type="Texture2D" uid="uid://5rbq6la285do" path="res://sprites/accept_fancy_button.png" id="12_jhfnc"]
 [ext_resource type="Texture2D" uid="uid://dyp0ffysgom04" path="res://sprites/accept_fancy_button_hover.png" id="13_m8wlw"]
@@ -284,22 +284,12 @@ theme_override_fonts/font = ExtResource("8_i5smy")
 theme_override_font_sizes/font_size = 16
 script = ExtResource("9_4euak")
 
-[node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
+[node name="LoreTextLabel" parent="QuestContainer" instance=ExtResource("10_1slqb")]
 layout_mode = 0
 offset_left = 317.0
 offset_top = 31.0
 offset_right = 489.0
 offset_bottom = 145.0
-theme_override_fonts/normal_font = ExtResource("8_i5smy")
-theme_override_fonts/bold_font = ExtResource("8_i5smy")
-theme_override_fonts/italics_font = ExtResource("8_i5smy")
-theme_override_fonts/bold_italics_font = ExtResource("8_i5smy")
-theme_override_fonts/mono_font = ExtResource("8_i5smy")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
-bbcode_enabled = true
-scroll_following = true
-script = ExtResource("10_fr20x")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
@@ -381,7 +371,6 @@ blocked = true
 blocked = true
 
 [connection signal="item_selected" from="QuestContainer/OptionButton" to="QuestContainer/OptionButton" method="_on_item_selected"]
-[connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 [connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
 
 [editable path="DragAndDropContainer/Inventory"]

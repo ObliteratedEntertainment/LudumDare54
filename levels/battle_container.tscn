@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cb8aij5057tln"]
+[gd_scene load_steps=50 format=3 uid="uid://cb8aij5057tln"]
 
 [ext_resource type="Script" path="res://levels/battle_container.gd" id="1_ca0hi"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="2_luyxq"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://ui/battle_character.gd" id="17_d6rpt"]
 [ext_resource type="Script" path="res://ui/battle_path_line.gd" id="18_2j12l"]
 [ext_resource type="Script" path="res://ui/battle_items.gd" id="18_qvuta"]
+[ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="19_5qyq6"]
+[ext_resource type="Script" path="res://levels/Results.gd" id="19_x623y"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
 resource_name = "Arrive"
@@ -870,14 +872,20 @@ mouse_filter = 1
 position = Vector2(81, 52)
 texture = ExtResource("9_7t41u")
 
-[node name="ResultText" type="ColorRect" parent="."]
+[node name="Results" type="ColorRect" parent="."]
 layout_mode = 0
 offset_top = 196.0
 offset_right = 480.0
 offset_bottom = 792.0
 color = Color(0, 0, 0, 0.54902)
+script = ExtResource("19_x623y")
 
-[node name="Accept" type="TextureButton" parent="ResultText"]
+[node name="LoreTextLabel" parent="Results" instance=ExtResource("19_5qyq6")]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 246.0
+
+[node name="Accept" type="TextureButton" parent="Results"]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 249.0
@@ -895,4 +903,4 @@ offset_bottom = 37.0
 alignment = 2
 script = ExtResource("18_qvuta")
 
-[connection signal="pressed" from="ResultText/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Results/Accept" to="." method="_on_accept_pressed"]
