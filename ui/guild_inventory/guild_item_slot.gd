@@ -1,8 +1,6 @@
 extends Control
 class_name GuildItemSlot
 
-@export var packed_item: PackedScene = null
-
 @onready var icon: Sprite2D = $Sprite2D
 
 @onready var color_rect = $ColorRect
@@ -11,7 +9,6 @@ var item: Item = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	item = packed_item.instantiate()
 	add_child(item)
 	item.visible = false
 	
@@ -26,8 +23,7 @@ func _ready():
 
 
 func _get_drag_data(_at_position):
-	
-	var copied_item = packed_item.instantiate()
+	var copied_item = item.duplicate()
 	copied_item.visible = false
 	add_child(copied_item)
 	

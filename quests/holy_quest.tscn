@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bob63c27f5ltm"]
+[gd_scene load_steps=6 format=3 uid="uid://bob63c27f5ltm"]
 
 [ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_f7h36"]
 [ext_resource type="PackedScene" uid="uid://da0itpwo2s5ah" path="res://items/base/holy.tscn" id="2_vt8qv"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="3_i4enc"]
+[ext_resource type="PackedScene" path="res://items/green_potion.tscn" id="4_443gy"]
+[ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="5_qcy5x"]
 
 [node name="Holy Quest to Town" instance=ExtResource("1_f7h36")]
 
@@ -20,7 +22,13 @@ text = "Yes, and it's brought about due to a lack of faith.  I must bring faith 
 script = ExtResource("3_i4enc")
 text = "If only there was some symbol of my holy order I could use to inspire people."
 
-[node name="TownRatLore" type="Node2D" parent="Rewards/Failure" index="0"]
+[node name="Item" parent="Rewards/Success" index="0" instance=ExtResource("4_443gy")]
+visible = false
+
+[node name="Item" parent="Rewards/Failure" index="0" instance=ExtResource("5_qcy5x")]
+visible = false
+
+[node name="TownRatLore" type="Node2D" parent="Rewards/Failure" index="1"]
 script = ExtResource("3_i4enc")
 text = "The town is infested with rats."
 
