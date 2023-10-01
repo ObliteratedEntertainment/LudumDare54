@@ -8,11 +8,6 @@ func _ready():
 func _mission_end():
 	visible = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_quest_accept_button_pressed():
 	var quest = GameManager.character.get_quest()
 

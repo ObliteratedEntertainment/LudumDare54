@@ -10,15 +10,15 @@ var quest_successful
 
 func _ready():
 	GameManager.character_changed.connect(set_character)
-	character = GameManager.character
-	if character != null:
-		set_character(character, 0)
+	var c = GameManager.character
+	if c != null:
+		set_character(c)
 	GameManager.quest_accepted.connect(_quest_accepted)
 	GameManager.result_accepted.connect(_result_accepted)
 
-func set_character(character:Character, state:int):
-	if character != null:
-		sprite_location.remove_child(character)
+func set_character(character:Character):
+	if self.character != null:
+		sprite_location.remove_child(self.character)
 	self.character = character
 	quest_successful = null
 	sprite_location.add_child(character)

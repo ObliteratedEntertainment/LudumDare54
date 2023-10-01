@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvppxehcyofyg"]
+
+[ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_pnn26"]
+[ext_resource type="Texture2D" uid="uid://c4uoyj6tp0ab0" path="res://characters/art/charactersketches.png" id="2_3ciiv"]
+[ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_p2my2"]
+
+[node name="Tiberius" instance=ExtResource("1_pnn26")]
+
+[node name="Neutral" parent="." index="0"]
+texture = ExtResource("2_3ciiv")
+hframes = 3
+vframes = 4
+frame = 3
+
+[node name="Success" parent="." index="1"]
+texture = ExtResource("2_3ciiv")
+hframes = 3
+vframes = 4
+frame = 4
+
+[node name="Failure" parent="." index="2"]
+texture = ExtResource("2_3ciiv")
+hframes = 3
+vframes = 4
+frame = 5
+
+[node name="The Spidery Forest" parent="Quest" index="0" instance=ExtResource("3_p2my2")]
