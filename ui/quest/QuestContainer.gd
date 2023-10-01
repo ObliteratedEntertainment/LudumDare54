@@ -2,6 +2,7 @@ extends Control
 
 @onready var accept_button = $QuestAcceptButton
 @onready var lore_text = $LoreTextLabel
+@onready var inventory = $"../DragAndDropContainer/GuildInventory"
 
 var selected_quest:Quest
 
@@ -20,6 +21,7 @@ func select_quest():
 		if not quest.completed:
 			selected_quest = quest
 			lore_text.set_quest(selected_quest)
+			inventory.set_items(selected_quest.get_base_items())
 			accept_button.disabled = false
 		break
 

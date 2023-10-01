@@ -1,13 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://djtrj5g657g3j"]
+[gd_scene load_steps=3 format=3 uid="uid://djtrj5g657g3j"]
 
 [ext_resource type="Script" path="res://ui/guild_inventory/guild_inventory.gd" id="1_yrsfj"]
 [ext_resource type="Texture2D" uid="uid://dub23opx8l732" path="res://sprites/drawer.png" id="2_6uilv"]
-[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="3_ebpkw"]
-[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="4_xy52p"]
-[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="5_y0aml"]
-[ext_resource type="PackedScene" uid="uid://bkkymw1qarjpp" path="res://items/boss_key.tscn" id="6_elcgx"]
-[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="6_qxrbv"]
-[ext_resource type="PackedScene" uid="uid://cu8y2rxid2y4l" path="res://items/white_flag.tscn" id="8_o8vgy"]
 
 [node name="GuildInventory" type="Control"]
 layout_mode = 3
@@ -24,7 +18,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_yrsfj")
-available_item_list = Array[PackedScene]([ExtResource("4_xy52p"), ExtResource("6_qxrbv"), ExtResource("6_elcgx"), ExtResource("5_y0aml"), ExtResource("3_ebpkw"), ExtResource("8_o8vgy")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(48, 54)
