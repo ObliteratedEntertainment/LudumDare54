@@ -4,7 +4,14 @@ class_name ItemStats
 enum Stat {
 	ATTACK,
 	DEFENSE,
-	HOLY
+	HOLY,
+	
+	RESTORE_HEALTH,
+	RESTORE_MANA,
+	
+	KEY,
+	FLAG,
+	
 }
 
 @export var stat: Stat

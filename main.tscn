@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=16 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
 [ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
+[ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="10_ag3ut"]
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
 [ext_resource type="Texture2D" uid="uid://o13ndrnc7ro" path="res://sprites/accept_button_highlight.png" id="11_repym"]
 [ext_resource type="Texture2D" uid="uid://mb7fa33mswfd" path="res://sprites/accept_button_select.png" id="12_1ksbc"]
@@ -154,11 +155,21 @@ offset_left = 316.0
 offset_top = -3.0
 offset_right = 521.0
 offset_bottom = 155.0
+theme_override_fonts/normal_font = ExtResource("10_ag3ut")
+theme_override_fonts/bold_font = ExtResource("10_ag3ut")
+theme_override_fonts/italics_font = ExtResource("10_ag3ut")
+theme_override_fonts/bold_italics_font = ExtResource("10_ag3ut")
+theme_override_fonts/mono_font = ExtResource("10_ag3ut")
 theme_override_font_sizes/normal_font_size = 16
 theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
+theme_override_fonts/normal_font = ExtResource("10_ag3ut")
+theme_override_fonts/bold_font = ExtResource("10_ag3ut")
+theme_override_fonts/italics_font = ExtResource("10_ag3ut")
+theme_override_fonts/bold_italics_font = ExtResource("10_ag3ut")
+theme_override_fonts/mono_font = ExtResource("10_ag3ut")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
