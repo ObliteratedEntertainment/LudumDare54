@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://byumyd61bh3x6"]
+[gd_scene load_steps=9 format=3 uid="uid://byumyd61bh3x6"]
 
 [ext_resource type="Script" path="res://levels/game_over.gd" id="1_s60mu"]
+[ext_resource type="Texture2D" uid="uid://ba4cc8pbowlx0" path="res://sprites/maploopfinal.png" id="2_40baj"]
+[ext_resource type="Texture2D" uid="uid://dqihkb7651xsn" path="res://sprites/TitleBG.png" id="2_tx7pn"]
+[ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="3_hfill"]
+[ext_resource type="Texture2D" uid="uid://d1o70c8f0xuql" path="res://sprites/title_bag.png" id="5_xolay"]
+[ext_resource type="Texture2D" uid="uid://qjxroud2ys7f" path="res://sprites/title.png" id="6_tu6fk"]
+[ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="7_tu7jf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xejjp"]
+font = ExtResource("7_tu7jf")
+font_size = 32
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -10,3 +20,55 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_s60mu")
+
+[node name="Maploopfinal" type="Sprite2D" parent="."]
+self_modulate = Color(0.4, 0.4, 0.4, 1)
+position = Vector2(264, 285)
+scale = Vector2(2, 2)
+texture = ExtResource("2_40baj")
+
+[node name="Zofra" type="Sprite2D" parent="."]
+position = Vector2(342, 294)
+scale = Vector2(2, 2)
+texture = ExtResource("3_hfill")
+region_enabled = true
+region_rect = Rect2(168, 0, 64, 80)
+
+[node name="Goldie" type="Sprite2D" parent="."]
+position = Vector2(134, 289)
+scale = Vector2(2, 2)
+texture = ExtResource("3_hfill")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(168, 192, 80, 92)
+
+[node name="Tiberius" type="Sprite2D" parent="."]
+position = Vector2(248, 286)
+scale = Vector2(2, 2)
+texture = ExtResource("3_hfill")
+region_enabled = true
+region_rect = Rect2(168, 80, 80, 112)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(240, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("2_tx7pn")
+
+[node name="TitleBag" type="Sprite2D" parent="."]
+position = Vector2(241, 240)
+scale = Vector2(2, 2)
+texture = ExtResource("5_xolay")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(231, 97)
+scale = Vector2(2, 2)
+texture = ExtResource("6_tu6fk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 421.0
+offset_right = 487.0
+offset_bottom = 469.0
+text = "Thanks For Playing!"
+label_settings = SubResource("LabelSettings_xejjp")

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui/main_menu_scene.gd" id="1_0ojj2"]
 [ext_resource type="Script" path="res://levels/menu_map_scroller.gd" id="2_uxlbs"]
 [ext_resource type="Texture2D" uid="uid://dqihkb7651xsn" path="res://sprites/TitleBG.png" id="3_p7yg3"]
-[ext_resource type="Texture2D" uid="uid://bb5oah2d8u01j" path="res://sprites/map.png" id="3_rhdq0"]
+[ext_resource type="Texture2D" uid="uid://ba4cc8pbowlx0" path="res://sprites/maploopfinal.png" id="4_g0d7a"]
 [ext_resource type="Texture2D" uid="uid://d1o70c8f0xuql" path="res://sprites/title_bag.png" id="4_igthk"]
 [ext_resource type="Texture2D" uid="uid://chhsxfctc4eh5" path="res://sprites/gramps_travel.png" id="4_njtcb"]
 [ext_resource type="Texture2D" uid="uid://bvibg4aq3tf0v" path="res://sprites/girlie_travel.png" id="5_w7jr5"]
@@ -243,13 +243,13 @@ script = ExtResource("2_uxlbs")
 [node name="Map1" type="Sprite2D" parent="MapScroller"]
 position = Vector2(96, 180)
 scale = Vector2(2, 2)
-texture = ExtResource("3_rhdq0")
+texture = ExtResource("4_g0d7a")
 centered = false
 
 [node name="Map2" type="Sprite2D" parent="MapScroller"]
-position = Vector2(576, 180)
+position = Vector2(778, 180)
 scale = Vector2(2, 2)
-texture = ExtResource("3_rhdq0")
+texture = ExtResource("4_g0d7a")
 centered = false
 
 [node name="WrapPointLeft" type="Node2D" parent="MapScroller"]
@@ -260,21 +260,21 @@ position = Vector2(191, 352)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_384yu")
 autoplay = "default"
-frame_progress = 0.426764
+frame_progress = 0.349538
 
 [node name="Zofra" type="AnimatedSprite2D" parent="MapScroller"]
 position = Vector2(241, 346)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_dywp6")
 autoplay = "default"
-frame_progress = 0.0905009
+frame_progress = 0.013276
 
 [node name="Goldie" type="AnimatedSprite2D" parent="MapScroller"]
 position = Vector2(291, 340)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7tgb5")
 autoplay = "default"
-frame_progress = 0.775863
+frame_progress = 0.69864
 
 [node name="CharacterMovers" type="AnimationPlayer" parent="MapScroller"]
 autoplay = "idle"
