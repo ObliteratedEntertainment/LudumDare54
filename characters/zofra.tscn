@@ -15,11 +15,14 @@ texture = ExtResource("2_eb56k")
 [node name="Success" parent="." index="1"]
 position = Vector2(-5, 2)
 texture = ExtResource("2_nhvv5")
+hframes = 3
+vframes = 4
+frame = 1
 
 [node name="Failure" parent="." index="2"]
 texture = ExtResource("2_nhvv5")
 hframes = 3
-vframes = 5
+vframes = 4
 frame = 2
 
 [node name="Holy Quest to Town" parent="Quest" index="0" instance=ExtResource("3_vg03k")]
