@@ -21,7 +21,7 @@ func _ready():
 	
 	ItemManager.inventory_added.connect(_on_item_dropped)
 	ItemManager.inventory_rejected.connect(_on_inv_item_removed)
-	ItemManager.inventory_final_remove.connect(_on_inv_item_removed)
+	ItemManager.inventory_staged_remove.connect(_on_inv_item_removed)
 
 
 func _get_drag_data(_at_position):
