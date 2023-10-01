@@ -26,13 +26,13 @@ func set_character(character:Character, state:int):
 
 func _quest_accepted(success):
 	quest_successful = success
+	character.flip_h(false)
 	animation.play("Leave")
 
 func character_left():
 	GameManager.character_mission_start.emit()
-	character.neutral_sprite.visible = false
-	character.success_sprite.visible = false
-	character.failure_sprite.visible = false
+	character.disable_sprites()
+	character.flip_h(true)
 	if quest_successful == null:
 		character.neutral_sprite.visible = true
 	elif quest_successful:
