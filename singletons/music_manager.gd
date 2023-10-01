@@ -19,6 +19,9 @@ func _ready():
 		t.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func change_track(track_num:int):
+	if current_track == tracks[track_num]:
+		# No change needed
+		return
 	time_counter = 0
 	last_track = current_track
 	current_track = tracks[track_num]

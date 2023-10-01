@@ -32,3 +32,12 @@ func disable_sprites():
 func flip_h(b):
 	for s in sprites:
 		s.flip_h = b
+
+func quest_state(quest_successful):
+	disable_sprites()
+	if quest_successful == null:
+		neutral_sprite.visible = true
+	elif quest_successful:
+		success_sprite.visible = true
+	else:
+		failure_sprite.visible = true
