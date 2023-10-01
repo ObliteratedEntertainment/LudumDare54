@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-50, 126), Vector2(72, 126)]
+"values": [Vector2(-50, 134), Vector2(72, 126)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -60,7 +60,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(72, 126), Vector2(-50, 126)]
+"values": [Vector2(72, 126), Vector2(-50, 134)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -107,7 +107,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(72, 126), Vector2(-50, 126)]
+"values": [Vector2(72, 126), Vector2(-50, 134)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -152,7 +152,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-50, 126), Vector2(72, 126)]
+"values": [Vector2(-50, 134), Vector2(72, 126)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
