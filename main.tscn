@@ -242,7 +242,6 @@ texture = ExtResource("6_rq4n8")
 position = Vector2(88.5, 56.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterContainer"]
-autoplay = "Depart"
 libraries = {
 "": SubResource("AnimationLibrary_dhnli")
 }
