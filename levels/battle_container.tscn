@@ -871,10 +871,11 @@ libraries = {
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 0
-offset_left = 255.0
-offset_top = 53.0
-offset_right = 461.0
-offset_bottom = 86.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 476.0
+offset_bottom = 37.0
+alignment = 2
 script = ExtResource("18_qvuta")
 
 [connection signal="pressed" from="ResultText/Accept" to="." method="_on_accept_pressed"]

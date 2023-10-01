@@ -11,3 +11,5 @@ func _ready():
 
 func _on_accept_pressed():
 	scene_leaving.emit()
+	
+	ItemManager.active_inventory.clear()
