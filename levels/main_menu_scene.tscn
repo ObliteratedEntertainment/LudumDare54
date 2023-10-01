@@ -12,10 +12,11 @@ script = ExtResource("1_0ojj2")
 
 [node name="Play" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 214.0
-offset_top = 298.0
-offset_right = 254.0
-offset_bottom = 338.0
+offset_left = 181.0
+offset_top = 306.0
+offset_right = 218.0
+offset_bottom = 318.0
+scale = Vector2(2, 2)
 texture_normal = ExtResource("2_e8fr5")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

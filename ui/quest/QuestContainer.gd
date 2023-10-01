@@ -8,14 +8,20 @@ var selected_quest:Quest
 func _ready():
 	accept_button.disabled = true
 	GameManager.character_mission_end.connect(_mission_end)
+	
+	select_quest.call_deferred()
 
 func _mission_end():
 	visible = true
 
-func select_quest(quest:Quest):
-	selected_quest = quest
-	lore_text.set_quest(quest)
-	accept_button.disabled = false
+func select_quest():
+	
+	for quest in GameManager.character.get_quests():
+		if not quest.completed:
+			selected_quest = quest
+			lore_text.set_quest(selected_quest)
+			accept_button.disabled = false
+		break
 
 func _on_quest_accept_button_pressed():
 	var quest = selected_quest

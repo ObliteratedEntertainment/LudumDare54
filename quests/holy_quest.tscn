@@ -23,3 +23,11 @@ text = "If only there was some symbol of my holy order I could use to inspire pe
 [node name="TownRatLore" type="Node2D" parent="Rewards/Failure" index="0"]
 script = ExtResource("3_i4enc")
 text = "The town is infested with rats."
+
+[node name="rats" type="Node2D" parent="Rewards/Failure/TownRatLore" index="0"]
+script = ExtResource("3_i4enc")
+text = "The creatures are the size of a dire wolf and not to be triffled with.  Perhaps this town should just be abandoned."
+
+[node name="abandoned" type="Node2D" parent="Rewards/Failure/TownRatLore/rats" index="0"]
+script = ExtResource("3_i4enc")
+text = "It's harsh, I know, but have you seen these rats?! They're HUGE!!!"

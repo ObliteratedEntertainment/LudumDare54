@@ -1,11 +1,14 @@
-[gd_scene load_steps=45 format=3 uid="uid://cb8aij5057tln"]
+[gd_scene load_steps=50 format=3 uid="uid://cb8aij5057tln"]
 
 [ext_resource type="Script" path="res://levels/battle_container.gd" id="1_ca0hi"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="2_luyxq"]
 [ext_resource type="Texture2D" uid="uid://brsfpydsp5iag" path="res://sprites/deep_woods.png" id="3_jkiqr"]
 [ext_resource type="Texture2D" uid="uid://btngksr80bsrf" path="res://sprites/girlie_idle_good.png" id="4_of3s7"]
+[ext_resource type="Script" path="res://ui/battle_destination.gd" id="4_rrnwu"]
 [ext_resource type="Script" path="res://characters/minimap_character.gd" id="5_agbuv"]
 [ext_resource type="Texture2D" uid="uid://byly55x5b0as6" path="res://sprites/girlie_idle_bad.png" id="6_owmdo"]
+[ext_resource type="Texture2D" uid="uid://bslffmokhafep" path="res://sprites/inventory_station.png" id="6_vebju"]
+[ext_resource type="Curve2D" uid="uid://dydlyk5b7lbo" path="res://levels/battle_path.tres" id="7_jqd62"]
 [ext_resource type="Texture2D" uid="uid://bvibg4aq3tf0v" path="res://sprites/girlie_travel.png" id="7_rx5kd"]
 [ext_resource type="Texture2D" uid="uid://chhsxfctc4eh5" path="res://sprites/gramps_travel.png" id="8_d6pew"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="8_qsoxn"]
@@ -17,7 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://dmeastg1csg2m" path="res://sprites/goldie_idle_good.png" id="12_wl7xs"]
 [ext_resource type="Texture2D" uid="uid://ccvovoiavp2kl" path="res://sprites/goldie_idle_bad.png" id="13_kic75"]
 [ext_resource type="Script" path="res://ui/battle_character.gd" id="17_d6rpt"]
+[ext_resource type="Script" path="res://ui/battle_path_line.gd" id="18_2j12l"]
 [ext_resource type="Script" path="res://ui/battle_items.gd" id="18_qvuta"]
+[ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="19_5qyq6"]
+[ext_resource type="Script" path="res://levels/Results.gd" id="19_x623y"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
 resource_name = "Arrive"
@@ -180,12 +186,6 @@ _data = {
 "RESET": SubResource("Animation_ltmo3"),
 "Return": SubResource("Animation_fhf7g")
 }
-
-[sub_resource type="Curve2D" id="Curve2D_1wavl"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -43, 182, -45.8296, 1.41741, 45.8296, -1.41741, 113, 181, -13.3866, 11.3393, 13.3866, -11.3393, 177, 132, -17.0089, 0.31498, 17.0089, -0.31498, 220, 116, -6.29961, -9.44941, 6.29961, 9.44941, 248, 130, -10.3943, -9.44941, 10.3943, 9.44941, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 332, 165, 0, 0, 0, 0, 362, 147)
-}
-point_count = 9
 
 [sub_resource type="Animation" id="Animation_2kedx"]
 length = 0.001
@@ -739,7 +739,7 @@ script = ExtResource("1_ca0hi")
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 596.0
-color = Color(0, 0, 0, 1)
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(240, 98)
@@ -747,9 +747,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_luyxq")
 
 [node name="Destination" type="Sprite2D" parent="."]
-position = Vector2(362, 134)
+position = Vector2(417, 126)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jkiqr")
+script = ExtResource("4_rrnwu")
 
 [node name="Character" type="Control" parent="."]
 anchors_preset = 0
@@ -758,7 +759,7 @@ offset_bottom = 40.0
 script = ExtResource("17_d6rpt")
 
 [node name="SpriteLocation" type="Node2D" parent="Character"]
-position = Vector2(68, 196)
+position = Vector2(64, 196)
 scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
@@ -767,13 +768,28 @@ libraries = {
 "": SubResource("AnimationLibrary_dhnli")
 }
 
+[node name="InventoryStation" type="Sprite2D" parent="."]
+position = Vector2(194, 168)
+scale = Vector2(2, 2)
+texture = ExtResource("6_vebju")
+
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color(0.0588235, 0.0235294, 1, 1)
-curve = SubResource("Curve2D_1wavl")
+position = Vector2(55, -5)
+curve = ExtResource("7_jqd62")
+
+[node name="LineHolder" type="Node2D" parent="Path2D"]
+
+[node name="LineDrawer" type="PathFollow2D" parent="Path2D"]
+position = Vector2(153, 187)
+rotation = -0.0723373
+loop = false
+script = ExtResource("18_2j12l")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-43, 182)
+position = Vector2(153, 187)
 rotates = false
+loop = false
 
 [node name="PathAnimator" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
 libraries = {
@@ -782,6 +798,7 @@ libraries = {
 
 [node name="Zofra" type="Sprite2D" parent="Path2D/PathFollow2D"]
 visible = false
+position = Vector2(0, -8)
 scale = Vector2(2, 2)
 texture = ExtResource("4_of3s7")
 hframes = 8
@@ -796,6 +813,7 @@ libraries = {
 
 [node name="Tiberius" type="Sprite2D" parent="Path2D/PathFollow2D"]
 visible = false
+position = Vector2(0, -8)
 scale = Vector2(2, 2)
 texture = ExtResource("8_d6pew")
 hframes = 8
@@ -811,6 +829,7 @@ libraries = {
 
 [node name="Goldie" type="Sprite2D" parent="Path2D/PathFollow2D"]
 visible = false
+position = Vector2(0, -8)
 scale = Vector2(2, 2)
 texture = ExtResource("12_wl7xs")
 hframes = 8
@@ -853,14 +872,22 @@ mouse_filter = 1
 position = Vector2(81, 52)
 texture = ExtResource("9_7t41u")
 
-[node name="ResultText" type="ColorRect" parent="."]
+[node name="Results" type="ColorRect" parent="."]
 layout_mode = 0
 offset_top = 196.0
 offset_right = 480.0
 offset_bottom = 792.0
-color = Color(0, 0, 0, 0.54902)
+color = Color(0, 0, 0, 0.498039)
+script = ExtResource("19_x623y")
 
-[node name="Accept" type="TextureButton" parent="ResultText"]
+[node name="LoreTextLabel" parent="Results" instance=ExtResource("19_5qyq6")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 473.0
+offset_bottom = 236.0
+
+[node name="Accept" type="TextureButton" parent="Results"]
 layout_mode = 0
 offset_left = 203.0
 offset_top = 249.0
@@ -878,4 +905,4 @@ offset_bottom = 37.0
 alignment = 2
 script = ExtResource("18_qvuta")
 
-[connection signal="pressed" from="ResultText/Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Results/Accept" to="." method="_on_accept_pressed"]

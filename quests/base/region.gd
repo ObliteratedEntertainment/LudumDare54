@@ -4,7 +4,8 @@ class_name Region
 enum RegionType{
 	TOWN,
 	SWAMP,
-	FOREST
+	FOREST,
+	MOUNTAIN
 }
 
 @export var type:RegionType
