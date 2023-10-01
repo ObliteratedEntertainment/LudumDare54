@@ -26,9 +26,13 @@ var characters:Array[Character]
 var character:Character
 var index:int
 
+var current_quest:Quest
+var quest_successful
+
 var active_scene := Scenes.MAIN_MENU
 
 func _ready():
+	quest_accepted.connect(_quest_accepted)
 	character_departed.connect(_character_departed)
 	# Init first character
 	index = 0
@@ -36,7 +40,13 @@ func _ready():
 		characters.append(c.instantiate())
 	character = characters[0]
 
+func _quest_accepted(quest, success):
+	current_quest = quest
+	quest_successful = success
+
 func _character_departed():
 	index = (index+1)%characters.size()
 	character = characters[index]
+	current_quest = null
+	quest_successful = null
 	character_changed.emit(character)
