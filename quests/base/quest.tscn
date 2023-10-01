@@ -26,6 +26,7 @@ script = ExtResource("2_xmsws")
 [node name="Failure" type="Node2D" parent="Rewards"]
 
 [node name="BaseItems" type="Node2D" parent="."]
+visible = false
 
 [node name="Item" parent="BaseItems" instance=ExtResource("3_0y6xo")]
 
