@@ -1,13 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=39 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
 [ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="3_1y038"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
+[ext_resource type="Texture2D" uid="uid://3mjugo5uy3p2" path="res://sprites/bg.png" id="3_meciq"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="4_voggx"]
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
-[ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
 [ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="7_aaqdi"]
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
@@ -20,7 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://o13ndrnc7ro" path="res://sprites/accept_button_highlight.png" id="11_repym"]
 [ext_resource type="Texture2D" uid="uid://mb7fa33mswfd" path="res://sprites/accept_button_select.png" id="12_1ksbc"]
 [ext_resource type="Texture2D" uid="uid://dyp0ffysgom04" path="res://sprites/accept_fancy_button_hover.png" id="12_n6n5a"]
+[ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="13_mdiil"]
+[ext_resource type="Texture2D" uid="uid://bqkfljs6ant83" path="res://sprites/text_bubble_corner.png" id="14_dlk2j"]
 [ext_resource type="Script" path="res://ui/result_popup.gd" id="15_7l7lh"]
+[ext_resource type="Texture2D" uid="uid://c85ambrefmjbl" path="res://sprites/transition_wipe.png" id="22_5tb8k"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
 resource_name = "Arrive"
@@ -229,6 +232,58 @@ font_size = 50
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_1imkt"]
+resource_name = "swipe_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, -438), Vector2(256, 218)]
+}
+
+[sub_resource type="Animation" id="Animation_jrm34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, -448)]
+}
+
+[sub_resource type="Animation" id="Animation_gw1f2"]
+resource_name = "swipe_show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 218), Vector2(256, 928)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o34j8"]
+_data = {
+"RESET": SubResource("Animation_jrm34"),
+"swipe_hide": SubResource("Animation_1imkt"),
+"swipe_show": SubResource("Animation_gw1f2")
+}
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -255,13 +310,12 @@ scale = Vector2(2, 2)
 script = ExtResource("5_jqe66")
 
 [node name="Background" type="Sprite2D" parent="CharacterContainer"]
-position = Vector2(137.5, 52)
-scale = Vector2(1.15, 1.15)
-texture = ExtResource("6_rq4n8")
+position = Vector2(121, 52.5)
+texture = ExtResource("3_meciq")
 
 [node name="Map" type="Sprite2D" parent="CharacterContainer"]
-position = Vector2(137.5, 52)
-scale = Vector2(1.15, 1.15)
+visible = false
+position = Vector2(120, 49)
 texture = ExtResource("4_voggx")
 
 [node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
@@ -274,35 +328,63 @@ libraries = {
 
 [node name="QuestContainer" type="Control" parent="."]
 anchors_preset = 0
-offset_left = -4.0
-offset_top = 9.0
-offset_right = -4.0
-offset_bottom = 9.0
+offset_left = -23.0
+offset_top = 12.0
+offset_right = -23.0
+offset_bottom = 12.0
 mouse_filter = 1
 script = ExtResource("7_gsruu")
 
+[node name="Sprite2D5" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(310, 9)
+scale = Vector2(2, 2)
+texture = ExtResource("14_dlk2j")
+
+[node name="Sprite2D6" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(497, 9)
+scale = Vector2(2, 2)
+texture = ExtResource("14_dlk2j")
+flip_h = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(310, 167)
+scale = Vector2(2, 2)
+texture = ExtResource("14_dlk2j")
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(497, 167)
+scale = Vector2(2, 2)
+texture = ExtResource("14_dlk2j")
+flip_h = true
+flip_v = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(313, 79)
+scale = Vector2(2, 2)
+texture = ExtResource("13_mdiil")
+
 [node name="ColorRect" type="ColorRect" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 311.0
-offset_top = -10.0
-offset_right = 528.0
-offset_bottom = 218.0
+offset_left = 315.0
+offset_right = 491.0
+offset_bottom = 183.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(279, 6.5)
-scale = Vector2(2, 2)
-texture = ExtResource("7_liept")
+[node name="ColorRect2" type="ColorRect" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 309.0
+offset_right = 498.0
+offset_bottom = 172.0
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
-[node name="Sprite2D3" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(279, 150)
-scale = Vector2(2, 2.96875)
-texture = ExtResource("7_liept")
-
-[node name="Sprite2D2" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(279, 70.5)
-scale = Vector2(2, 2)
-texture = ExtResource("8_4cm77")
+[node name="ColorRect3" type="ColorRect" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = -7.0
+offset_right = 492.0
+offset_bottom = 175.0
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
 [node name="OptionButton" type="OptionButton" parent="QuestContainer"]
 layout_mode = 0
@@ -332,11 +414,11 @@ script = ExtResource("5_154nt")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 443.0
-offset_top = 183.0
-offset_right = 483.0
-offset_bottom = 195.0
-scale = Vector2(1.5, 1.5)
+offset_left = 411.0
+offset_top = 150.0
+offset_right = 451.0
+offset_bottom = 162.0
+scale = Vector2(2, 2)
 theme = SubResource("Theme_es6dv")
 texture_normal = ExtResource("10_ja2d1")
 texture_pressed = ExtResource("11_nfuc4")
@@ -346,9 +428,9 @@ texture_hover = ExtResource("12_n6n5a")
 layout_mode = 2
 anchors_preset = 0
 offset_left = 14.0
-offset_top = 219.0
+offset_top = 264.0
 offset_right = 526.0
-offset_bottom = 475.0
+offset_bottom = 520.0
 scale = Vector2(2, 2)
 mouse_filter = 1
 
@@ -359,22 +441,22 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 177.5
-offset_top = -2.0
-offset_right = 225.5
-offset_bottom = 110.0
+offset_left = 168.5
+offset_top = -1.5
+offset_right = 216.5
+offset_bottom = 110.5
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 1
 
 [node name="Table" type="Sprite2D" parent="DragAndDropContainer"]
-position = Vector2(86.5, 52)
+position = Vector2(81, 52)
 texture = ExtResource("3_1y038")
 
 [node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
-offset_left = 1.5
+offset_left = -4.0
 offset_top = -12.0
-offset_right = 193.5
+offset_right = 188.0
 offset_bottom = 100.0
 
 [node name="Inventory3" parent="DragAndDropContainer" instance=ExtResource("1_c6u1d")]
@@ -464,6 +546,16 @@ offset_bottom = 407.0
 texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("12_1ksbc")
 texture_hover = ExtResource("11_repym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, -448)
+scale = Vector2(2, 2)
+texture = ExtResource("22_5tb8k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_o34j8")
+}
 
 [connection signal="item_selected" from="QuestContainer/OptionButton" to="QuestContainer/OptionButton" method="_on_item_selected"]
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
