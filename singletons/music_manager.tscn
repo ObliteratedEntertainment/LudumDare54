@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bw5wykomf33jx"]
+
+[ext_resource type="Script" path="res://singletons/music_manager.gd" id="1_24g5b"]
+[ext_resource type="AudioStream" uid="uid://dua2irnkjxbys" path="res://music/shopkeepers_theme_3d.wav" id="2_uke3t"]
+[ext_resource type="AudioStream" uid="uid://bc5edglrl23kr" path="res://music/deep_forest.wav" id="3_s6l7f"]
+[ext_resource type="AudioStream" uid="uid://b4rnyaj7fx8o4" path="res://music/challenge.wav" id="4_4jppt"]
+
+[node name="MusicManager" type="Node2D"]
+script = ExtResource("1_24g5b")
+
+[node name="Shopkeeper" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uke3t")
+bus = &"Music"
+
+[node name="DeepForest" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s6l7f")
+bus = &"Music"
+
+[node name="Challenge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4jppt")
+bus = &"Music"

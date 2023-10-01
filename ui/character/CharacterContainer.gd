@@ -19,3 +19,4 @@ func set_character(character:Character, state:int):
 	self.character = character
 	sprite_location.add_child(character)
 	quest_text.set_quest(character.get_quest())
+	MusicManager.change_track(character.music_track_index)

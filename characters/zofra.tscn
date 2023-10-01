@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="3_vg03k"]
 
 [node name="Zofra" instance=ExtResource("1_vn3pn")]
+music_track_index = 1
 
 [node name="Neutral" parent="." index="0"]
 texture = ExtResource("2_nhvv5")

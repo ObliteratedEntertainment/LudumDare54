@@ -7,6 +7,8 @@ class_name Character
 @onready var quest_node = $Quest
 @onready var lore_node = $Lore
 
+@export var music_track_index:int
+
 func get_quest():
 	return quest_node.get_child(0)
 
