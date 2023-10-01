@@ -4,10 +4,10 @@ extends ColorRect
 @onready var lore_text = $LoreTextLabel
 
 func _ready():
-	var rewards
 	var quest := GameManager.current_quest
 	# TODO: Use this to change the button from happy to sad?
 	var success = GameManager.quest_successful
+	var rewards
 	if success:
 		rewards = quest.get_success_rewards()
 	else:

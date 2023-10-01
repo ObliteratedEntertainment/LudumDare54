@@ -1,13 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ybgfquxsc5de"]
+[gd_scene load_steps=3 format=3 uid="uid://ybgfquxsc5de"]
 
 [ext_resource type="Script" path="res://quests/base/quest.gd" id="1_hpfed"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="2_xmsws"]
-[ext_resource type="PackedScene" path="res://items/big_sword.tscn" id="3_0y6xo"]
-[ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="4_r3j07"]
-[ext_resource type="PackedScene" path="res://items/boss_key.tscn" id="5_lhfaf"]
-[ext_resource type="PackedScene" path="res://items/green_potion.tscn" id="6_h30vy"]
-[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="7_nq3ll"]
-[ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="8_lxckh"]
 
 [node name="Quest" type="Node2D"]
 script = ExtResource("1_hpfed")
@@ -20,6 +14,7 @@ script = ExtResource("1_hpfed")
 script = ExtResource("2_xmsws")
 
 [node name="Rewards" type="Node2D" parent="."]
+visible = false
 
 [node name="Success" type="Node2D" parent="Rewards"]
 
@@ -27,15 +22,3 @@ script = ExtResource("2_xmsws")
 
 [node name="BaseItems" type="Node2D" parent="."]
 visible = false
-
-[node name="Item" parent="BaseItems" instance=ExtResource("3_0y6xo")]
-
-[node name="Item2" parent="BaseItems" instance=ExtResource("4_r3j07")]
-
-[node name="Item3" parent="BaseItems" instance=ExtResource("5_lhfaf")]
-
-[node name="Item4" parent="BaseItems" instance=ExtResource("6_h30vy")]
-
-[node name="Item5" parent="BaseItems" instance=ExtResource("7_nq3ll")]
-
-[node name="Item6" parent="BaseItems" instance=ExtResource("8_lxckh")]

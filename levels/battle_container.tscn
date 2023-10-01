@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cb8aij5057tln"]
+[gd_scene load_steps=51 format=3 uid="uid://cb8aij5057tln"]
 
 [ext_resource type="Script" path="res://levels/battle_container.gd" id="1_ca0hi"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="2_luyxq"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://ui/battle_items.gd" id="18_qvuta"]
 [ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="19_5qyq6"]
 [ext_resource type="Script" path="res://levels/Results.gd" id="19_x623y"]
+[ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="22_bajjs"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
 resource_name = "Arrive"
@@ -879,6 +880,16 @@ offset_right = 374.0
 offset_bottom = 792.0
 color = Color(0, 0, 0, 0.498039)
 script = ExtResource("19_x623y")
+
+[node name="RewardsLabel" type="Label" parent="Results"]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 66.0
+offset_right = 459.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("22_bajjs")
+theme_override_font_sizes/font_size = 16
+text = "Rewards"
 
 [node name="LoreTextLabel" parent="Results" instance=ExtResource("19_5qyq6")]
 layout_mode = 0

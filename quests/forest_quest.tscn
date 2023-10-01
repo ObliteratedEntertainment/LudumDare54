@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://sran3dkhoeym"]
+[gd_scene load_steps=8 format=3 uid="uid://sran3dkhoeym"]
 
 [ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_73u2s"]
 [ext_resource type="PackedScene" uid="uid://waktpi34wret" path="res://items/base/attack.tscn" id="2_nayqu"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="3_7aq47"]
+[ext_resource type="PackedScene" path="res://items/boss_key.tscn" id="4_t5fug"]
+[ext_resource type="PackedScene" path="res://items/big_sword.tscn" id="5_xq2wg"]
+[ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="6_nln6n"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="7_ibnl6"]
 
 [node name="The Spidery Forest" instance=ExtResource("1_73u2s")]
 region = 2
@@ -28,6 +32,8 @@ text = "Huzzah! The spiders have been defeated and the forest is peaceful once m
 script = ExtResource("3_7aq47")
 text = "And by peaceful I mean completely infested with mosquitoes!  If only they had some natural predator to control their numbers..."
 
+[node name="Item" parent="Rewards/Success" index="1" instance=ExtResource("4_t5fug")]
+
 [node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
 script = ExtResource("3_7aq47")
 text = "The spider webs were too thick!"
@@ -35,3 +41,11 @@ text = "The spider webs were too thick!"
 [node name="thick" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
 script = ExtResource("3_7aq47")
 text = "The webs were more like rope than webs.  We need something to attack the blockages."
+
+[node name="Item" parent="Rewards/Failure" index="1" instance=ExtResource("5_xq2wg")]
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("6_nln6n")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("4_t5fug")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("7_ibnl6")]

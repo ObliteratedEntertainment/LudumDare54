@@ -31,6 +31,8 @@ var quest_successful
 
 var active_scene := Scenes.MAIN_MENU
 
+var reward_items = []
+
 func _ready():
 	quest_accepted.connect(_quest_accepted)
 	character_departed.connect(_character_departed)
@@ -43,6 +45,21 @@ func _ready():
 func _quest_accepted(quest, success):
 	current_quest = quest
 	quest_successful = success
+	var rewards
+	if success:
+		rewards = quest.get_success_rewards()
+	else:
+		rewards = quest.get_failure_rewards()
+	var items = []
+	for r in rewards:
+		if r is Item:
+			var exists = false
+			for i in reward_items:
+				if i.icon == r.icon:
+					exists = true
+					break
+			if !exists:
+				reward_items.append(r)
 
 func _character_departed():
 	index = (index+1)%characters.size()
