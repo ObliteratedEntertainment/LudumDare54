@@ -14,6 +14,7 @@ func _ready():
 	if character != null:
 		set_character(character, 0)
 	GameManager.quest_accepted.connect(_quest_accepted)
+	GameManager.result_accepted.connect(_result_accepted)
 
 func set_character(character:Character, state:int):
 	if character != null:
@@ -32,6 +33,10 @@ func _quest_accepted(success):
 	quest_successful = success
 	character.flip_h(false)
 	animation.play("Leave")
+
+func _result_accepted():
+	character.flip_h(false)
+	animation.play("Depart")
 
 func character_arrived():
 	GameManager.character_arrived.emit()

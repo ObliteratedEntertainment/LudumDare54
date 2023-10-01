@@ -5,6 +5,7 @@ const zofra_prefab = preload("res://characters/zofra.tscn")
 signal character_changed
 
 signal quest_accepted(bool)
+signal result_accepted
 
 signal character_arrived
 signal character_mission_start
