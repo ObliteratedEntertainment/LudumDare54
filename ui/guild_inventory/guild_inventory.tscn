@@ -34,7 +34,7 @@ texture = ExtResource("2_6uilv")
 layout_mode = 1
 offset_left = 16.0
 offset_top = 14.0
-offset_right = 80.0
+offset_right = 64.0
 offset_bottom = 110.0
 
 [node name="HFlowContainer" type="HFlowContainer" parent="MarginContainer"]

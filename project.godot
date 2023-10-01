@@ -23,8 +23,8 @@ MusicManager="*res://singletons/music_manager.tscn"
 
 [display]
 
-window/size/viewport_width=550
-window/size/viewport_height=410
+window/size/viewport_width=502
+window/size/viewport_height=430
 window/stretch/mode="viewport"
 
 [dotnet]

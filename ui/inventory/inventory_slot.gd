@@ -29,10 +29,12 @@ func _ready():
 
 func set_blocked():
 	blocked = true
-	modulate = Color(0,0,0,0)
+	modulate = Color(1,1,1,1)
+
 
 func is_filled() -> bool:
 	return contains_item != null or blocked
+
 
 func highlight(can_place=true):
 	if contains_item == null and can_place:
@@ -41,7 +43,7 @@ func highlight(can_place=true):
 		if displaying != null:
 			displaying.self_modulate = Color.DARK_RED
 		self_modulate = Color.DARK_RED + (Color.WHITE - original_modulation)
-		
+
 
 func unhighlight():
 	self_modulate = original_modulation

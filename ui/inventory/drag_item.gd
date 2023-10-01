@@ -25,7 +25,7 @@ func show_dragging(item: Item):
 	#sprite_2d.size = item.sprite.texture.get_size() * 1.2
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-func hide_dragging(_item: Item):
+func hide_dragging(_item: Item, _is_inventory: bool):
 	visible = false
 	dragging_item = null
 	process_mode = Node.PROCESS_MODE_DISABLED
@@ -35,7 +35,7 @@ func _process(_delta):
 	
 	if Input.is_action_just_released("ui_click") and dragging_item != null:
 		ItemManager.item_dragging_stopped.emit(dragging_item, false)
-		hide_dragging(null)
+		hide_dragging(null, false)
 	
 	if Input.is_action_just_pressed("item_rotate") and dragging_item != null:
 		dragging_item.slot_rotation = (dragging_item.slot_rotation + 90) % 360

@@ -20,6 +20,7 @@ func _ready():
 	icon.region_rect = item.icon.region_rect
 	
 	ItemManager.inventory_added.connect(_on_item_dropped)
+	ItemManager.inventory_rejected.connect(_on_inv_item_removed)
 	ItemManager.inventory_final_remove.connect(_on_inv_item_removed)
 
 

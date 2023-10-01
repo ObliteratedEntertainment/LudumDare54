@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=26 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
 [ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
+[ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="7_aaqdi"]
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
 [ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
@@ -198,7 +199,7 @@ layout_mode = 0
 offset_left = 311.0
 offset_top = -10.0
 offset_right = 528.0
-offset_bottom = 190.0
+offset_bottom = 218.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="QuestContainer"]
@@ -207,8 +208,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("7_liept")
 
 [node name="Sprite2D3" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(279, 134.5)
-scale = Vector2(2, 2)
+position = Vector2(279, 150)
+scale = Vector2(2, 2.96875)
 texture = ExtResource("7_liept")
 
 [node name="Sprite2D2" type="Sprite2D" parent="QuestContainer"]
@@ -218,27 +219,27 @@ texture = ExtResource("8_4cm77")
 
 [node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 316.0
-offset_top = -3.0
-offset_right = 521.0
-offset_bottom = 155.0
-theme_override_fonts/normal_font = ExtResource("10_ag3ut")
-theme_override_fonts/bold_font = ExtResource("10_ag3ut")
-theme_override_fonts/italics_font = ExtResource("10_ag3ut")
-theme_override_fonts/bold_italics_font = ExtResource("10_ag3ut")
-theme_override_fonts/mono_font = ExtResource("10_ag3ut")
-theme_override_font_sizes/normal_font_size = 16
-theme_override_font_sizes/bold_font_size = 16
+offset_left = 322.0
+offset_top = 1.0
+offset_right = 471.0
+offset_bottom = 171.0
+theme_override_fonts/normal_font = ExtResource("7_aaqdi")
+theme_override_fonts/bold_font = ExtResource("7_aaqdi")
+theme_override_fonts/italics_font = ExtResource("7_aaqdi")
+theme_override_fonts/bold_italics_font = ExtResource("7_aaqdi")
+theme_override_fonts/mono_font = ExtResource("7_aaqdi")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 466.0
-offset_top = 150.5
-offset_right = 530.0
-offset_bottom = 182.5
+offset_left = 410.0
+offset_top = 169.5
+offset_right = 474.0
+offset_bottom = 201.5
 theme = SubResource("Theme_es6dv")
 texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("11_repym")
@@ -247,10 +248,10 @@ texture_hover = ExtResource("12_1ksbc")
 [node name="DragAndDropContainer" type="Control" parent="."]
 layout_mode = 2
 anchors_preset = 0
-offset_left = 18.0
-offset_top = 199.0
-offset_right = 530.0
-offset_bottom = 455.0
+offset_left = 14.0
+offset_top = 219.0
+offset_right = 526.0
+offset_bottom = 475.0
 scale = Vector2(2, 2)
 mouse_filter = 1
 

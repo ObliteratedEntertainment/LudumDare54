@@ -6,6 +6,7 @@ signal item_dragging_stopped(Item, is_inventory: bool)
 signal inventory_slot_hovered(InventorySlot, Item)
 signal inventory_slot_dropped(InventorySlot, Item)
 signal inventory_added(Item)
+signal inventory_rejected(Item)
 
 signal inventory_staged_remove(Item)
 signal inventory_final_remove(Item)

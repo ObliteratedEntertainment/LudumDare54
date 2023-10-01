@@ -30,11 +30,12 @@ func _ready():
 
 
 func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
+	if not visible: 
+		return false
 		
-	for item_block in item.get_item_cells():
-		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
-		if hover_slot == null or hover_slot.is_filled():
-			return false
+	if not _check_can_fit(slot, item):
+		ItemManager.inventory_rejected.emit(item)
+		return false
 	
 	
 	# If we none of the inventory slots are filled, lets set this item on them
@@ -49,6 +50,8 @@ func try_item_at_slot(slot: InventorySlot, item: Item) -> bool:
 
 
 func remove_item(item: Item):
+	if not visible: 
+		return
 	
 	for slot in get_children():
 		if slot is InventorySlot:
@@ -58,10 +61,23 @@ func remove_item(item: Item):
 
 
 func _item_rotated(item: Item):
+	if not visible: 
+		return
 	_slot_hovered(last_slot, item)
 
 
+func _check_can_fit(slot: InventorySlot, item: Item):
+	
+	for item_block in item.get_item_cells():
+		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
+		if hover_slot == null or hover_slot.is_filled():
+			return false
+	
+	return true
+
 func _slot_hovered(slot: InventorySlot, item: Item):
+	if not visible: 
+		return
 	
 	if len(last_hover_slots) > 0:
 		for hover_slot in last_hover_slots:
@@ -70,14 +86,7 @@ func _slot_hovered(slot: InventorySlot, item: Item):
 	last_hover_slots.clear()
 	last_slot = slot
 	
-	var can_fit_fully = true
-	for item_block in item.get_item_cells():
-		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
-		if hover_slot == null:
-			can_fit_fully = false
-			break
-		
-		can_fit_fully = can_fit_fully and hover_slot.contains_item == null
+	var can_fit_fully = _check_can_fit(slot, item)
 	
 	for item_block in item.get_item_cells():
 		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
@@ -97,6 +106,9 @@ func _slot_hovered(slot: InventorySlot, item: Item):
 
 
 func _on_stop_drag_item(item: Item,  is_inventory: bool):
+	if not visible: 
+		return
+		
 	_clear_hover()
 	
 	if not is_inventory:
@@ -104,6 +116,8 @@ func _on_stop_drag_item(item: Item,  is_inventory: bool):
 
 
 func _clear_hover():
+	if not visible: 
+		return
 	
 	if len(last_hover_slots) > 0:
 		for hover_slot in last_hover_slots:
