@@ -1,11 +1,13 @@
-[gd_scene load_steps=45 format=3 uid="uid://cb8aij5057tln"]
+[gd_scene load_steps=47 format=3 uid="uid://cb8aij5057tln"]
 
 [ext_resource type="Script" path="res://levels/battle_container.gd" id="1_ca0hi"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="2_luyxq"]
 [ext_resource type="Texture2D" uid="uid://brsfpydsp5iag" path="res://sprites/deep_woods.png" id="3_jkiqr"]
 [ext_resource type="Texture2D" uid="uid://btngksr80bsrf" path="res://sprites/girlie_idle_good.png" id="4_of3s7"]
+[ext_resource type="Script" path="res://ui/battle_destination.gd" id="4_rrnwu"]
 [ext_resource type="Script" path="res://characters/minimap_character.gd" id="5_agbuv"]
 [ext_resource type="Texture2D" uid="uid://byly55x5b0as6" path="res://sprites/girlie_idle_bad.png" id="6_owmdo"]
+[ext_resource type="Texture2D" uid="uid://bslffmokhafep" path="res://sprites/inventory_station.png" id="6_vebju"]
 [ext_resource type="Texture2D" uid="uid://bvibg4aq3tf0v" path="res://sprites/girlie_travel.png" id="7_rx5kd"]
 [ext_resource type="Texture2D" uid="uid://chhsxfctc4eh5" path="res://sprites/gramps_travel.png" id="8_d6pew"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="8_qsoxn"]
@@ -183,9 +185,9 @@ _data = {
 
 [sub_resource type="Curve2D" id="Curve2D_1wavl"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -43, 182, -45.8296, 1.41741, 45.8296, -1.41741, 113, 181, -13.3866, 11.3393, 13.3866, -11.3393, 177, 132, -17.0089, 0.31498, 17.0089, -0.31498, 220, 116, -6.29961, -9.44941, 6.29961, 9.44941, 248, 130, -10.3943, -9.44941, 10.3943, 9.44941, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 332, 165, 0, 0, 0, 0, 362, 147)
+"points": PackedVector2Array(0, 0, 0, 0, 153, 187, -15.6349, 22.6067, 15.6349, -22.6067, 222, 182, -22.1014, -3.69508, 22.1014, 3.69508, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 345, 166, 0, 0, 0, 0, 362, 147)
 }
-point_count = 9
+point_count = 6
 
 [sub_resource type="Animation" id="Animation_2kedx"]
 length = 0.001
@@ -747,9 +749,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_luyxq")
 
 [node name="Destination" type="Sprite2D" parent="."]
-position = Vector2(362, 134)
+position = Vector2(417, 126)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jkiqr")
+script = ExtResource("4_rrnwu")
 
 [node name="Character" type="Control" parent="."]
 anchors_preset = 0
@@ -758,7 +761,7 @@ offset_bottom = 40.0
 script = ExtResource("17_d6rpt")
 
 [node name="SpriteLocation" type="Node2D" parent="Character"]
-position = Vector2(68, 196)
+position = Vector2(64, 196)
 scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
@@ -767,12 +770,18 @@ libraries = {
 "": SubResource("AnimationLibrary_dhnli")
 }
 
+[node name="InventoryStation" type="Sprite2D" parent="."]
+position = Vector2(194, 168)
+scale = Vector2(2, 2)
+texture = ExtResource("6_vebju")
+
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color(0.0588235, 0.0235294, 1, 1)
+position = Vector2(55, -5)
 curve = SubResource("Curve2D_1wavl")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-43, 182)
+position = Vector2(153, 187)
 rotates = false
 
 [node name="PathAnimator" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
