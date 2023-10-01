@@ -9,7 +9,7 @@ const swap_time = 1.0
 
 @onready var tracks = [shopkeeper, deep_forest, challenge]
 
-var time_counter := 0
+var time_counter := 0.0
 var current_track:AudioStreamPlayer
 var last_track:AudioStreamPlayer
 
