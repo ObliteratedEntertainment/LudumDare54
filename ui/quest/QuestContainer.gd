@@ -31,7 +31,7 @@ func select_quest():
 					items.append(r)
 			inventory.set_items(items)
 			accept_button.disabled = false
-		break
+			break
 
 func _on_quest_accept_button_pressed():
 	var quest = selected_quest
