@@ -9,26 +9,25 @@ music_track_index = 2
 
 [node name="Neutral" parent="." index="0"]
 texture = ExtResource("2_pl1vg")
-hframes = 4
-vframes = 3
-frame = 8
+region_enabled = true
+region_rect = Rect2(80, 192, 88, 92)
 
 [node name="Neutral2" parent="." index="1"]
+position = Vector2(1, 0)
 texture = ExtResource("2_pl1vg")
-hframes = 4
-vframes = 3
-frame = 9
+region_enabled = true
+region_rect = Rect2(0, 192, 80, 92)
 
 [node name="Success" parent="." index="2"]
+position = Vector2(-1, 0)
 texture = ExtResource("2_pl1vg")
-hframes = 4
-vframes = 3
-frame = 10
+region_enabled = true
+region_rect = Rect2(168, 192, 80, 92)
 
 [node name="Failure" parent="." index="3"]
+position = Vector2(-3, 0)
 texture = ExtResource("2_pl1vg")
-hframes = 4
-vframes = 3
-frame = 11
+region_enabled = true
+region_rect = Rect2(248, 192, 85, 92)
 
 [node name="The Spidery Forest" parent="Quest" index="0" instance=ExtResource("3_6ykoc")]

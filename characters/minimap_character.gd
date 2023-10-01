@@ -1,7 +1,6 @@
 extends Sprite2D
 
 @export var character_name: Character.CharacterType
-@export var quest_succeed := true
 
 @onready var character_animator = $CharacterAnimator
 
@@ -11,7 +10,7 @@ func _ready():
 		visible = true
 
 func arrived_destination():
-	if quest_succeed:
+	if GameManager.quest_successful:
 		character_animator.play("success")
 	else:
 		character_animator.play("failed")

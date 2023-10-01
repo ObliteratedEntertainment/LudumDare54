@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cb8aij5057tln"]
+[gd_scene load_steps=45 format=3 uid="uid://cb8aij5057tln"]
 
 [ext_resource type="Script" path="res://levels/battle_container.gd" id="1_ca0hi"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="2_luyxq"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://cchkyff5sqmx5" path="res://sprites/goldie_travel.png" id="11_ltrff"]
 [ext_resource type="Texture2D" uid="uid://dmeastg1csg2m" path="res://sprites/goldie_idle_good.png" id="12_wl7xs"]
 [ext_resource type="Texture2D" uid="uid://ccvovoiavp2kl" path="res://sprites/goldie_idle_bad.png" id="13_kic75"]
+[ext_resource type="Script" path="res://ui/battle_character.gd" id="17_d6rpt"]
+[ext_resource type="Script" path="res://ui/battle_items.gd" id="18_qvuta"]
 
 [sub_resource type="Curve2D" id="Curve2D_1wavl"]
 _data = {
@@ -67,6 +69,34 @@ tracks/1/keys = {
 "method": &"arrived_destination"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Tiberius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"arrived_destination"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Goldie")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"arrived_destination"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7u3sf"]
 _data = {
@@ -104,6 +134,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_aloon"]
 resource_name = "failed"
 length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -535,6 +566,168 @@ _data = {
 "success": SubResource("Animation_6vruj")
 }
 
+[sub_resource type="Animation" id="Animation_iw16l"]
+resource_name = "Arrive"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(73, 55)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_arrived"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iq2be"]
+resource_name = "Depart"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(88.5, 56.5), Vector2(-50, 62)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_departed"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7pqff"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(73, 55), Vector2(73, 50), Vector2(73, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_yanyu"]
+resource_name = "Leave"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(73, 55), Vector2(-50, 62)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_left"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ltmo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_fhf7g"]
+resource_name = "Return"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(73, 55)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_return"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
+_data = {
+"Arrive": SubResource("Animation_iw16l"),
+"Depart": SubResource("Animation_iq2be"),
+"Idle": SubResource("Animation_7pqff"),
+"Leave": SubResource("Animation_yanyu"),
+"RESET": SubResource("Animation_ltmo3"),
+"Return": SubResource("Animation_fhf7g")
+}
+
 [node name="BattleContainer" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -587,13 +780,14 @@ libraries = {
 
 [node name="Tiberius" type="Sprite2D" parent="Path2D/PathFollow2D"]
 visible = false
+scale = Vector2(2, 2)
 texture = ExtResource("8_d6pew")
 hframes = 8
 frame = 1
 script = ExtResource("5_agbuv")
 character_name = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D/Tiberius"]
+[node name="CharacterAnimator" type="AnimationPlayer" parent="Path2D/PathFollow2D/Tiberius"]
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_hi5t8")
@@ -601,13 +795,14 @@ libraries = {
 
 [node name="Goldie" type="Sprite2D" parent="Path2D/PathFollow2D"]
 visible = false
-texture = ExtResource("11_ltrff")
-hframes = 4
+scale = Vector2(2, 2)
+texture = ExtResource("12_wl7xs")
+hframes = 8
 frame = 1
 script = ExtResource("5_agbuv")
 character_name = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D/Goldie"]
+[node name="CharacterAnimator" type="AnimationPlayer" parent="Path2D/PathFollow2D/Goldie"]
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_87dmu")
@@ -657,5 +852,29 @@ offset_right = 240.0
 offset_bottom = 261.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("10_ihane")
+
+[node name="Character" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_d6rpt")
+
+[node name="SpriteLocation" type="Node2D" parent="Character"]
+position = Vector2(67, 122)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_dhnli")
+}
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 53.0
+offset_right = 461.0
+offset_bottom = 86.0
+script = ExtResource("18_qvuta")
 
 [connection signal="pressed" from="ResultText/Accept" to="." method="_on_accept_pressed"]

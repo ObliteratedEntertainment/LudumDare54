@@ -12,22 +12,22 @@ music_track_index = 1
 position = Vector2(0, -2)
 texture = ExtResource("2_obr7l")
 region_enabled = true
-region_rect = Rect2(-8, 0, 72, 80)
-
-[node name="Neutral2" parent="." index="1"]
-position = Vector2(7, -2)
-texture = ExtResource("2_obr7l")
-region_enabled = true
 region_rect = Rect2(88, 0, 64, 80)
 
+[node name="Neutral2" parent="." index="1"]
+position = Vector2(-3, -2)
+texture = ExtResource("2_obr7l")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 80)
+
 [node name="Success" parent="." index="2"]
-position = Vector2(2, -2)
+position = Vector2(-5, -2)
 texture = ExtResource("2_obr7l")
 region_enabled = true
 region_rect = Rect2(168, 0, 64, 80)
 
 [node name="Failure" parent="." index="3"]
-position = Vector2(5, -2)
+position = Vector2(-2, -2)
 texture = ExtResource("2_obr7l")
 region_enabled = true
 region_rect = Rect2(256, 0, 64, 80)

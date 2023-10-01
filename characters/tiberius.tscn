@@ -10,22 +10,22 @@ character = 1
 [node name="Neutral" parent="." index="0"]
 texture = ExtResource("2_v71bn")
 region_enabled = true
-region_rect = Rect2(0, 88, 72, 104)
-
-[node name="Neutral2" parent="." index="1"]
-position = Vector2(-1, 0)
-texture = ExtResource("2_v71bn")
-region_enabled = true
 region_rect = Rect2(80, 88, 80, 104)
 
+[node name="Neutral2" parent="." index="1"]
+position = Vector2(1, 0)
+texture = ExtResource("2_v71bn")
+region_enabled = true
+region_rect = Rect2(0, 88, 72, 104)
+
 [node name="Success" parent="." index="2"]
-position = Vector2(2, -4)
+position = Vector2(3, -4)
 texture = ExtResource("2_v71bn")
 region_enabled = true
 region_rect = Rect2(168, 80, 80, 112)
 
 [node name="Failure" parent="." index="3"]
-position = Vector2(1, 0)
+position = Vector2(2, 0)
 texture = ExtResource("2_v71bn")
 region_enabled = true
 region_rect = Rect2(256, 88, 72, 104)
