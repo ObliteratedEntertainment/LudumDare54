@@ -79,8 +79,6 @@ func _slot_hovered(slot: InventorySlot, item: Item):
 		
 		can_fit_fully = can_fit_fully and hover_slot.contains_item == null
 	
-	print("Can fit: ", can_fit_fully)
-	
 	for item_block in item.get_item_cells():
 		var hover_slot = _get_inventory_slot((slot.coord + item_block) - item.item_center)
 		if hover_slot == null:

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4gtuw7obls4"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_h23s6"]
+
+[node name="Flag" type="Node2D"]
+script = ExtResource("1_h23s6")
+stat = 6
+amount = 1

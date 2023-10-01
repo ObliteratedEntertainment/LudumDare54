@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://db3mill5bvuvl"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_ea1n3"]
+
+[node name="RestoreMana" type="Node2D"]
+script = ExtResource("1_ea1n3")
+stat = 4
+amount = 10
