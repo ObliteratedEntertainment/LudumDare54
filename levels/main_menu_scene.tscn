@@ -260,21 +260,21 @@ position = Vector2(191, 352)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_384yu")
 autoplay = "default"
-frame_progress = 0.606577
+frame_progress = 0.0953565
 
 [node name="Zofra" type="AnimatedSprite2D" parent="MapScroller"]
 position = Vector2(241, 346)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_dywp6")
 autoplay = "default"
-frame_progress = 0.270313
+frame_progress = 0.759092
 
 [node name="Goldie" type="AnimatedSprite2D" parent="MapScroller"]
 position = Vector2(291, 340)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7tgb5")
 autoplay = "default"
-frame_progress = 0.955679
+frame_progress = 0.444458
 
 [node name="CharacterMovers" type="AnimationPlayer" parent="MapScroller"]
 autoplay = "idle"

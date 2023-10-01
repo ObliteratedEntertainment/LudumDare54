@@ -1,7 +1,6 @@
 extends Control
 class_name SceneManagement
 
-
 const scene_main_menu = preload("res://levels/main_menu_scene.tscn")
 const scene_battle    = preload("res://levels/battle_container.tscn")
 const scene_shop      = preload("res://levels/shop_scene.tscn")
