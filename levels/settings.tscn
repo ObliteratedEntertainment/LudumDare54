@@ -1,45 +1,45 @@
-[gd_scene load_steps=12 format=3 uid="uid://cjqp6n061pujq"]
+[gd_scene load_steps=16 format=3 uid="uid://cjqp6n061pujq"]
 
 [ext_resource type="Script" path="res://levels/settings.gd" id="1_byrya"]
-[ext_resource type="Texture2D" uid="uid://dqihkb7651xsn" path="res://sprites/TitleBG.png" id="2_f3eox"]
-[ext_resource type="Texture2D" uid="uid://cu21i2ii1srls" path="res://sprites/slider_grabber.png" id="3_j7vbh"]
-[ext_resource type="Texture2D" uid="uid://chbw4gymifrw" path="res://sprites/slider_bg.png" id="4_ujhn4"]
-[ext_resource type="Texture2D" uid="uid://ca1thmhle26xp" path="res://sprites/slider_bg_filled.png" id="5_bbmc2"]
-[ext_resource type="Texture2D" uid="uid://dvsou50crjkce" path="res://sprites/accept.png" id="6_3l5pj"]
+[ext_resource type="Texture2D" uid="uid://c66tay177u7ol" path="res://sprites/title_bg_full.png" id="2_ux7jt"]
+[ext_resource type="Texture2D" uid="uid://wneqrkhu66ap" path="res://sprites/volume_slider.png" id="3_rk6sl"]
+[ext_resource type="Texture2D" uid="uid://cl1e27i5431uk" path="res://sprites/back_btn.png" id="4_xjqns"]
 [ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="7_0oqig"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nppvx"]
-texture = ExtResource("4_ujhn4")
-texture_margin_left = 6.0
-texture_margin_top = 6.0
-texture_margin_right = 6.0
-texture_margin_bottom = 6.0
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_saapw"]
+atlas = ExtResource("3_rk6sl")
+region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqimj"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("5_bbmc2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rydsh"]
+atlas = ExtResource("3_rk6sl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqc8x"]
+atlas = ExtResource("3_rk6sl")
+region = Rect2(0, 0, 48, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pf68h"]
+texture = SubResource("AtlasTexture_aqc8x")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd1q5"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-texture = ExtResource("5_bbmc2")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fw3xt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kix6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3snd"]
+atlas = ExtResource("4_xjqns")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0uql"]
+atlas = ExtResource("4_xjqns")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s404h"]
+atlas = ExtResource("4_xjqns")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5y4k8"]
 font = ExtResource("7_0oqig")
@@ -58,7 +58,7 @@ script = ExtResource("1_byrya")
 [node name="TitleBg" type="Sprite2D" parent="."]
 position = Vector2(240, 240)
 scale = Vector2(2, 2)
-texture = ExtResource("2_f3eox")
+texture = ExtResource("2_ux7jt")
 
 [node name="MainVolume" type="HSlider" parent="."]
 layout_mode = 0
@@ -67,29 +67,30 @@ offset_top = 216.0
 offset_right = 243.0
 offset_bottom = 236.0
 scale = Vector2(2, 2)
-theme_override_icons/grabber = ExtResource("3_j7vbh")
-theme_override_icons/grabber_highlight = ExtResource("3_j7vbh")
-theme_override_icons/grabber_disabled = ExtResource("3_j7vbh")
-theme_override_styles/slider = SubResource("StyleBoxTexture_nppvx")
-theme_override_styles/grabber_area = SubResource("StyleBoxTexture_oqimj")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_fd1q5")
+theme_override_icons/grabber = SubResource("AtlasTexture_saapw")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_rydsh")
+theme_override_styles/slider = SubResource("StyleBoxTexture_pf68h")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_fw3xt")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_kix6k")
 value = 100.0
 
 [node name="Back" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 203.0
-offset_top = 418.0
-offset_right = 245.0
-offset_bottom = 432.0
+offset_left = 416.0
+offset_top = -1.0
+offset_right = 448.0
+offset_bottom = 31.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("6_3l5pj")
+texture_normal = SubResource("AtlasTexture_j3snd")
+texture_pressed = SubResource("AtlasTexture_h0uql")
+texture_hover = SubResource("AtlasTexture_s404h")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 180.0
-offset_right = 238.0
-offset_bottom = 212.0
+offset_left = 74.0
+offset_top = 190.0
+offset_right = 230.0
+offset_bottom = 222.0
 text = "Main Volume"
 label_settings = SubResource("LabelSettings_5y4k8")
 
