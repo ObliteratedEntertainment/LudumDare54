@@ -1,8 +1,9 @@
 extends Node2D
 
 const zofra_prefab = preload("res://characters/zofra.tscn")
-const t_prefab = preload("res://characters/tiberius.tscn")
-const character_prefabs = [zofra_prefab, t_prefab]
+const tiberius_prefab = preload("res://characters/tiberius.tscn")
+#const goldie_prefab = preload("res://characters/goldie.tscn")
+const character_prefabs = [zofra_prefab, tiberius_prefab]#, goldie_prefab]
 
 signal character_changed
 
@@ -14,6 +15,8 @@ signal character_mission_start
 signal character_mission_end
 signal character_departed
 
+var characters:Array[Character]
+
 var character:Character
 var index:int
 
@@ -21,13 +24,11 @@ func _ready():
 	character_departed.connect(_character_departed)
 	# Init first character
 	index = 0
-	_spawn_character()
-
-func _spawn_character():
-	character = character_prefabs[index].instantiate()
+	for c in character_prefabs:
+		characters.append(c.instantiate())
+	character = characters[0]
 
 func _character_departed():
-	character.queue_free()
-	index = (index+1)%character_prefabs.size()
-	_spawn_character()
+	index = (index+1)%characters.size()
+	character = characters[index]
 	character_changed.emit(character)

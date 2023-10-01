@@ -16,6 +16,11 @@ func _ready():
 	GameManager.quest_accepted.connect(_quest_accepted)
 	GameManager.result_accepted.connect(_result_accepted)
 
+func _exit_tree():
+	# Release the character from the tree so they aren't cleared
+	if self.character != null:
+		sprite_location.remove_child(self.character)
+
 func set_character(character:Character):
 	if self.character != null:
 		sprite_location.remove_child(self.character)
