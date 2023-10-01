@@ -1,13 +1,14 @@
 extends Sprite2D
 
+@export var character_name: Character.CharacterType
 @export var quest_succeed := true
 
 @onready var character_animator = $CharacterAnimator
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	if GameManager.character.character == character_name:
+		visible = true
 
 func arrived_destination():
 	if quest_succeed:

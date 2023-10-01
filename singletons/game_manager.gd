@@ -1,5 +1,11 @@
 extends Node2D
 
+enum Scenes {
+	MAIN_MENU,
+	SHOP,
+	BATTLE,
+}
+
 const zofra_prefab = preload("res://characters/zofra.tscn")
 const t_prefab = preload("res://characters/tiberius.tscn")
 const character_prefabs = [zofra_prefab, t_prefab]
@@ -14,8 +20,10 @@ signal character_mission_start
 signal character_mission_end
 signal character_departed
 
-var character:Character
+var character: Character
 var index:int
+
+var active_scene := Scenes.MAIN_MENU
 
 func _ready():
 	character_departed.connect(_character_departed)

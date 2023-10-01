@@ -1,6 +1,14 @@
 extends Node2D
 class_name Character
 
+enum CharacterType {
+	ZOFRA,
+	TIBERIUS,
+	GOLDIE
+}
+
+@export var character: CharacterType
+
 @onready var neutral_sprite = $Neutral
 @onready var success_sprite = $Success
 @onready var failure_sprite = $Failure

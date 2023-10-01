@@ -1,0 +1,388 @@
+[gd_scene load_steps=25 format=3 uid="uid://h6hppa4nlweo"]
+
+[ext_resource type="Script" path="res://ui/shop_scene.gd" id="1_r3x1a"]
+[ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="2_ld0kf"]
+[ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="3_ge432"]
+[ext_resource type="Texture2D" uid="uid://3mjugo5uy3p2" path="res://sprites/bg.png" id="4_u4047"]
+[ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="5_gw6ll"]
+[ext_resource type="Texture2D" uid="uid://bqkfljs6ant83" path="res://sprites/text_bubble_corner.png" id="6_wghw8"]
+[ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="7_846hx"]
+[ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="8_i5smy"]
+[ext_resource type="Script" path="res://ui/quest/quest_selector.gd" id="9_4euak"]
+[ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="10_fr20x"]
+[ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="11_nptme"]
+[ext_resource type="Texture2D" uid="uid://5rbq6la285do" path="res://sprites/accept_fancy_button.png" id="12_jhfnc"]
+[ext_resource type="Texture2D" uid="uid://dyp0ffysgom04" path="res://sprites/accept_fancy_button_hover.png" id="13_m8wlw"]
+[ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="14_7ny5g"]
+[ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="15_sccoj"]
+[ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="16_227au"]
+
+[sub_resource type="Animation" id="Animation_iw16l"]
+resource_name = "Arrive"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(73, 55)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_arrived"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iq2be"]
+resource_name = "Depart"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(88.5, 56.5), Vector2(-50, 62)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_departed"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7pqff"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(73, 55), Vector2(73, 50), Vector2(73, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_yanyu"]
+resource_name = "Leave"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(73, 55), Vector2(-50, 62)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_left"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ltmo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_fhf7g"]
+resource_name = "Return"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(73, 55)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_return"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
+_data = {
+"Arrive": SubResource("Animation_iw16l"),
+"Depart": SubResource("Animation_iq2be"),
+"Idle": SubResource("Animation_7pqff"),
+"Leave": SubResource("Animation_yanyu"),
+"RESET": SubResource("Animation_ltmo3"),
+"Return": SubResource("Animation_fhf7g")
+}
+
+[sub_resource type="Theme" id="Theme_es6dv"]
+
+[node name="ShopScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_r3x1a")
+
+[node name="DragItem" parent="." instance=ExtResource("2_ld0kf")]
+z_index = 4
+layout_mode = 2
+offset_left = 276.0
+offset_top = 1086.0
+offset_right = 316.0
+offset_bottom = 1126.0
+
+[node name="CharacterContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2, 2)
+script = ExtResource("3_ge432")
+
+[node name="Background" type="Sprite2D" parent="CharacterContainer"]
+position = Vector2(121, 52.5)
+texture = ExtResource("4_u4047")
+
+[node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
+position = Vector2(73, 55)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_dhnli")
+}
+
+[node name="QuestContainer" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -23.0
+offset_top = 12.0
+offset_right = -23.0
+offset_bottom = 12.0
+mouse_filter = 1
+script = ExtResource("5_gw6ll")
+
+[node name="Sprite2D5" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(310, 9)
+scale = Vector2(2, 2)
+texture = ExtResource("6_wghw8")
+
+[node name="Sprite2D6" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(497, 9)
+scale = Vector2(2, 2)
+texture = ExtResource("6_wghw8")
+flip_h = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(310, 167)
+scale = Vector2(2, 2)
+texture = ExtResource("6_wghw8")
+flip_v = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(497, 167)
+scale = Vector2(2, 2)
+texture = ExtResource("6_wghw8")
+flip_h = true
+flip_v = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="QuestContainer"]
+position = Vector2(313, 79)
+scale = Vector2(2, 2)
+texture = ExtResource("7_846hx")
+
+[node name="ColorRect" type="ColorRect" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 315.0
+offset_right = 491.0
+offset_bottom = 183.0
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 309.0
+offset_right = 498.0
+offset_bottom = 172.0
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 313.0
+offset_top = -7.0
+offset_right = 492.0
+offset_bottom = 175.0
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
+
+[node name="OptionButton" type="OptionButton" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 321.0
+offset_right = 487.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("8_i5smy")
+theme_override_font_sizes/font_size = 16
+script = ExtResource("9_4euak")
+
+[node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 31.0
+offset_right = 489.0
+offset_bottom = 145.0
+theme_override_fonts/normal_font = ExtResource("8_i5smy")
+theme_override_fonts/bold_font = ExtResource("8_i5smy")
+theme_override_fonts/italics_font = ExtResource("8_i5smy")
+theme_override_fonts/bold_italics_font = ExtResource("8_i5smy")
+theme_override_fonts/mono_font = ExtResource("8_i5smy")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+scroll_following = true
+script = ExtResource("10_fr20x")
+
+[node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 150.0
+offset_right = 451.0
+offset_bottom = 162.0
+scale = Vector2(2, 2)
+theme = SubResource("Theme_es6dv")
+texture_normal = ExtResource("11_nptme")
+texture_pressed = ExtResource("12_jhfnc")
+texture_hover = ExtResource("13_m8wlw")
+
+[node name="DragAndDropContainer" type="Control" parent="."]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 264.0
+offset_right = 526.0
+offset_bottom = 520.0
+scale = Vector2(2, 2)
+mouse_filter = 1
+
+[node name="GuildInventory" parent="DragAndDropContainer" instance=ExtResource("14_7ny5g")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 168.5
+offset_top = -1.5
+offset_right = 216.5
+offset_bottom = 110.5
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="Table" type="Sprite2D" parent="DragAndDropContainer"]
+position = Vector2(81, 52)
+texture = ExtResource("15_sccoj")
+
+[node name="Inventory" parent="DragAndDropContainer" instance=ExtResource("16_227au")]
+offset_left = -4.0
+offset_top = -12.0
+offset_right = 188.0
+offset_bottom = 100.0
+
+[node name="Inventory3" parent="DragAndDropContainer" instance=ExtResource("16_227au")]
+visible = false
+layout_mode = 2
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 3.0
+offset_bottom = 266.0
+
+[node name="Slot36" parent="DragAndDropContainer/Inventory3" index="34"]
+blocked = true
+
+[node name="Slot37" parent="DragAndDropContainer/Inventory3" index="35"]
+blocked = true
+
+[node name="Slot38" parent="DragAndDropContainer/Inventory3" index="36"]
+blocked = true
+
+[node name="Slot39" parent="DragAndDropContainer/Inventory3" index="37"]
+blocked = true
+
+[node name="Slot46" parent="DragAndDropContainer/Inventory3" index="43"]
+blocked = true
+
+[node name="Slot47" parent="DragAndDropContainer/Inventory3" index="44"]
+blocked = true
+
+[node name="Slot48" parent="DragAndDropContainer/Inventory3" index="45"]
+blocked = true
+
+[node name="Slot49" parent="DragAndDropContainer/Inventory3" index="46"]
+blocked = true
+
+[connection signal="item_selected" from="QuestContainer/OptionButton" to="QuestContainer/OptionButton" method="_on_item_selected"]
+[connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
+[connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
+
+[editable path="DragAndDropContainer/Inventory"]
+[editable path="DragAndDropContainer/Inventory3"]

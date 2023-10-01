@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_p2my2"]
 
 [node name="Tiberius" instance=ExtResource("1_pnn26")]
+character = 1
 
 [node name="Neutral" parent="." index="0"]
 visible = false

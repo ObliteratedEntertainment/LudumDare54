@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1lpy4nwap1fs"]
+
+[ext_resource type="Script" path="res://ui/main_menu_scene.gd" id="1_0ojj2"]
+[ext_resource type="Texture2D" uid="uid://dvsou50crjkce" path="res://sprites/accept.png" id="2_e8fr5"]
+
+[node name="MainMenuScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0ojj2")
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 298.0
+offset_right = 254.0
+offset_bottom = 338.0
+texture_normal = ExtResource("2_e8fr5")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
