@@ -6,9 +6,10 @@ signal character_changed
 
 signal quest_accepted(bool)
 
+signal character_arrived
 signal character_mission_start
 signal character_mission_end
-
+signal character_departed
 
 var character:Character
 var state:int

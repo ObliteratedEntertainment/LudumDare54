@@ -23,11 +23,19 @@ func set_character(character:Character, state:int):
 	sprite_location.add_child(character)
 	quest_text.set_quest(character.get_quest())
 	MusicManager.change_track(character.music_track_index)
+	character.disable_sprites()
+	character.flip_h(true)
+	character.neutral_sprite.visible = true
+	animation.play("Arrive")
 
 func _quest_accepted(success):
 	quest_successful = success
 	character.flip_h(false)
 	animation.play("Leave")
+
+func character_arrived():
+	GameManager.character_arrived.emit()
+	animation.play("Idle")
 
 func character_left():
 	GameManager.character_mission_start.emit()
@@ -44,3 +52,6 @@ func character_left():
 func character_return():
 	GameManager.character_mission_end.emit()
 	animation.play("Idle")
+
+func character_departed():
+	GameManager.character_departed.emit()
