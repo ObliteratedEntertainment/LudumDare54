@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://h6hppa4nlweo"]
+[gd_scene load_steps=23 format=3 uid="uid://h6hppa4nlweo"]
 
 [ext_resource type="Script" path="res://ui/shop_scene.gd" id="1_r3x1a"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="2_ld0kf"]
@@ -7,8 +7,6 @@
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="5_gw6ll"]
 [ext_resource type="Texture2D" uid="uid://bqkfljs6ant83" path="res://sprites/text_bubble_corner.png" id="6_wghw8"]
 [ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="7_846hx"]
-[ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="8_i5smy"]
-[ext_resource type="Script" path="res://ui/quest/quest_selector.gd" id="9_4euak"]
 [ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="10_1slqb"]
 [ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="11_nptme"]
 [ext_resource type="Texture2D" uid="uid://5rbq6la285do" path="res://sprites/accept_fancy_button.png" id="12_jhfnc"]
@@ -236,20 +234,20 @@ texture = ExtResource("6_wghw8")
 flip_h = true
 
 [node name="Sprite2D7" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(310, 167)
+position = Vector2(310, 209)
 scale = Vector2(2, 2)
 texture = ExtResource("6_wghw8")
 flip_v = true
 
 [node name="Sprite2D8" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(497, 167)
+position = Vector2(497, 209)
 scale = Vector2(2, 2)
 texture = ExtResource("6_wghw8")
 flip_h = true
 flip_v = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="QuestContainer"]
-position = Vector2(313, 79)
+position = Vector2(313, 127)
 scale = Vector2(2, 2)
 texture = ExtResource("7_846hx")
 
@@ -257,14 +255,14 @@ texture = ExtResource("7_846hx")
 layout_mode = 0
 offset_left = 315.0
 offset_right = 491.0
-offset_bottom = 183.0
+offset_bottom = 225.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="QuestContainer"]
 layout_mode = 0
 offset_left = 309.0
 offset_right = 498.0
-offset_bottom = 172.0
+offset_bottom = 200.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="QuestContainer"]
@@ -275,28 +273,18 @@ offset_right = 492.0
 offset_bottom = 175.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
-[node name="OptionButton" type="OptionButton" parent="QuestContainer"]
-layout_mode = 0
-offset_left = 321.0
-offset_right = 487.0
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("8_i5smy")
-theme_override_font_sizes/font_size = 16
-script = ExtResource("9_4euak")
-
 [node name="LoreTextLabel" parent="QuestContainer" instance=ExtResource("10_1slqb")]
 layout_mode = 0
-offset_left = 317.0
-offset_top = 31.0
+offset_left = 315.0
 offset_right = 489.0
-offset_bottom = 145.0
+offset_bottom = 194.0
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 411.0
-offset_top = 150.0
-offset_right = 451.0
-offset_bottom = 162.0
+offset_left = 416.0
+offset_top = 199.0
+offset_right = 456.0
+offset_bottom = 211.0
 scale = Vector2(2, 2)
 theme = SubResource("Theme_es6dv")
 texture_normal = ExtResource("11_nptme")
@@ -370,7 +358,6 @@ blocked = true
 [node name="Slot49" parent="DragAndDropContainer/Inventory3" index="46"]
 blocked = true
 
-[connection signal="item_selected" from="QuestContainer/OptionButton" to="QuestContainer/OptionButton" method="_on_item_selected"]
 [connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
 
 [editable path="DragAndDropContainer/Inventory"]
