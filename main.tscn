@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=28 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -249,10 +249,10 @@ libraries = {
 
 [node name="QuestContainer" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 23.0
-offset_top = 8.5
-offset_right = 23.0
-offset_bottom = 8.5
+offset_left = -4.0
+offset_top = 9.0
+offset_right = -4.0
+offset_bottom = 9.0
 mouse_filter = 1
 script = ExtResource("7_gsruu")
 
@@ -283,7 +283,7 @@ texture = ExtResource("8_4cm77")
 layout_mode = 0
 offset_left = 322.0
 offset_top = 1.0
-offset_right = 471.0
+offset_right = 495.0
 offset_bottom = 171.0
 theme_override_fonts/normal_font = ExtResource("7_aaqdi")
 theme_override_fonts/bold_font = ExtResource("7_aaqdi")
@@ -298,10 +298,10 @@ script = ExtResource("5_154nt")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 410.0
-offset_top = 169.5
-offset_right = 474.0
-offset_bottom = 201.5
+offset_left = 439.0
+offset_top = 171.0
+offset_right = 503.0
+offset_bottom = 203.0
 theme = SubResource("Theme_es6dv")
 texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("11_repym")
