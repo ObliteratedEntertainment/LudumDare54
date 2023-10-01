@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cqlvmmdix1v1d"]
+[gd_scene load_steps=20 format=3 uid="uid://cqlvmmdix1v1d"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -14,6 +14,90 @@
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
 [ext_resource type="Texture2D" uid="uid://o13ndrnc7ro" path="res://sprites/accept_button_highlight.png" id="11_repym"]
 [ext_resource type="Texture2D" uid="uid://mb7fa33mswfd" path="res://sprites/accept_button_select.png" id="12_1ksbc"]
+
+[sub_resource type="Animation" id="Animation_7pqff"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(88.5, 56.5), Vector2(88.5, 50.5), Vector2(88.5, 56.5)]
+}
+
+[sub_resource type="Animation" id="Animation_yanyu"]
+resource_name = "Leave"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(88.5, 56.5), Vector2(-50, 50)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_left"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fhf7g"]
+resource_name = "Return"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(88.5, 56.5)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_return"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
+_data = {
+"Idle": SubResource("Animation_7pqff"),
+"Leave": SubResource("Animation_yanyu"),
+"Return": SubResource("Animation_fhf7g")
+}
 
 [sub_resource type="Theme" id="Theme_es6dv"]
 
@@ -56,6 +140,12 @@ offset_top = -1.0
 offset_right = 281.0
 offset_bottom = 99.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterContainer"]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_dhnli")
+}
 
 [node name="DragAndDropContainer" type="Control" parent="."]
 custom_minimum_size = Vector2(512, 256)

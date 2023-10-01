@@ -6,6 +6,9 @@ signal character_changed
 
 signal quest_accepted
 
+signal character_mission_start
+signal character_mission_end
+
 
 var character:Character
 var state:int

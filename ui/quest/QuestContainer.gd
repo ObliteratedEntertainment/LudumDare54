@@ -12,8 +12,6 @@ func _process(delta):
 
 
 func _on_quest_accept_button_pressed():
-	GameManager.quest_accepted.emit()
-	
 	var quest = GameManager.character.get_quest()
 
 	var current_inventory_stats = {}
@@ -39,3 +37,4 @@ func _on_quest_accept_button_pressed():
 	else:
 		print("Failed Quest!")
 	
+	GameManager.quest_accepted.emit(passed_quest)
