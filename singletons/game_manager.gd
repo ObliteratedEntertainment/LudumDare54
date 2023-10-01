@@ -2,8 +2,8 @@ extends Node2D
 
 const zofra_prefab = preload("res://characters/zofra.tscn")
 const tiberius_prefab = preload("res://characters/tiberius.tscn")
-#const goldie_prefab = preload("res://characters/goldie.tscn")
-const character_prefabs = [zofra_prefab, tiberius_prefab]#, goldie_prefab]
+const goldie_prefab = preload("res://characters/goldie.tscn")
+const character_prefabs = [zofra_prefab, tiberius_prefab, goldie_prefab]
 
 signal character_changed
 
@@ -26,7 +26,7 @@ func _ready():
 	index = 0
 	for c in character_prefabs:
 		characters.append(c.instantiate())
-	character = characters[0]
+	character = characters[2]
 
 func _character_departed():
 	index = (index+1)%characters.size()

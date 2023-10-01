@@ -15,7 +15,6 @@ region_enabled = true
 region_rect = Rect2(-8, 0, 72, 80)
 
 [node name="Neutral2" parent="." index="1"]
-visible = false
 position = Vector2(7, -2)
 texture = ExtResource("2_obr7l")
 region_enabled = true
