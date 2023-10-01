@@ -19,3 +19,19 @@ text = "And they're HUGE!!!!!"
 [node name="HUGE" type="Node2D" parent="Lore/spiders" index="0"]
 script = ExtResource("3_7aq47")
 text = "I must defeat some and collect their delicious ichor."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("3_7aq47")
+text = "Huzzah! The spiders have been defeated and the forest is peaceful once more!"
+
+[node name="peaceful" type="Node2D" parent="Rewards/Success/Lore" index="0"]
+script = ExtResource("3_7aq47")
+text = "And by peaceful I mean completely infested with mosquitoes!  If only they had some natural predator to control their numbers..."
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("3_7aq47")
+text = "The spider webs were too thick!"
+
+[node name="thick" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("3_7aq47")
+text = "The webs were more like rope than webs.  We need something to attack the blockages."
