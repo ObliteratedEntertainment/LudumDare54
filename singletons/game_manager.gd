@@ -35,10 +35,10 @@ func _ready():
 	quest_accepted.connect(_quest_accepted)
 	character_departed.connect(_character_departed)
 	# Init first character
-	index = 0
+	index = 2
 	for c in character_prefabs:
 		characters.append(c.instantiate())
-	character = characters[0]
+	character = characters[index]
 
 func _quest_accepted(quest, success):
 	current_quest = quest

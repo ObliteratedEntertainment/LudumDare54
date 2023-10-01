@@ -19,11 +19,173 @@
 [ext_resource type="Script" path="res://ui/battle_character.gd" id="17_d6rpt"]
 [ext_resource type="Script" path="res://ui/battle_items.gd" id="18_qvuta"]
 
+[sub_resource type="Animation" id="Animation_iw16l"]
+resource_name = "Arrive"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(73, 55)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_arrived"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iq2be"]
+resource_name = "Depart"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(88.5, 56.5), Vector2(-50, 62)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_departed"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_7pqff"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(73, 55), Vector2(73, 50), Vector2(73, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_yanyu"]
+resource_name = "Leave"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(73, 55), Vector2(-50, 62)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_left"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ltmo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+
+[sub_resource type="Animation" id="Animation_fhf7g"]
+resource_name = "Return"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Character/SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-50, 62), Vector2(73, 55)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"character_return"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
+_data = {
+"Arrive": SubResource("Animation_iw16l"),
+"Depart": SubResource("Animation_iq2be"),
+"Idle": SubResource("Animation_7pqff"),
+"Leave": SubResource("Animation_yanyu"),
+"RESET": SubResource("Animation_ltmo3"),
+"Return": SubResource("Animation_fhf7g")
+}
+
 [sub_resource type="Curve2D" id="Curve2D_1wavl"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -61, 92, -21.7336, 3.46478, 21.7336, -3.46478, 53, 52, -13.2292, -8.81945, 13.2292, 8.81945, 92, 56, -5.35466, -9.76439, 5.35466, 9.76439, 113, 86, -12.2842, -8.81945, 12.2842, 8.81945, 135, 129, -17.0089, 2.20486, 17.0089, -2.20486, 178, 132, -17.0089, 0.31498, 17.0089, -0.31498, 220, 116, -6.29961, -9.44941, 6.29961, 9.44941, 248, 130, -10.3943, -9.44941, 10.3943, 9.44941, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 332, 165, 0, 0, 0, 0, 362, 147)
+"points": PackedVector2Array(0, 0, 0, 0, -43, 182, -45.8296, 1.41741, 45.8296, -1.41741, 113, 181, -13.3866, 11.3393, 13.3866, -11.3393, 177, 132, -17.0089, 0.31498, 17.0089, -0.31498, 220, 116, -6.29961, -9.44941, 6.29961, 9.44941, 248, 130, -10.3943, -9.44941, 10.3943, 9.44941, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 332, 165, 0, 0, 0, 0, 362, 147)
 }
-point_count = 12
+point_count = 9
 
 [sub_resource type="Animation" id="Animation_2kedx"]
 length = 0.001
@@ -566,168 +728,6 @@ _data = {
 "success": SubResource("Animation_6vruj")
 }
 
-[sub_resource type="Animation" id="Animation_iw16l"]
-resource_name = "Arrive"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-50, 62), Vector2(73, 55)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"character_arrived"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_iq2be"]
-resource_name = "Depart"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(88.5, 56.5), Vector2(-50, 62)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"character_departed"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_7pqff"]
-resource_name = "Idle"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(73, 55), Vector2(73, 50), Vector2(73, 55)]
-}
-
-[sub_resource type="Animation" id="Animation_yanyu"]
-resource_name = "Leave"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(73, 55), Vector2(-50, 62)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"character_left"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_ltmo3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(73, 55)]
-}
-
-[sub_resource type="Animation" id="Animation_fhf7g"]
-resource_name = "Return"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Character/SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-50, 62), Vector2(73, 55)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"character_return"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
-_data = {
-"Arrive": SubResource("Animation_iw16l"),
-"Depart": SubResource("Animation_iq2be"),
-"Idle": SubResource("Animation_7pqff"),
-"Leave": SubResource("Animation_yanyu"),
-"RESET": SubResource("Animation_ltmo3"),
-"Return": SubResource("Animation_fhf7g")
-}
-
 [node name="BattleContainer" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -751,12 +751,28 @@ position = Vector2(362, 134)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jkiqr")
 
+[node name="Character" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("17_d6rpt")
+
+[node name="SpriteLocation" type="Node2D" parent="Character"]
+position = Vector2(68, 196)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_dhnli")
+}
+
 [node name="Path2D" type="Path2D" parent="."]
 self_modulate = Color(0.0588235, 0.0235294, 1, 1)
 curve = SubResource("Curve2D_1wavl")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-61, 92)
+position = Vector2(-43, 182)
 rotates = false
 
 [node name="PathAnimator" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
@@ -852,22 +868,6 @@ offset_right = 240.0
 offset_bottom = 261.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("10_ihane")
-
-[node name="Character" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("17_d6rpt")
-
-[node name="SpriteLocation" type="Node2D" parent="Character"]
-position = Vector2(67, 122)
-scale = Vector2(2, 2)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_dhnli")
-}
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 0

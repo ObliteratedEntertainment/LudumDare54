@@ -10,9 +10,10 @@ enum CharacterType {
 @export var character: CharacterType
 
 @onready var neutral_sprite = $Neutral
+@onready var neutral2_sprite = $Neutral2
 @onready var success_sprite = $Success
 @onready var failure_sprite = $Failure
-@onready var sprites = [neutral_sprite, success_sprite, failure_sprite]
+@onready var sprites = [neutral_sprite, neutral2_sprite, success_sprite, failure_sprite]
 
 @onready var quest_node = $Quest
 @onready var lore_node = $Lore

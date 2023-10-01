@@ -5,27 +5,29 @@
 [ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_6ykoc"]
 
 [node name="Character" instance=ExtResource("1_ralo6")]
+character = 2
 music_track_index = 2
 
 [node name="Neutral" parent="." index="0"]
+position = Vector2(10, -46)
 texture = ExtResource("2_pl1vg")
 region_enabled = true
 region_rect = Rect2(80, 192, 88, 92)
 
 [node name="Neutral2" parent="." index="1"]
-position = Vector2(1, 0)
+position = Vector2(11, -46)
 texture = ExtResource("2_pl1vg")
 region_enabled = true
 region_rect = Rect2(0, 192, 80, 92)
 
 [node name="Success" parent="." index="2"]
-position = Vector2(-1, 0)
+position = Vector2(10, -46)
 texture = ExtResource("2_pl1vg")
 region_enabled = true
 region_rect = Rect2(168, 192, 80, 92)
 
 [node name="Failure" parent="." index="3"]
-position = Vector2(-3, 0)
+position = Vector2(6, -46)
 texture = ExtResource("2_pl1vg")
 region_enabled = true
 region_rect = Rect2(248, 192, 85, 92)
