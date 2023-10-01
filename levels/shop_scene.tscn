@@ -286,6 +286,10 @@ script = ExtResource("9_4euak")
 
 [node name="LoreTextLabel" parent="QuestContainer" instance=ExtResource("10_1slqb")]
 layout_mode = 0
+offset_left = 317.0
+offset_top = 31.0
+offset_right = 489.0
+offset_bottom = 145.0
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
