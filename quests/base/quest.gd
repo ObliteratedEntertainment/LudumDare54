@@ -5,7 +5,7 @@ class_name Quest
 @onready var requirements = $StatRequiements
 @onready var lore = $Lore
 @onready var success = $Rewards/Success
-@onready var failure = $Rewards/Success
+@onready var failure = $Rewards/Failure
 
 @export var region:Region.RegionType
 
