@@ -1,7 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjqp6n061pujq"]
+[gd_scene load_steps=12 format=3 uid="uid://cjqp6n061pujq"]
 
 [ext_resource type="Script" path="res://levels/settings.gd" id="1_byrya"]
 [ext_resource type="Texture2D" uid="uid://dqihkb7651xsn" path="res://sprites/TitleBG.png" id="2_f3eox"]
+[ext_resource type="Texture2D" uid="uid://cu21i2ii1srls" path="res://sprites/slider_grabber.png" id="3_j7vbh"]
+[ext_resource type="Texture2D" uid="uid://chbw4gymifrw" path="res://sprites/slider_bg.png" id="4_ujhn4"]
+[ext_resource type="Texture2D" uid="uid://ca1thmhle26xp" path="res://sprites/slider_bg_filled.png" id="5_bbmc2"]
+[ext_resource type="Texture2D" uid="uid://dvsou50crjkce" path="res://sprites/accept.png" id="6_3l5pj"]
+[ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="7_0oqig"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nppvx"]
+texture = ExtResource("4_ujhn4")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oqimj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("5_bbmc2")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd1q5"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+texture = ExtResource("5_bbmc2")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5y4k8"]
+font = ExtResource("7_0oqig")
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -16,3 +59,39 @@ script = ExtResource("1_byrya")
 position = Vector2(240, 240)
 scale = Vector2(2, 2)
 texture = ExtResource("2_f3eox")
+
+[node name="MainVolume" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 216.0
+offset_right = 243.0
+offset_bottom = 236.0
+scale = Vector2(2, 2)
+theme_override_icons/grabber = ExtResource("3_j7vbh")
+theme_override_icons/grabber_highlight = ExtResource("3_j7vbh")
+theme_override_icons/grabber_disabled = ExtResource("3_j7vbh")
+theme_override_styles/slider = SubResource("StyleBoxTexture_nppvx")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_oqimj")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_fd1q5")
+value = 100.0
+
+[node name="Back" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 418.0
+offset_right = 245.0
+offset_bottom = 432.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("6_3l5pj")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 180.0
+offset_right = 238.0
+offset_bottom = 212.0
+text = "Main Volume"
+label_settings = SubResource("LabelSettings_5y4k8")
+
+[connection signal="value_changed" from="MainVolume" to="." method="_on_main_volume_value_changed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

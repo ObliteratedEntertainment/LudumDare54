@@ -2,11 +2,10 @@ extends Control
 
 signal scene_leaving(scene)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+
+func _on_back_pressed():
+	scene_leaving.emit(GameManager.Scenes.MAIN_MENU)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_main_volume_value_changed(value):
+	AudioServer.set_bus_volume_db(0, linear_to_db(value / 100.0))

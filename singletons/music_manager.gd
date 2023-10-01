@@ -17,6 +17,8 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_DISABLED
 	for t in tracks:
 		t.process_mode = Node.PROCESS_MODE_ALWAYS
+	
+	change_track(1)
 
 func change_track(track_num:int):
 	if current_track == tracks[track_num]:
