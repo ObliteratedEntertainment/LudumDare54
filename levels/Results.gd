@@ -15,4 +15,8 @@ func _ready():
 		if r is Lore:
 			lore_text.add_lore_text(r)
 			break
+	var items = []
+	for r in rewards:
+		if r is Item:
+			items.append(r)
 	# TODO: Gather and display reward items
