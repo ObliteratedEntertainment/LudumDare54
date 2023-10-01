@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://sran3dkhoeym"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_73u2s"]
+[ext_resource type="PackedScene" uid="uid://waktpi34wret" path="res://items/base/attack.tscn" id="2_nayqu"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="3_7aq47"]
+
+[node name="The Spidery Forest" instance=ExtResource("1_73u2s")]
+region = 2
+
+[node name="Attack" parent="StatRequiements" index="0" instance=ExtResource("2_nayqu")]
+
+[node name="Lore" parent="." index="2"]
+text = "The forest is full of spiders!!!"
+
+[node name="spiders" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("3_7aq47")
+text = "And they're HUGE!!!!!"
+
+[node name="HUGE" type="Node2D" parent="Lore/spiders" index="0"]
+script = ExtResource("3_7aq47")
+text = "I must defeat some and collect their delicious ichor."

@@ -20,3 +20,4 @@ func _on_quest_result(result: bool):
 
 func _on_accept_pressed():
 	animation_player.play_backwards("slide")
+	GameManager.result_accepted.emit()
