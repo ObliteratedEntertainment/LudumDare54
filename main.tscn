@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=54 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="7_aaqdi"]
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
+[ext_resource type="Script" path="res://ui/quest/quest_selector.gd" id="9_2e7fk"]
 [ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="10_ag3ut"]
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
 [ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="10_ja2d1"]
@@ -192,6 +193,263 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_es6dv"]
 
+[sub_resource type="Curve2D" id="Curve2D_1wavl"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -61, 92, -21.7336, 3.46478, 21.7336, -3.46478, 53, 52, -13.2292, -8.81945, 13.2292, 8.81945, 92, 56, -5.35466, -9.76439, 5.35466, 9.76439, 113, 86, -12.2842, -8.81945, 12.2842, 8.81945, 135, 129, -17.0089, 2.20486, 17.0089, -2.20486, 178, 132, -17.0089, 0.31498, 17.0089, -0.31498, 220, 116, -6.29961, -9.44941, 6.29961, 9.44941, 248, 130, -10.3943, -9.44941, 10.3943, 9.44941, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 332, 165, 0, 0, 0, 0, 362, 147)
+}
+point_count = 12
+
+[sub_resource type="Animation" id="Animation_drndh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Character:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("24_ojnhu")]
+}
+
+[sub_resource type="Animation" id="Animation_aloon"]
+resource_name = "failed"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Character:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("26_nhk4b")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Character:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Character:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_hnbca"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Character:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Character:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("24_b2ngd")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Character:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_ked3d"]
+resource_name = "success"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Character:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("24_ojnhu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Character:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Character:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ot0wn"]
+_data = {
+"RESET": SubResource("Animation_drndh"),
+"failed": SubResource("Animation_aloon"),
+"idle": SubResource("Animation_hnbca"),
+"success": SubResource("Animation_ked3d")
+}
+
+[sub_resource type="Animation" id="Animation_2kedx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rq2lk"]
+resource_name = "path_progress"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"arrived_destination"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7u3sf"]
+_data = {
+"RESET": SubResource("Animation_2kedx"),
+"path_progress": SubResource("Animation_rq2lk")
+}
+
+[sub_resource type="Animation" id="Animation_owwab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 240)]
+}
+
+[sub_resource type="Animation" id="Animation_eq65g"]
+resource_name = "slide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.31864, 1),
+"update": 0,
+"values": [Vector2(0, 240), Vector2(0, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5431"]
+_data = {
+"RESET": SubResource("Animation_owwab"),
+"slide": SubResource("Animation_eq65g")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ryjg"]
+font = ExtResource("10_ag3ut")
+font_size = 50
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_jrm34"]
 length = 0.001
 tracks/0/type = "value"
@@ -243,263 +501,6 @@ _data = {
 "swipe_hide": SubResource("Animation_1imkt"),
 "swipe_show": SubResource("Animation_gw1f2")
 }
-
-[sub_resource type="Curve2D" id="Curve2D_1wavl"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -61, 92, -21.7336, 3.46478, 21.7336, -3.46478, 53, 52, -13.2292, -8.81945, 13.2292, 8.81945, 92, 56, -5.35466, -9.76439, 5.35466, 9.76439, 113, 86, -12.2842, -8.81945, 12.2842, 8.81945, 135, 129, -17.0089, 2.20486, 17.0089, -2.20486, 178, 132, -17.0089, 0.31498, 17.0089, -0.31498, 220, 116, -6.29961, -9.44941, 6.29961, 9.44941, 248, 130, -10.3943, -9.44941, 10.3943, 9.44941, 264, 161, -19.8438, 0, 19.8438, 0, 300, 172, -4.7247, 2.83482, 4.7247, -2.83482, 332, 165, 0, 0, 0, 0, 362, 147)
-}
-point_count = 12
-
-[sub_resource type="Animation" id="Animation_hnbca"]
-resource_name = "idle"
-length = 0.4
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D/Character:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Path2D/PathFollow2D/Character:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("24_b2ngd")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Path2D/PathFollow2D/Character:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-
-[sub_resource type="Animation" id="Animation_drndh"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D/Character:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Path2D/PathFollow2D/Character:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("24_ojnhu")]
-}
-
-[sub_resource type="Animation" id="Animation_ked3d"]
-resource_name = "success"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D/Character:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("24_ojnhu")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Path2D/PathFollow2D/Character:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Path2D/PathFollow2D/Character:hframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-
-[sub_resource type="Animation" id="Animation_aloon"]
-resource_name = "failed"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D/Character:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("26_nhk4b")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Path2D/PathFollow2D/Character:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [8]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Path2D/PathFollow2D/Character:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ot0wn"]
-_data = {
-"RESET": SubResource("Animation_drndh"),
-"failed": SubResource("Animation_aloon"),
-"idle": SubResource("Animation_hnbca"),
-"success": SubResource("Animation_ked3d")
-}
-
-[sub_resource type="Animation" id="Animation_rq2lk"]
-resource_name = "path_progress"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Character")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"arrived_destination"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_2kedx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7u3sf"]
-_data = {
-"RESET": SubResource("Animation_2kedx"),
-"path_progress": SubResource("Animation_rq2lk")
-}
-
-[sub_resource type="Animation" id="Animation_owwab"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 240)]
-}
-
-[sub_resource type="Animation" id="Animation_eq65g"]
-resource_name = "slide"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.31864, 1),
-"update": 0,
-"values": [Vector2(0, 240), Vector2(0, 4)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5431"]
-_data = {
-"RESET": SubResource("Animation_owwab"),
-"slide": SubResource("Animation_eq65g")
-}
-
-[sub_resource type="LabelSettings" id="LabelSettings_7ryjg"]
-font = ExtResource("10_ag3ut")
-font_size = 50
-outline_size = 16
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -598,12 +599,21 @@ offset_right = 492.0
 offset_bottom = 175.0
 color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
+[node name="OptionButton" type="OptionButton" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 322.0
+offset_right = 488.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("7_aaqdi")
+theme_override_font_sizes/font_size = 16
+script = ExtResource("9_2e7fk")
+
 [node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
 layout_mode = 0
 offset_left = 322.0
-offset_top = 8.0
-offset_right = 488.0
-offset_bottom = 151.0
+offset_top = 31.0
+offset_right = 495.0
+offset_bottom = 174.0
 theme_override_fonts/normal_font = ExtResource("7_aaqdi")
 theme_override_fonts/bold_font = ExtResource("7_aaqdi")
 theme_override_fonts/italics_font = ExtResource("7_aaqdi")
@@ -694,17 +704,8 @@ blocked = true
 [node name="Slot49" parent="DragAndDropContainer/Inventory3" index="46"]
 blocked = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(256, -448)
-scale = Vector2(2, 2)
-texture = ExtResource("22_5tb8k")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_o34j8")
-}
-
 [node name="BattleContainer" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -802,6 +803,22 @@ texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("12_1ksbc")
 texture_hover = ExtResource("11_repym")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, -448)
+scale = Vector2(2, 2)
+texture = ExtResource("22_5tb8k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_o34j8")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_o34j8")
+}
+
+[connection signal="item_selected" from="QuestContainer/OptionButton" to="QuestContainer/OptionButton" method="_on_item_selected"]
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 [connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
 [connection signal="pressed" from="ResultContainer/Accept" to="ResultContainer" method="_on_accept_pressed"]

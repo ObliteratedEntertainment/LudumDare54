@@ -8,6 +8,7 @@ class_name Quest
 @onready var failure = $Rewards/Failure
 
 @export var region:Region.RegionType
+@export var completed = false
 
 func get_requirements() -> Array:
 	return requirements.get_children()
