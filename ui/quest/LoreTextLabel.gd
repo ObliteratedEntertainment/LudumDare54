@@ -14,10 +14,10 @@ func set_quest(quest: Quest):
 	lores.clear()
 	self.quest = quest
 	clear()
-	lores.append(quest.lore)
 	add_lore_text(quest.lore)
 
 func add_lore_text(lore:Lore):
+	lores.append(lore)
 	var richtext = lore.text
 	for s in ItemStats.Stat:
 			richtext = richtext.replacen(s, stat_template.replace(stat_pattern, s))

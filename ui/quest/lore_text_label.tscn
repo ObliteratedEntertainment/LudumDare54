@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtknbgyn0etr0"]
+
+[ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="1_dcwau"]
+[ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="2_ych2n"]
+
+[node name="LoreTextLabel" type="RichTextLabel"]
+offset_left = 317.0
+offset_top = 31.0
+offset_right = 489.0
+offset_bottom = 145.0
+theme_override_fonts/normal_font = ExtResource("1_dcwau")
+theme_override_fonts/bold_font = ExtResource("1_dcwau")
+theme_override_fonts/italics_font = ExtResource("1_dcwau")
+theme_override_fonts/bold_italics_font = ExtResource("1_dcwau")
+theme_override_fonts/mono_font = ExtResource("1_dcwau")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
+bbcode_enabled = true
+scroll_following = true
+script = ExtResource("2_ych2n")
+
+[connection signal="meta_clicked" from="." to="." method="_on_meta_clicked"]
