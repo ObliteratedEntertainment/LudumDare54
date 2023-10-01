@@ -34,7 +34,7 @@ func _ready():
 	index = 0
 	for c in character_prefabs:
 		characters.append(c.instantiate())
-	character = characters[2]
+	character = characters[0]
 
 func _character_departed():
 	index = (index+1)%characters.size()
