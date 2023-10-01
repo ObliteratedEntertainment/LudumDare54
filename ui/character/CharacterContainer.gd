@@ -1,7 +1,6 @@
 extends Control
 
 @onready var sprite_location = $SpriteLocation
-@onready var quest_selector = $"../QuestContainer/OptionButton"
 @onready var animation = $AnimationPlayer
 
 @export var character:Character
@@ -24,7 +23,6 @@ func set_character(character:Character):
 		sprite_location.remove_child(self.character)
 	self.character = character
 	sprite_location.add_child(character)
-	quest_selector.set_quests(character.get_quests())
 	MusicManager.change_track(character.music_track_index)
 	character.quest_state(GameManager.quest_successful)
 	character.flip_h(true)
@@ -44,9 +42,9 @@ func character_arrived():
 
 func character_left():
 	GameManager.character_mission_start.emit()
-	character.flip_h(true)
-	character.quest_state(GameManager.quest_successful)
-	animation.play("Return")
+	#character.flip_h(true)
+	#character.quest_state(GameManager.quest_successful)
+	#animation.play("Return")
 	
 func character_return():
 	GameManager.character_mission_end.emit()
