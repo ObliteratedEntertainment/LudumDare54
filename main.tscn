@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=34 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
 [ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
+[ext_resource type="Script" path="res://ui/quest/quest_selector.gd" id="9_2e7fk"]
 [ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="10_ag3ut"]
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
 [ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="10_ja2d1"]
@@ -128,6 +129,21 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ltmo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+
 [sub_resource type="Animation" id="Animation_fhf7g"]
 resource_name = "Return"
 length = 3.0
@@ -156,21 +172,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"character_return"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_ltmo3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteLocation:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(73, 55)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
@@ -303,12 +304,21 @@ position = Vector2(279, 70.5)
 scale = Vector2(2, 2)
 texture = ExtResource("8_4cm77")
 
+[node name="OptionButton" type="OptionButton" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 322.0
+offset_right = 495.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("7_aaqdi")
+theme_override_font_sizes/font_size = 16
+script = ExtResource("9_2e7fk")
+
 [node name="LoreTextLabel" type="RichTextLabel" parent="QuestContainer"]
 layout_mode = 0
 offset_left = 322.0
-offset_top = 1.0
+offset_top = 31.0
 offset_right = 495.0
-offset_bottom = 171.0
+offset_bottom = 174.0
 theme_override_fonts/normal_font = ExtResource("7_aaqdi")
 theme_override_fonts/bold_font = ExtResource("7_aaqdi")
 theme_override_fonts/italics_font = ExtResource("7_aaqdi")
@@ -455,6 +465,7 @@ texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("12_1ksbc")
 texture_hover = ExtResource("11_repym")
 
+[connection signal="item_selected" from="QuestContainer/OptionButton" to="QuestContainer/OptionButton" method="_on_item_selected"]
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 [connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
 [connection signal="pressed" from="ResultContainer/Accept" to="ResultContainer" method="_on_accept_pressed"]

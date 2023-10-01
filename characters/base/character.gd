@@ -11,8 +11,8 @@ class_name Character
 
 @export var music_track_index:int
 
-func get_quest():
-	return quest_node.get_child(0)
+func get_quests():
+	return quest_node.get_children()
 
 func get_lore():
 	return lore_node.get_child(0)

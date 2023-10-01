@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxhi6bpig5vta"]
+[gd_scene load_steps=6 format=3 uid="uid://cxhi6bpig5vta"]
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_vn3pn"]
 [ext_resource type="Texture2D" uid="uid://bsn4j5p2vgsj" path="res://characters/art/young_girl_neutral.png" id="2_eb56k"]
 [ext_resource type="Texture2D" uid="uid://c4uoyj6tp0ab0" path="res://characters/art/charactersketches.png" id="2_nhvv5"]
 [ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="3_vg03k"]
+[ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="5_t1jse"]
 
 [node name="Zofra" instance=ExtResource("1_vn3pn")]
 music_track_index = 1
@@ -26,3 +27,5 @@ vframes = 4
 frame = 2
 
 [node name="Holy Quest to Town" parent="Quest" index="0" instance=ExtResource("3_vg03k")]
+
+[node name="The Spidery Forest" parent="Quest" index="1" instance=ExtResource("5_t1jse")]
