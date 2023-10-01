@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=33 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
 [ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="3_1y038"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
+[ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="4_voggx"]
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
 [ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
@@ -13,8 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
 [ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="10_ag3ut"]
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
+[ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="10_ja2d1"]
+[ext_resource type="Texture2D" uid="uid://5rbq6la285do" path="res://sprites/accept_fancy_button.png" id="11_nfuc4"]
 [ext_resource type="Texture2D" uid="uid://o13ndrnc7ro" path="res://sprites/accept_button_highlight.png" id="11_repym"]
 [ext_resource type="Texture2D" uid="uid://mb7fa33mswfd" path="res://sprites/accept_button_select.png" id="12_1ksbc"]
+[ext_resource type="Texture2D" uid="uid://dyp0ffysgom04" path="res://sprites/accept_fancy_button_hover.png" id="12_n6n5a"]
 [ext_resource type="Script" path="res://ui/result_popup.gd" id="15_7l7lh"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
@@ -30,7 +34,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-50, 62), Vector2(88.5, 56.5)]
+"values": [Vector2(-50, 62), Vector2(73, 55)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -91,7 +95,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(88.5, 56.5), Vector2(88.5, 50.5), Vector2(88.5, 56.5)]
+"values": [Vector2(73, 55), Vector2(73, 50), Vector2(73, 55)]
 }
 
 [sub_resource type="Animation" id="Animation_yanyu"]
@@ -107,7 +111,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(88.5, 56.5), Vector2(-50, 62)]
+"values": [Vector2(73, 55), Vector2(-50, 62)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -137,7 +141,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-50, 62), Vector2(88.5, 56.5)]
+"values": [Vector2(-50, 62), Vector2(73, 55)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -154,12 +158,28 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ltmo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteLocation:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(73, 55)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dhnli"]
 _data = {
 "Arrive": SubResource("Animation_iw16l"),
 "Depart": SubResource("Animation_iq2be"),
 "Idle": SubResource("Animation_7pqff"),
 "Leave": SubResource("Animation_yanyu"),
+"RESET": SubResource("Animation_ltmo3"),
 "Return": SubResource("Animation_fhf7g")
 }
 
@@ -238,8 +258,13 @@ position = Vector2(137.5, 52)
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("6_rq4n8")
 
+[node name="Map" type="Sprite2D" parent="CharacterContainer"]
+position = Vector2(137.5, 52)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("4_voggx")
+
 [node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
-position = Vector2(88.5, 56.5)
+position = Vector2(73, 55)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterContainer"]
 autoplay = "Depart"
@@ -290,22 +315,23 @@ theme_override_fonts/bold_font = ExtResource("7_aaqdi")
 theme_override_fonts/italics_font = ExtResource("7_aaqdi")
 theme_override_fonts/bold_italics_font = ExtResource("7_aaqdi")
 theme_override_fonts/mono_font = ExtResource("7_aaqdi")
-theme_override_font_sizes/normal_font_size = 18
-theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
-offset_left = 439.0
-offset_top = 171.0
-offset_right = 503.0
-offset_bottom = 203.0
+offset_left = 443.0
+offset_top = 183.0
+offset_right = 483.0
+offset_bottom = 195.0
+scale = Vector2(1.5, 1.5)
 theme = SubResource("Theme_es6dv")
-texture_normal = ExtResource("10_amun7")
-texture_pressed = ExtResource("11_repym")
-texture_hover = ExtResource("12_1ksbc")
+texture_normal = ExtResource("10_ja2d1")
+texture_pressed = ExtResource("11_nfuc4")
+texture_hover = ExtResource("12_n6n5a")
 
 [node name="DragAndDropContainer" type="Control" parent="."]
 layout_mode = 2
