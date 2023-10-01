@@ -19,15 +19,14 @@ func _on_quest_accept_button_pressed():
 	var current_inventory_stats = {}
 	
 	for item in ItemManager.active_inventory:
-		print(current_inventory_stats)
 		for stats in item.get_stats():
 			if stats.stat in current_inventory_stats:
 				current_inventory_stats[stats.stat] += stats.amount
 			else:
 				current_inventory_stats[stats.stat] = stats.amount
 
-	print(current_inventory_stats)
 	var passed_quest := true
+	print(current_inventory_stats)
 	
 	for req_stat in quest.get_requirements():
 		if req_stat.stat not in current_inventory_stats:
