@@ -7,7 +7,6 @@
 [node name="Tiberius" instance=ExtResource("1_pnn26")]
 
 [node name="Neutral" parent="." index="0"]
-visible = false
 texture = ExtResource("2_v71bn")
 region_enabled = true
 region_rect = Rect2(0, 88, 72, 104)
