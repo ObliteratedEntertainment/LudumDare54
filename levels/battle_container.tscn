@@ -739,7 +739,7 @@ script = ExtResource("1_ca0hi")
 layout_mode = 0
 offset_right = 480.0
 offset_bottom = 596.0
-color = Color(0, 0, 0, 1)
+color = Color(0.0509804, 0.0313726, 0.101961, 1)
 
 [node name="Map" type="Sprite2D" parent="."]
 position = Vector2(240, 98)
@@ -877,7 +877,7 @@ layout_mode = 0
 offset_top = 196.0
 offset_right = 480.0
 offset_bottom = 792.0
-color = Color(0, 0, 0, 0.54902)
+color = Color(0, 0, 0, 0.498039)
 script = ExtResource("19_x623y")
 
 [node name="LoreTextLabel" parent="Results" instance=ExtResource("19_5qyq6")]
