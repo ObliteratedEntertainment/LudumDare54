@@ -21,18 +21,23 @@ func _ready():
 	
 	ItemManager.inventory_added.connect(_on_item_dropped)
 	ItemManager.inventory_rejected.connect(_on_inv_item_removed)
-	ItemManager.inventory_staged_remove.connect(_on_inv_item_removed)
+	ItemManager.inventory_final_remove.connect(_on_inv_item_removed)
+	ItemManager.item_dragging_stopped.connect(_on_inv_item_removed)
 
 
 func _get_drag_data(_at_position):
 	
+	var copied_item = packed_item.instantiate()
+	copied_item.visible = false
+	add_child(copied_item)
+	
 	item.slot_rotation = 0
 	var data = {
-		"item": item
+		"item": copied_item
 	}
 	
-	ItemManager.item_dragging_started.emit(item)
-	visible = false
+	ItemManager.item_dragging_started.emit(copied_item)
+	#visible = false
 	
 	return data
 
@@ -46,12 +51,14 @@ func _can_drop_data(_at_position, data):
 	return true
 
 func _on_inv_item_removed(removed_item: Item):
-	if item == removed_item and not ItemManager.has_item(removed_item):
-		visible = true
+	pass
+	#if item == removed_item and not ItemManager.has_item(removed_item):
+		#visible = true
 
 func _on_item_dropped(dropped_item: Item):
-	if item == dropped_item:
-		visible = false
+	pass
+	#if item == dropped_item:
+		#visible = false
 
 
 func _on_mouse_entered():
