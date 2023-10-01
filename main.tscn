@@ -388,7 +388,7 @@ color = Color(0.0509804, 0.0313726, 0.101961, 1)
 [node name="OptionButton" type="OptionButton" parent="QuestContainer"]
 layout_mode = 0
 offset_left = 322.0
-offset_right = 495.0
+offset_right = 488.0
 offset_bottom = 20.0
 theme_override_fonts/font = ExtResource("7_aaqdi")
 theme_override_font_sizes/font_size = 16
