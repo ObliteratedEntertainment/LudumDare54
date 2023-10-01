@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_yrsfj")
-available_item_list = [ExtResource("4_xy52p"), ExtResource("6_qxrbv"), ExtResource("6_elcgx"), ExtResource("5_y0aml"), ExtResource("3_ebpkw"), ExtResource("8_o8vgy")]
+available_item_list = Array[PackedScene]([ExtResource("4_xy52p"), ExtResource("6_qxrbv"), ExtResource("6_elcgx"), ExtResource("5_y0aml"), ExtResource("3_ebpkw"), ExtResource("8_o8vgy")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(48, 54)

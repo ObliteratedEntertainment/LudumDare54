@@ -14,6 +14,7 @@ var current_track:AudioStreamPlayer
 var last_track:AudioStreamPlayer
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_DISABLED
 	for t in tracks:
 		t.process_mode = Node.PROCESS_MODE_ALWAYS
 
