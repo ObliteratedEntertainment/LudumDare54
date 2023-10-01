@@ -882,8 +882,10 @@ script = ExtResource("19_x623y")
 
 [node name="LoreTextLabel" parent="Results" instance=ExtResource("19_5qyq6")]
 layout_mode = 0
-offset_right = 480.0
-offset_bottom = 246.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 473.0
+offset_bottom = 236.0
 
 [node name="Accept" type="TextureButton" parent="Results"]
 layout_mode = 0
