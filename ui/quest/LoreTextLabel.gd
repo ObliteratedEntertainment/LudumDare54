@@ -1,5 +1,7 @@
 extends RichTextLabel
 
+#const title_pattern = "title"
+#const title_template = "[b][color=teal][url]title[/url][/color][/b]"
 const lore_pattern = "lore"
 const meta_template = "[b][color=green][url]lore[/url][/color][/b]"
 const stat_pattern = "stat"
@@ -11,7 +13,7 @@ var lores:Array[Lore]
 func set_quest(quest: Quest):
 	lores.clear()
 	self.quest = quest
-	text = "[b]" + quest.name + ":[/b]\n"
+	clear()
 	lores.append(quest.lore)
 	add_lore_text(quest.lore)
 

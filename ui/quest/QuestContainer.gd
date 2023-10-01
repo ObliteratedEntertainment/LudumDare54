@@ -1,15 +1,24 @@
 extends Control
 
+@onready var accept_button = $QuestAcceptButton
+@onready var lore_text = $LoreTextLabel
 
-# Called when the node enters the scene tree for the first time.
+var selected_quest:Quest
+
 func _ready():
+	accept_button.disabled = true
 	GameManager.character_mission_end.connect(_mission_end)
 
 func _mission_end():
 	visible = true
 
+func select_quest(quest:Quest):
+	selected_quest = quest
+	lore_text.set_quest(quest)
+	accept_button.disabled = false
+
 func _on_quest_accept_button_pressed():
-	var quest = GameManager.character.get_quest()
+	var quest = selected_quest
 
 	var current_inventory_stats = {}
 	
@@ -31,8 +40,11 @@ func _on_quest_accept_button_pressed():
 	
 	if passed_quest:
 		print("Passed Quest!")
+		quest.completed = true
 	else:
 		print("Failed Quest!")
 	
 	visible = false
-	GameManager.quest_accepted.emit(passed_quest)
+	accept_button.disabled = true
+	selected_quest = null
+	GameManager.quest_accepted.emit(quest, passed_quest)

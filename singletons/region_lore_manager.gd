@@ -5,8 +5,7 @@ var region_lore = {}
 func _ready():
 	GameManager.quest_accepted.connect(_quest_accepted)
 
-func _quest_accepted(success):
-	var quest:Quest = GameManager.character.get_quest()
+func _quest_accepted(quest:Quest, success):
 	var region_type = quest.region
 	if !(region_type in region_lore):
 		region_lore[region_type] = []

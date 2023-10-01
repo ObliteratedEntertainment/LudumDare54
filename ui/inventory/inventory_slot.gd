@@ -23,13 +23,13 @@ func _ready():
 		set_blocked()
 	
 	original_modulation = self_modulate
-	original_modulation.a = 0.2
+	original_modulation.a = 0.0
 	self_modulate = original_modulation
 
 
 func set_blocked():
 	blocked = true
-	modulate = Color(1,1,1,1)
+	modulate = Color(1,1,1,0)
 
 
 func is_filled() -> bool:
@@ -38,21 +38,23 @@ func is_filled() -> bool:
 
 func highlight(can_place=true):
 	if contains_item == null and can_place:
-		self_modulate = Color.CADET_BLUE + (Color.WHITE - original_modulation)
+		self_modulate = Color.CADET_BLUE
+		self_modulate.a = 0.7
 	else:
 		if displaying != null:
-			displaying.self_modulate = Color.DARK_RED
-		self_modulate = Color.DARK_RED + (Color.WHITE - original_modulation)
+			displaying.self_modulate = Color.INDIAN_RED
+		self_modulate = Color.DARK_RED
+		self_modulate.a = 0.7
 
 
 func unhighlight():
-	self_modulate = original_modulation
+	self_modulate = Color(0,0,0,0)
 	if displaying != null:
 		displaying.self_modulate = Color.WHITE
 
+
 func set_item(item: Item, display: bool):
 	contains_item = item
-	
 	
 	if display:
 		displaying = Sprite2D.new()
@@ -65,6 +67,7 @@ func set_item(item: Item, display: bool):
 		displaying.z_index = 1
 		
 		add_child(displaying)
+
 
 func remove_item(item: Item):
 	if contains_item == item:

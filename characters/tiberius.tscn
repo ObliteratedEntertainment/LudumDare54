@@ -1,27 +1,34 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvppxehcyofyg"]
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_pnn26"]
-[ext_resource type="Texture2D" uid="uid://c4uoyj6tp0ab0" path="res://characters/art/charactersketches.png" id="2_3ciiv"]
+[ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_v71bn"]
 [ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_p2my2"]
 
 [node name="Tiberius" instance=ExtResource("1_pnn26")]
+character = 1
 
 [node name="Neutral" parent="." index="0"]
-texture = ExtResource("2_3ciiv")
-hframes = 3
-vframes = 4
-frame = 3
+position = Vector2(0, -45)
+texture = ExtResource("2_v71bn")
+region_enabled = true
+region_rect = Rect2(80, 88, 80, 104)
 
-[node name="Success" parent="." index="1"]
-texture = ExtResource("2_3ciiv")
-hframes = 3
-vframes = 4
-frame = 4
+[node name="Neutral2" parent="." index="1"]
+position = Vector2(1, -45)
+texture = ExtResource("2_v71bn")
+region_enabled = true
+region_rect = Rect2(0, 88, 72, 104)
 
-[node name="Failure" parent="." index="2"]
-texture = ExtResource("2_3ciiv")
-hframes = 3
-vframes = 4
-frame = 5
+[node name="Success" parent="." index="2"]
+position = Vector2(3, -49)
+texture = ExtResource("2_v71bn")
+region_enabled = true
+region_rect = Rect2(168, 80, 80, 112)
+
+[node name="Failure" parent="." index="3"]
+position = Vector2(2, -45)
+texture = ExtResource("2_v71bn")
+region_enabled = true
+region_rect = Rect2(256, 88, 72, 104)
 
 [node name="The Spidery Forest" parent="Quest" index="0" instance=ExtResource("3_p2my2")]
