@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bob63c27f5ltm"]
+[gd_scene load_steps=10 format=3 uid="uid://bob63c27f5ltm"]
 
 [ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_f7h36"]
 [ext_resource type="PackedScene" uid="uid://da0itpwo2s5ah" path="res://items/base/holy.tscn" id="2_vt8qv"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="3_i4enc"]
 [ext_resource type="PackedScene" path="res://items/green_potion.tscn" id="4_443gy"]
 [ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="5_qcy5x"]
+[ext_resource type="PackedScene" path="res://items/big_sword.tscn" id="6_a4y0c"]
+[ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="7_dvrgq"]
+[ext_resource type="PackedScene" path="res://items/boss_key.tscn" id="8_tye8d"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="9_6hss7"]
 
 [node name="Holy Quest to Town" instance=ExtResource("1_f7h36")]
 
 [node name="Holy" parent="StatRequiements" index="0" instance=ExtResource("2_vt8qv")]
+stat = 1
 amount = 30
 
 [node name="Lore" parent="." index="2"]
@@ -39,3 +44,11 @@ text = "The creatures are the size of a dire wolf and not to be triffled with.  
 [node name="abandoned" type="Node2D" parent="Rewards/Failure/TownRatLore/rats" index="0"]
 script = ExtResource("3_i4enc")
 text = "It's harsh, I know, but have you seen these rats?! They're HUGE!!!"
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("6_a4y0c")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("7_dvrgq")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("8_tye8d")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("9_6hss7")]

@@ -16,12 +16,20 @@ func _mission_end():
 	visible = true
 
 func select_quest():
-	
 	for quest in GameManager.character.get_quests():
 		if not quest.completed:
 			selected_quest = quest
 			lore_text.set_quest(selected_quest)
-			inventory.set_items(selected_quest.get_base_items())
+			var items = selected_quest.get_base_items()
+			for r in GameManager.reward_items:
+				var exists = false
+				for i in items:
+					if i.icon == r.icon:
+						exists = true
+						break
+				if !exists:
+					items.append(r)
+			inventory.set_items(items)
 			accept_button.disabled = false
 		break
 
