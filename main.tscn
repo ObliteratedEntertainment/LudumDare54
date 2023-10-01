@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=40 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
@@ -11,7 +11,6 @@
 [ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="7_aaqdi"]
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
-[ext_resource type="Texture2D" uid="uid://dvxn1aka7pqtk" path="res://sprites/speech_marker.png" id="8_4cm77"]
 [ext_resource type="Script" path="res://ui/quest/quest_selector.gd" id="9_2e7fk"]
 [ext_resource type="FontFile" uid="uid://2etwp4dlewx1" path="res://ui/Alkhemikal.ttf" id="10_ag3ut"]
 [ext_resource type="Texture2D" uid="uid://b6ngdtle8g1ja" path="res://sprites/accept_button_nohighlight.png" id="10_amun7"]
@@ -232,21 +231,6 @@ font_size = 50
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_1imkt"]
-resource_name = "swipe_hide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(256, -438), Vector2(256, 218)]
-}
-
 [sub_resource type="Animation" id="Animation_jrm34"]
 length = 0.001
 tracks/0/type = "value"
@@ -260,6 +244,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(256, -448)]
+}
+
+[sub_resource type="Animation" id="Animation_1imkt"]
+resource_name = "swipe_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, -438), Vector2(256, 218)]
 }
 
 [sub_resource type="Animation" id="Animation_gw1f2"]
