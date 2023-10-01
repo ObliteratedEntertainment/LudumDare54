@@ -2,8 +2,10 @@ extends Node2D
 
 enum Scenes {
 	MAIN_MENU,
+	SETTINGS,
 	SHOP,
 	BATTLE,
+	GAME_OVER
 }
 
 const zofra_prefab = preload("res://characters/zofra.tscn")

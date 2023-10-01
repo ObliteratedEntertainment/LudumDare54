@@ -1,6 +1,6 @@
 extends Control
 
-signal scene_leaving()
+signal scene_leaving(scene)
 
 @onready var path_animator = $Path2D/PathFollow2D/PathAnimator
 
@@ -10,6 +10,6 @@ func _ready():
 
 
 func _on_accept_pressed():
-	scene_leaving.emit()
-	
 	ItemManager.active_inventory.clear()
+	scene_leaving.emit(GameManager.Scenes.SHOP)
+	

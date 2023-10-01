@@ -260,21 +260,21 @@ position = Vector2(191, 352)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_384yu")
 autoplay = "default"
-frame_progress = 0.0953565
+frame_progress = 0.426764
 
 [node name="Zofra" type="AnimatedSprite2D" parent="MapScroller"]
 position = Vector2(241, 346)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_dywp6")
 autoplay = "default"
-frame_progress = 0.759092
+frame_progress = 0.0905009
 
 [node name="Goldie" type="AnimatedSprite2D" parent="MapScroller"]
 position = Vector2(291, 340)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_7tgb5")
 autoplay = "default"
-frame_progress = 0.444458
+frame_progress = 0.775863
 
 [node name="CharacterMovers" type="AnimationPlayer" parent="MapScroller"]
 autoplay = "idle"
@@ -321,3 +321,4 @@ texture_pressed = SubResource("AtlasTexture_mcvjn")
 texture_hover = SubResource("AtlasTexture_0dcbq")
 
 [connection signal="pressed" from="Start" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
