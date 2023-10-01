@@ -1,13 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://dl1byu8hqw4mw"]
+[gd_scene load_steps=39 format=3 uid="uid://dl1byu8hqw4mw"]
 
 [ext_resource type="PackedScene" uid="uid://br7aoq0w2kfm1" path="res://ui/inventory/inventory.tscn" id="1_c6u1d"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="2_lbyju"]
 [ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="3_1y038"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="3_7hncm"]
+[ext_resource type="Texture2D" uid="uid://3mjugo5uy3p2" path="res://sprites/bg.png" id="3_meciq"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="4_voggx"]
 [ext_resource type="Script" path="res://ui/quest/LoreTextLabel.gd" id="5_154nt"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="5_jqe66"]
-[ext_resource type="Texture2D" uid="uid://d0qr8ip752bov" path="res://ui/character/background.png" id="6_rq4n8"]
 [ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="7_aaqdi"]
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="7_gsruu"]
 [ext_resource type="Texture2D" uid="uid://cq6b7sunx4y0" path="res://sprites/speech_border.png" id="7_liept"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="13_mdiil"]
 [ext_resource type="Texture2D" uid="uid://bqkfljs6ant83" path="res://sprites/text_bubble_corner.png" id="14_dlk2j"]
 [ext_resource type="Script" path="res://ui/result_popup.gd" id="15_7l7lh"]
+[ext_resource type="Texture2D" uid="uid://c85ambrefmjbl" path="res://sprites/transition_wipe.png" id="22_5tb8k"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
 resource_name = "Arrive"
@@ -229,6 +230,58 @@ font_size = 50
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_1imkt"]
+resource_name = "swipe_hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, -438), Vector2(256, 218)]
+}
+
+[sub_resource type="Animation" id="Animation_jrm34"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, -448)]
+}
+
+[sub_resource type="Animation" id="Animation_gw1f2"]
+resource_name = "swipe_show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 218), Vector2(256, 928)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o34j8"]
+_data = {
+"RESET": SubResource("Animation_jrm34"),
+"swipe_hide": SubResource("Animation_1imkt"),
+"swipe_show": SubResource("Animation_gw1f2")
+}
+
 [node name="Main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -255,8 +308,8 @@ scale = Vector2(2, 2)
 script = ExtResource("5_jqe66")
 
 [node name="Background" type="Sprite2D" parent="CharacterContainer"]
-position = Vector2(120, 49)
-texture = ExtResource("6_rq4n8")
+position = Vector2(121, 52.5)
+texture = ExtResource("3_meciq")
 
 [node name="Map" type="Sprite2D" parent="CharacterContainer"]
 visible = false
@@ -274,9 +327,9 @@ libraries = {
 [node name="QuestContainer" type="Control" parent="."]
 anchors_preset = 0
 offset_left = -23.0
-offset_top = 10.0
+offset_top = 12.0
 offset_right = -23.0
-offset_bottom = 10.0
+offset_bottom = 12.0
 mouse_filter = 1
 script = ExtResource("7_gsruu")
 
@@ -482,6 +535,16 @@ offset_bottom = 407.0
 texture_normal = ExtResource("10_amun7")
 texture_pressed = ExtResource("12_1ksbc")
 texture_hover = ExtResource("11_repym")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, -448)
+scale = Vector2(2, 2)
+texture = ExtResource("22_5tb8k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_o34j8")
+}
 
 [connection signal="meta_clicked" from="QuestContainer/LoreTextLabel" to="QuestContainer/LoreTextLabel" method="_on_meta_clicked"]
 [connection signal="pressed" from="QuestContainer/QuestAcceptButton" to="QuestContainer" method="_on_quest_accept_button_pressed"]
