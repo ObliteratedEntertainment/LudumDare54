@@ -165,11 +165,6 @@ theme_override_font_sizes/bold_font_size = 16
 bbcode_enabled = true
 scroll_following = true
 script = ExtResource("5_154nt")
-theme_override_fonts/normal_font = ExtResource("10_ag3ut")
-theme_override_fonts/bold_font = ExtResource("10_ag3ut")
-theme_override_fonts/italics_font = ExtResource("10_ag3ut")
-theme_override_fonts/bold_italics_font = ExtResource("10_ag3ut")
-theme_override_fonts/mono_font = ExtResource("10_ag3ut")
 
 [node name="QuestAcceptButton" type="TextureButton" parent="QuestContainer"]
 layout_mode = 0
