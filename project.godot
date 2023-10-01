@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 ItemManager="*res://singletons/item_manager.tscn"
 GameManager="*res://singletons/game_manager.tscn"
 MusicManager="*res://singletons/music_manager.tscn"
+RegionLoreManager="*res://singletons/region_lore_manager.tscn"
 
 [display]
 
