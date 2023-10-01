@@ -1,6 +1,18 @@
 extends Control
 
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	GameManager.character_mission_end.connect(_mission_end)
+
+func _mission_end():
+	visible = true
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+
 func _on_quest_accept_button_pressed():
 	var quest = GameManager.character.get_quest()
 
@@ -27,4 +39,5 @@ func _on_quest_accept_button_pressed():
 	else:
 		print("Failed Quest!")
 	
+	visible = false
 	GameManager.quest_accepted.emit(passed_quest)
