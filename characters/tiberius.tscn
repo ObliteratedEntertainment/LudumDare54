@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_pnn26"]
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_v71bn"]
-[ext_resource type="PackedScene" path="res://quests/karate_tournament_quest.tscn" id="3_tijae"]
+[ext_resource type="PackedScene" uid="uid://s0fh6pn5tkf1" path="res://quests/karate_tournament_quest.tscn" id="3_tijae"]
 [ext_resource type="PackedScene" uid="uid://bpbmlg8wemqmw" path="res://quests/second_tutorial_quest.tscn" id="3_tny6o"]
 [ext_resource type="PackedScene" uid="uid://sk65jtusnljt" path="res://quests/hair_defense.tscn" id="4_rb2ty"]
 

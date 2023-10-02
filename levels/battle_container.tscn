@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cb8aij5057tln"]
+[gd_scene load_steps=52 format=3 uid="uid://cb8aij5057tln"]
 
 [ext_resource type="Script" path="res://levels/battle_container.gd" id="1_ca0hi"]
 [ext_resource type="Texture2D" uid="uid://dpg3qmngv8hls" path="res://sprites/background_map.png" id="2_luyxq"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="8_qsoxn"]
 [ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="9_7t41u"]
 [ext_resource type="Texture2D" uid="uid://nuxqyvoe7m5f" path="res://sprites/gramps_idle_good.png" id="9_embem"]
-[ext_resource type="Texture2D" uid="uid://dvsou50crjkce" path="res://sprites/accept.png" id="10_ihane"]
 [ext_resource type="Texture2D" uid="uid://dw2m8te4bhniy" path="res://sprites/gramps_idle_bad.png" id="10_xs31k"]
 [ext_resource type="Texture2D" uid="uid://cchkyff5sqmx5" path="res://sprites/goldie_travel.png" id="11_ltrff"]
 [ext_resource type="Texture2D" uid="uid://dmeastg1csg2m" path="res://sprites/goldie_idle_good.png" id="12_wl7xs"]
@@ -24,6 +23,9 @@
 [ext_resource type="Script" path="res://ui/battle_items.gd" id="18_qvuta"]
 [ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="19_5qyq6"]
 [ext_resource type="Script" path="res://levels/Results.gd" id="19_x623y"]
+[ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="23_il1ie"]
+[ext_resource type="Texture2D" uid="uid://5rbq6la285do" path="res://sprites/accept_fancy_button.png" id="24_hex02"]
+[ext_resource type="Texture2D" uid="uid://dyp0ffysgom04" path="res://sprites/accept_fancy_button_hover.png" id="25_2m1u3"]
 
 [sub_resource type="Animation" id="Animation_iw16l"]
 resource_name = "Arrive"
@@ -894,7 +896,9 @@ offset_top = 249.0
 offset_right = 240.0
 offset_bottom = 261.0
 scale = Vector2(2, 2)
-texture_normal = ExtResource("10_ihane")
+texture_normal = ExtResource("23_il1ie")
+texture_pressed = ExtResource("24_hex02")
+texture_hover = ExtResource("25_2m1u3")
 
 [node name="HFlowContainer" type="HFlowContainer" parent="."]
 layout_mode = 0
