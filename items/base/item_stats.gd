@@ -12,7 +12,8 @@ enum Stat {
 	KEY,
 	FLAG,
 	PILL,
-	BOOMERANG
+	BOOMERANG,
+	NUNCHUCK,
 	
 }
 

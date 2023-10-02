@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0hpc0ydkr37m"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_sly36"]
+
+[node name="TypeNunchuck" type="Node2D"]
+script = ExtResource("1_sly36")
+stat = 9
+amount = 1

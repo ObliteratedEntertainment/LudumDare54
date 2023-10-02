@@ -32,6 +32,6 @@ texture = ExtResource("2_obr7l")
 region_enabled = true
 region_rect = Rect2(256, 0, 64, 80)
 
-[node name="ZombieEmuQuest" parent="Quest" index="0" instance=ExtResource("3_cm5w2")]
+[node name="The Spidery Forest" parent="Quest" index="0" instance=ExtResource("5_t1jse")]
 
-[node name="The Spidery Forest" parent="Quest" index="1" instance=ExtResource("5_t1jse")]
+[node name="ZombieEmuQuest" parent="Quest" index="1" instance=ExtResource("3_cm5w2")]
