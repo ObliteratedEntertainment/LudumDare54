@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://7f5ydk4irjho"]
+[gd_scene load_steps=7 format=3 uid="uid://7f5ydk4irjho"]
 
 [ext_resource type="PackedScene" uid="uid://bobnpytkcupti" path="res://items/base/item.tscn" id="1_t0cl4"]
 [ext_resource type="Texture2D" uid="uid://dsq7ur2rhxc23" path="res://sprites/item_icons1.png" id="2_g283s"]
 [ext_resource type="Texture2D" uid="uid://dhmm7dtj7vkd7" path="res://sprites/shield_item.png" id="3_girh3"]
 [ext_resource type="PackedScene" uid="uid://d0fwn8bg426t3" path="res://items/base/defense.tscn" id="4_3w6gk"]
 [ext_resource type="PackedScene" uid="uid://c66myqjo8qkl8" path="res://items/base/type_shield.tscn" id="5_wix1o"]
+[ext_resource type="PackedScene" uid="uid://pdeo5v6x18o4" path="res://items/base/type_slot_counter.tscn" id="6_dm8et"]
 
-[node name="Item" instance=ExtResource("1_t0cl4")]
+[node name="Shield" instance=ExtResource("1_t0cl4")]
 cells = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(1, 1)])
 
 [node name="Icon" parent="." index="0"]
@@ -21,3 +22,6 @@ offset = Vector2(8, 8)
 [node name="Defense" parent="Stats" index="0" instance=ExtResource("4_3w6gk")]
 
 [node name="TypeShield" parent="Stats" index="1" instance=ExtResource("5_wix1o")]
+
+[node name="SlotCounter" parent="Stats" index="2" instance=ExtResource("6_dm8et")]
+amount = 4

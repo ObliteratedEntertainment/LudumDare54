@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckn8g6a6m7pw6"]
+[gd_scene load_steps=6 format=3 uid="uid://ckn8g6a6m7pw6"]
 
 [ext_resource type="PackedScene" uid="uid://bobnpytkcupti" path="res://items/base/item.tscn" id="1_ro3sl"]
 [ext_resource type="Texture2D" uid="uid://bi7lg1yj7j11d" path="res://sprites/kebab_icon.png" id="2_6kfv4"]
 [ext_resource type="Texture2D" uid="uid://du6psl7ygslcx" path="res://sprites/kebab.png" id="3_a02fl"]
 [ext_resource type="PackedScene" uid="uid://ch5h0ueo3cq7b" path="res://items/base/type_food.tscn" id="4_acwmb"]
+[ext_resource type="PackedScene" uid="uid://pdeo5v6x18o4" path="res://items/base/type_slot_counter.tscn" id="5_c3igh"]
 
-[node name="Item" instance=ExtResource("1_ro3sl")]
+[node name="Kebab" instance=ExtResource("1_ro3sl")]
 cells = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3), Vector2i(0, 4)])
 item_center = Vector2i(0, 2)
 
@@ -16,4 +17,7 @@ texture = ExtResource("2_6kfv4")
 texture = ExtResource("3_a02fl")
 
 [node name="TypeFood" parent="Stats" index="0" instance=ExtResource("4_acwmb")]
+amount = 5
+
+[node name="SlotCounter" parent="Stats" index="1" instance=ExtResource("5_c3igh")]
 amount = 5

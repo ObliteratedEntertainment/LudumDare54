@@ -20,8 +20,9 @@ enum Stat {
 	STAFF,
 	FISHING_ROD,
 	FOOD,
-	SWORD
+	SWORD,
 	
+	HIDDEN_SLOT_COUNTER
 }
 
 @export var stat: Stat
