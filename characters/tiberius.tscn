@@ -8,7 +8,7 @@
 character = 1
 
 [node name="Neutral" parent="." index="0"]
-position = Vector2(0, -45)
+position = Vector2(0, -44)
 texture = ExtResource("2_v71bn")
 region_enabled = true
 region_rect = Rect2(80, 88, 80, 104)
