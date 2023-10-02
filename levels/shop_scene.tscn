@@ -204,7 +204,7 @@ scale = Vector2(2, 2)
 script = ExtResource("3_ge432")
 
 [node name="Background" type="Sprite2D" parent="CharacterContainer"]
-position = Vector2(120, 64)
+position = Vector2(120, 65)
 texture = ExtResource("4_01q8p")
 
 [node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
