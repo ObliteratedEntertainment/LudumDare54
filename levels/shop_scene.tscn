@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://h6hppa4nlweo"]
+[gd_scene load_steps=25 format=3 uid="uid://h6hppa4nlweo"]
 
 [ext_resource type="Script" path="res://ui/shop_scene.gd" id="1_r3x1a"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="2_ld0kf"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="7_846hx"]
 [ext_resource type="PackedScene" uid="uid://dtknbgyn0etr0" path="res://ui/quest/lore_text_label.tscn" id="10_1slqb"]
 [ext_resource type="Texture2D" uid="uid://da0pb5nnqv163" path="res://sprites/accept_fancy_button_neutral.png" id="11_nptme"]
+[ext_resource type="FontFile" uid="uid://c5yew2avgbgaf" path="res://ui/Kenney_Mini.ttf" id="12_cvkat"]
 [ext_resource type="Texture2D" uid="uid://5rbq6la285do" path="res://sprites/accept_fancy_button.png" id="12_jhfnc"]
+[ext_resource type="Script" path="res://ui/quest/ItemCountLabel.gd" id="13_h1m04"]
 [ext_resource type="Texture2D" uid="uid://dyp0ffysgom04" path="res://sprites/accept_fancy_button_hover.png" id="13_m8wlw"]
 [ext_resource type="PackedScene" uid="uid://djtrj5g657g3j" path="res://ui/guild_inventory/guild_inventory.tscn" id="14_7ny5g"]
 [ext_resource type="Texture2D" uid="uid://5gy84p2y6ixf" path="res://sprites/table.png" id="15_sccoj"]
@@ -290,6 +292,16 @@ theme = SubResource("Theme_es6dv")
 texture_normal = ExtResource("11_nptme")
 texture_pressed = ExtResource("12_jhfnc")
 texture_hover = ExtResource("13_m8wlw")
+
+[node name="ItemCountLabel" type="Label" parent="QuestContainer"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 199.0
+offset_right = 406.0
+offset_bottom = 222.0
+theme_override_fonts/font = ExtResource("12_cvkat")
+theme_override_font_sizes/font_size = 16
+script = ExtResource("13_h1m04")
 
 [node name="DragAndDropContainer" type="Control" parent="."]
 layout_mode = 2

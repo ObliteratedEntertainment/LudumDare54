@@ -8,7 +8,7 @@ class_name Quest
 @onready var failure = $Rewards/Failure
 @onready var base_items = $BaseItems
 
-@export var min_items = 6
+@export var min_items = 1
 @export var region:Region.RegionType
 @export var completed = false
 

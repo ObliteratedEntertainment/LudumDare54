@@ -3,6 +3,7 @@ extends Control
 @onready var accept_button = $QuestAcceptButton
 @onready var lore_text = $LoreTextLabel
 @onready var inventory = $"../DragAndDropContainer/GuildInventory"
+@onready var count_label = $ItemCountLabel
 
 var selected_quest:Quest
 
@@ -29,6 +30,7 @@ func select_quest():
 						break
 				if !exists:
 					items.append(r)
+			count_label.set_minimum(quest.min_items)
 			inventory.set_items(items)
 			accept_button.disabled = false
 			break

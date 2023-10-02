@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_f7h36"]
 [ext_resource type="PackedScene" uid="uid://da0itpwo2s5ah" path="res://items/base/holy.tscn" id="2_vt8qv"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="3_i4enc"]
-[ext_resource type="PackedScene" path="res://items/green_potion.tscn" id="4_443gy"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="4_443gy"]
 [ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="5_qcy5x"]
 [ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="7_dvrgq"]
 [ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="9_6hss7"]
