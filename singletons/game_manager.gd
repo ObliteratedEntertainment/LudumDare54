@@ -68,8 +68,8 @@ func _quest_accepted(quest, success):
 				if i.scene_file_path == r.scene_file_path:
 					exists = true
 					break
-			if !exists:
-				reward_items.append(r)
+			#if !exists:
+				#reward_items.append(r)
 
 func character_departed() -> bool:
 	

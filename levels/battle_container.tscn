@@ -879,7 +879,7 @@ layout_mode = 0
 offset_top = 196.0
 offset_right = 480.0
 offset_bottom = 792.0
-color = Color(0, 0, 0, 0.498039)
+color = Color(0, 0, 0, 0.85098)
 script = ExtResource("19_x623y")
 
 [node name="LoreTextLabel" parent="Results" instance=ExtResource("19_5qyq6")]

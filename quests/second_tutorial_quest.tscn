@@ -10,11 +10,11 @@ min_items = 5
 [node name="Lore" parent="." index="2"]
 text = "Zofra asked Tiberius to bring her 5 swords, but he doesn’t know how to carry them all!"
 
-[node name="5 swords" type="Node2D" parent="Lore" index="0"]
+[node name="carry them all" type="Node2D" parent="Lore" index="0"]
 script = ExtResource("2_re17o")
 text = "While dragging an item, you can press the R key to rotate it."
 
-[node name="R key" type="Node2D" parent="Lore/5 swords" index="0"]
+[node name="R key" type="Node2D" parent="Lore/carry them all" index="0"]
 script = ExtResource("2_re17o")
 text = "R for rotate!"
 

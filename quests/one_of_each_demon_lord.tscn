@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://imtcy35b3v55" path="res://items/base/type_key.tscn" id="5_nkuo6"]
 [ext_resource type="PackedScene" uid="uid://c8gv0ls5unl7v" path="res://items/base/type_fishing.tscn" id="6_yjyx3"]
 [ext_resource type="PackedScene" uid="uid://b4nyfaij84ccd" path="res://items/base/type_armor.tscn" id="7_dq475"]
-[ext_resource type="PackedScene" path="res://items/base/restore_health.tscn" id="8_6tbxq"]
+[ext_resource type="PackedScene" uid="uid://dfg6u6pn4ddh3" path="res://items/base/restore_health.tscn" id="8_6tbxq"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="9_sroeb"]
 [ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="10_1s204"]
 [ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="11_tmbcv"]

@@ -32,7 +32,7 @@ text = "Zofra is aiming to become the greatest weapon master in all of the lands
 
 [node name="weapon master" type="Node2D" parent="Lore" index="0"]
 script = ExtResource("2_bq8ah")
-text = "Zofra needs at least two of each weapon before traveling to the mountains to train"
+text = "Zofra needs at least two of each weapon before traveling to the mountains to train."
 
 [node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
 script = ExtResource("2_bq8ah")
