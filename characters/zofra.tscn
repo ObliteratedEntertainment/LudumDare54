@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_vn3pn"]
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_obr7l"]
 [ext_resource type="PackedScene" uid="uid://dprwxvtxo6h5y" path="res://quests/zombie_emu_quest.tscn" id="3_jxmp7"]
-[ext_resource type="PackedScene" uid="uid://dgqn52ld34yqx" path="res://quests/pill_quest.tscn" id="3_loj8h"]
 [ext_resource type="PackedScene" uid="uid://m21l1x8jbrvg" path="res://quests/first_tutorial_quest.tscn" id="3_m6asa"]
 [ext_resource type="PackedScene" uid="uid://24cf2a0uynt4" path="res://quests/weapon_master.tscn" id="3_nsriq"]
+[ext_resource type="PackedScene" uid="uid://cdrgoubi10vrk" path="res://quests/one_of_each_demon_lord.tscn" id="3_ntkt8"]
 
 [node name="Zofra" instance=ExtResource("1_vn3pn")]
 music_track_index = 1
@@ -38,6 +38,6 @@ region_rect = Rect2(256, 0, 64, 80)
 
 [node name="WeaponMaster" parent="Quest" index="1" instance=ExtResource("3_nsriq")]
 
-[node name="PillQuest" parent="Quest" index="2" instance=ExtResource("3_loj8h")]
+[node name="OneOfEachDemonLord" parent="Quest" index="2" instance=ExtResource("3_ntkt8")]
 
 [node name="ZombieEmuQuest" parent="Quest" index="3" instance=ExtResource("3_jxmp7")]

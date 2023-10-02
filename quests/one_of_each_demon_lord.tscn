@@ -1,0 +1,77 @@
+[gd_scene load_steps=17 format=3 uid="uid://cdrgoubi10vrk"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_h3px7"]
+[ext_resource type="PackedScene" uid="uid://dfr3iwpm6it4" path="res://items/base/type_sword.tscn" id="2_uohel"]
+[ext_resource type="PackedScene" uid="uid://djnkyn4ajsk22" path="res://items/base/type_staff.tscn" id="3_w6lxp"]
+[ext_resource type="PackedScene" uid="uid://b0poqhl4eocjp" path="res://items/base/type_pill.tscn" id="4_ibk7o"]
+[ext_resource type="PackedScene" uid="uid://imtcy35b3v55" path="res://items/base/type_key.tscn" id="5_nkuo6"]
+[ext_resource type="PackedScene" uid="uid://c8gv0ls5unl7v" path="res://items/base/type_fishing.tscn" id="6_yjyx3"]
+[ext_resource type="PackedScene" uid="uid://b4nyfaij84ccd" path="res://items/base/type_armor.tscn" id="7_dq475"]
+[ext_resource type="PackedScene" path="res://items/base/restore_health.tscn" id="8_6tbxq"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="9_sroeb"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="10_1s204"]
+[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="11_tmbcv"]
+[ext_resource type="PackedScene" uid="uid://bkkymw1qarjpp" path="res://items/boss_key.tscn" id="12_amxx4"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="13_dwvm1"]
+[ext_resource type="PackedScene" uid="uid://bgsyvxpvt6wbx" path="res://items/fishing_rod.tscn" id="14_jkgyx"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="15_f7sr5"]
+[ext_resource type="PackedScene" uid="uid://dasufswsifsqh" path="res://items/med_pill.tscn" id="16_85ese"]
+
+[node name="OneOfEachDemonLord" instance=ExtResource("1_h3px7")]
+min_items = 6
+region = 2
+
+[node name="TypeSword" parent="StatRequiements" index="0" instance=ExtResource("2_uohel")]
+
+[node name="TypeStaff" parent="StatRequiements" index="1" instance=ExtResource("3_w6lxp")]
+
+[node name="Pill" parent="StatRequiements" index="2" instance=ExtResource("4_ibk7o")]
+
+[node name="Key" parent="StatRequiements" index="3" instance=ExtResource("5_nkuo6")]
+
+[node name="TypeFishing" parent="StatRequiements" index="4" instance=ExtResource("6_yjyx3")]
+
+[node name="TypeArmor" parent="StatRequiements" index="5" instance=ExtResource("7_dq475")]
+
+[node name="RestoreHealth" parent="StatRequiements" index="6" instance=ExtResource("8_6tbxq")]
+
+[node name="Lore" parent="." index="2"]
+text = "The time has come for Zofra to battle the demon lord!!!"
+
+[node name="battle" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("9_sroeb")
+text = "The encounter will require a variety of tools as one never knows what form the demon lord might take."
+
+[node name="form" type="Node2D" parent="Lore/battle" index="0"]
+script = ExtResource("9_sroeb")
+text = "Some say the demon lord is a mage. Others say the demon lord is a warrior. Less reliable others say the demon lord is a fish."
+
+[node name="fish" type="Node2D" parent="Lore/battle/form" index="0"]
+script = ExtResource("9_sroeb")
+text = "Best be prepared, just in case"
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("9_sroeb")
+text = "As it turns out, the demon lord was a warrior-mage-fish!!! Good thing Zofra was prepared."
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("9_sroeb")
+text = "The demon lord turned out to be a warrior-mage- fish! We were unprepared."
+
+[node name="unprepared" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("9_sroeb")
+text = "One of each available item will be needed to defeat this fiend."
+
+[node name="BigSword" parent="BaseItems" index="0" instance=ExtResource("10_1s204")]
+
+[node name="BlueArmor" parent="BaseItems" index="1" instance=ExtResource("11_tmbcv")]
+
+[node name="BossKey" parent="BaseItems" index="2" instance=ExtResource("12_amxx4")]
+
+[node name="DarkStaff" parent="BaseItems" index="3" instance=ExtResource("13_dwvm1")]
+
+[node name="FishingRod" parent="BaseItems" index="4" instance=ExtResource("14_jkgyx")]
+
+[node name="GreenPotion" parent="BaseItems" index="5" instance=ExtResource("15_f7sr5")]
+
+[node name="MedPill" parent="BaseItems" index="6" instance=ExtResource("16_85ese")]

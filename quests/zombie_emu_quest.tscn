@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://dprwxvtxo6h5y"]
 
 [ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_kj5wx"]
-[ext_resource type="PackedScene" uid="uid://b4gtuw7obls4" path="res://items/base/type_flag.tscn" id="2_wengv"]
+[ext_resource type="PackedScene" path="res://items/base/type_flag.tscn" id="2_wengv"]
 [ext_resource type="PackedScene" uid="uid://ctmeqvjw0clrl" path="res://items/base/type_boomerang.tscn" id="3_2il54"]
 [ext_resource type="Script" path="res://quests/base/lore.gd" id="4_jwnyx"]
 [ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="5_4p0rq"]
