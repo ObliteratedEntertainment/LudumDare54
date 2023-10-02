@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxhi6bpig5vta"]
+[gd_scene load_steps=7 format=3 uid="uid://cxhi6bpig5vta"]
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_vn3pn"]
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_obr7l"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dgqn52ld34yqx" path="res://quests/pill_quest.tscn" id="3_loj8h"]
 [ext_resource type="PackedScene" uid="uid://m21l1x8jbrvg" path="res://quests/first_tutorial_quest.tscn" id="3_m6asa"]
 [ext_resource type="PackedScene" uid="uid://24cf2a0uynt4" path="res://quests/weapon_master.tscn" id="3_nsriq"]
-[ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="3_vg03k"]
-[ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="5_t1jse"]
 
 [node name="Zofra" instance=ExtResource("1_vn3pn")]
 music_track_index = 1
@@ -36,14 +34,10 @@ texture = ExtResource("2_obr7l")
 region_enabled = true
 region_rect = Rect2(256, 0, 64, 80)
 
-[node name="WeaponMaster" parent="Quest" index="0" instance=ExtResource("3_nsriq")]
+[node name="FirstTutorialQuest" parent="Quest" index="0" instance=ExtResource("3_m6asa")]
 
-[node name="FirstTutorialQuest" parent="Quest" index="1" instance=ExtResource("3_m6asa")]
+[node name="WeaponMaster" parent="Quest" index="1" instance=ExtResource("3_nsriq")]
 
-[node name="Holy Quest to Town" parent="Quest" index="2" instance=ExtResource("3_vg03k")]
+[node name="PillQuest" parent="Quest" index="2" instance=ExtResource("3_loj8h")]
 
 [node name="ZombieEmuQuest" parent="Quest" index="3" instance=ExtResource("3_jxmp7")]
-
-[node name="PillQuest" parent="Quest" index="4" instance=ExtResource("3_loj8h")]
-
-[node name="The Spidery Forest" parent="Quest" index="5" instance=ExtResource("5_t1jse")]
