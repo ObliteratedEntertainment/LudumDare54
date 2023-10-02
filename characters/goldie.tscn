@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_pl1vg"]
 [ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_6ykoc"]
 
-[node name="Character" instance=ExtResource("1_ralo6")]
+[node name="Goldie" instance=ExtResource("1_ralo6")]
 character = 2
 music_track_index = 2
 

@@ -16,7 +16,6 @@ script = ExtResource("1_60pnd")
 
 [node name="ScreenWipe" parent="." instance=ExtResource("23_c0tyl")]
 z_index = 100
-position = Vector2(256, -448)
 
 [connection signal="scene_hidden" from="ScreenWipe" to="." method="_on_screen_wipe_scene_hidden"]
 [connection signal="scene_showing" from="ScreenWipe" to="." method="_on_screen_wipe_scene_showing"]
