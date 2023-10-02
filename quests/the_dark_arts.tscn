@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnxgrydnko4cx"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_lefjp"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_ivdex"]
+[ext_resource type="PackedScene" uid="uid://umk0nrjyqss0" path="res://items/base/type_amulet.tscn" id="2_rcjho"]
+[ext_resource type="PackedScene" uid="uid://djnkyn4ajsk22" path="res://items/base/type_staff.tscn" id="3_cvhb8"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="5_7q3o1"]
+[ext_resource type="PackedScene" uid="uid://dmeobr5c72nyy" path="res://items/amulet.tscn" id="6_w4l3j"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="7_dnxfo"]
+[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="8_s2d8o"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="9_y4ykv"]
+
+[node name="The Dark Arts" instance=ExtResource("1_lefjp")]
+min_items = 6
+region = 2
+
+[node name="TypeAmulet" parent="StatRequiements" index="0" instance=ExtResource("2_rcjho")]
+amount = 2
+
+[node name="TypeStaff" parent="StatRequiements" index="1" instance=ExtResource("3_cvhb8")]
+amount = 4
+
+[node name="Lore" parent="." index="2"]
+text = "Tiberius is really concerned about his hair lately and has turned to newer methods to grow his hair."
+
+[node name="newer methods" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_ivdex")
+text = "He heard that if you place four staves into the ground and hold a gem in each hand, your hair will shine new again."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("2_ivdex")
+text = "As Tiberius grasped at the amulets in his hands, he could feel a warmth flow over every strand of hair in his head. Tiberius felt as if the surrounding area was almost faintly illuminated by his hair. His hair’s natural glow and luster had been restored!"
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("2_ivdex")
+text = "The magic backfired and took a chunk of hair off the top of his head! Tiberius is one unhappy customer."
+
+[node name="magic" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("2_ivdex")
+text = "The magic spell needs exactly four wooden staves and two items with a gem embedded in them."
+
+[node name="Item4" parent="BaseItems" index="0" instance=ExtResource("8_s2d8o")]
+
+[node name="Item5" parent="BaseItems" index="1" instance=ExtResource("9_y4ykv")]
+
+[node name="Item" parent="BaseItems" index="2" instance=ExtResource("5_7q3o1")]
+
+[node name="Item2" parent="BaseItems" index="3" instance=ExtResource("6_w4l3j")]
+
+[node name="Item3" parent="BaseItems" index="4" instance=ExtResource("7_dnxfo")]
