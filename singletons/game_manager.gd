@@ -21,7 +21,8 @@ signal result_accepted
 signal character_arrived
 signal character_mission_start
 signal character_mission_end
-signal character_departed
+
+signal game_complete
 
 var characters:Array[Character]
 
@@ -37,11 +38,18 @@ var reward_items = []
 
 func _ready():
 	quest_accepted.connect(_quest_accepted)
-	character_departed.connect(_character_departed)
+	
 	# Init first character
 	index = 0
 	for c in character_prefabs:
-		characters.append(c.instantiate())
+		
+		var node = c.instantiate()
+		characters.append(node)
+		
+		# Quickly add and remove to fully ready the character object
+		add_child(node)
+		remove_child(node)
+		
 	character = characters[index]
 
 func _quest_accepted(quest, success):
@@ -63,9 +71,37 @@ func _quest_accepted(quest, success):
 			if !exists:
 				reward_items.append(r)
 
-func _character_departed():
-	index = (index+1)%characters.size()
-	character = characters[index]
-	current_quest = null
-	quest_successful = null
-	character_changed.emit(character)
+func character_departed() -> bool:
+	
+	var checked_characters = 0
+	
+	while checked_characters < characters.size():
+		checked_characters += 1
+		
+		index = (index+1)%characters.size()
+		
+		
+		character = characters[index]
+		
+		#var test_added = false
+		#if character.get_parent() == null:
+			#test_added = true
+			#add_child(character)
+		
+		var available := false
+		for quest in character.get_quests():
+			available = available or not quest.completed
+		
+		#if test_added:
+			#remove_child(character)
+		
+		if available:
+			print("Character has unfinished quest available: ", character)
+			current_quest = null
+			quest_successful = null
+			#character_changed.emit(character)
+			return false
+	
+	# If we couldn't find any characters with unfinished quests, we finished the game!
+	game_complete.emit()
+	return true

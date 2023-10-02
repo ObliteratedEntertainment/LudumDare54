@@ -10,6 +10,14 @@ func _ready():
 
 
 func _on_accept_pressed():
-	ItemManager.active_inventory.clear()
-	scene_leaving.emit(GameManager.Scenes.SHOP)
+	
+	var game_over = false
+	
+	if GameManager.quest_successful:
+		game_over = GameManager.character_departed()
+	
+	if not game_over:
+		ItemManager.active_inventory.clear()
+		scene_leaving.emit(GameManager.Scenes.SHOP)
+	
 	

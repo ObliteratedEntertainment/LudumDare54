@@ -13,6 +13,8 @@ var current_scene
 
 func _ready():
 	load_scene()
+	
+	GameManager.game_complete.connect(_on_game_over)
 
 
 func load_scene():
@@ -49,6 +51,10 @@ func _on_screen_wipe_scene_hidden():
 
 func _on_screen_wipe_scene_showing():
 	pass # Replace with function body.
+
+
+func _on_game_over():
+	_on_transition(GameManager.Scenes.GAME_OVER)
 
 
 func _on_transition(scene):

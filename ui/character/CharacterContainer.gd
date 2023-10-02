@@ -51,4 +51,4 @@ func character_return():
 	animation.play("Idle")
 
 func character_departed():
-	GameManager.character_departed.emit()
+	pass

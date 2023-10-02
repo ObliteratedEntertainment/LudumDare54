@@ -759,7 +759,7 @@ offset_bottom = 40.0
 script = ExtResource("17_d6rpt")
 
 [node name="SpriteLocation" type="Node2D" parent="Character"]
-position = Vector2(64, 196)
+position = Vector2(57, 196)
 scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character"]

@@ -84,12 +84,13 @@ _data = {
 }
 
 [node name="ScreenWipe" type="Sprite2D"]
-position = Vector2(256, 928)
+position = Vector2(256, -448)
 scale = Vector2(2, 2)
 texture = ExtResource("1_2nhcq")
 script = ExtResource("2_pikmu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_o34j8")
 }
