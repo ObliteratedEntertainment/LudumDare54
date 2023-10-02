@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_pnn26"]
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_v71bn"]
-[ext_resource type="PackedScene" uid="uid://bob63c27f5ltm" path="res://quests/holy_quest.tscn" id="3_xlale"]
+[ext_resource type="PackedScene" uid="uid://s0fh6pn5tkf1" path="res://quests/karate_tournament_quest.tscn" id="3_tijae"]
 
 [node name="Tiberius" instance=ExtResource("1_pnn26")]
 character = 1
@@ -31,4 +31,4 @@ texture = ExtResource("2_v71bn")
 region_enabled = true
 region_rect = Rect2(256, 88, 72, 104)
 
-[node name="Holy Quest to Town" parent="Quest" index="0" instance=ExtResource("3_xlale")]
+[node name="KarateTournament" parent="Quest" index="0" instance=ExtResource("3_tijae")]
