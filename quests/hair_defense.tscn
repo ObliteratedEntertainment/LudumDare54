@@ -33,11 +33,15 @@ text = "Tiberius is well known in town for his majestic hair and he must protect
 
 [node name="hair" type="Node2D" parent="Lore" index="0"]
 script = ExtResource("2_ehir6")
-text = "There are some new products in PILL form that help keep your hair healthy."
+text = "There are some new hair products that come in PILL form. Doctor said three PILLs would work well."
 
 [node name="protect" type="Node2D" parent="Lore" index="1"]
 script = ExtResource("2_ehir6")
-text = "As much defense as possible will shield his hair while in combat."
+text = "Defensive items will help shield his hair while in combat."
+
+[node name="in combat" type="Node2D" parent="Lore/protect" index="0"]
+script = ExtResource("2_ehir6")
+text = "Tiberius prefers as much body armor as possible, but will use shields where they fit."
 
 [node name="MedPill" parent="Rewards/Success" index="0" instance=ExtResource("3_xsuo0")]
 
