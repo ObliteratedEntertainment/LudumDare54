@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui/shop_scene.gd" id="1_r3x1a"]
 [ext_resource type="PackedScene" uid="uid://634q8wglwew8" path="res://ui/drag_item.tscn" id="2_ld0kf"]
 [ext_resource type="Script" path="res://ui/character/CharacterContainer.gd" id="3_ge432"]
-[ext_resource type="Texture2D" uid="uid://3mjugo5uy3p2" path="res://sprites/bg.png" id="4_u4047"]
+[ext_resource type="Texture2D" uid="uid://djekcntuevgma" path="res://ui/backgroundwip.png" id="4_01q8p"]
 [ext_resource type="Script" path="res://ui/quest/QuestContainer.gd" id="5_gw6ll"]
 [ext_resource type="Texture2D" uid="uid://bqkfljs6ant83" path="res://sprites/text_bubble_corner.png" id="6_wghw8"]
 [ext_resource type="Texture2D" uid="uid://cu4xiy1etgtcj" path="res://sprites/text_bubble_triangle.png" id="7_846hx"]
@@ -204,8 +204,8 @@ scale = Vector2(2, 2)
 script = ExtResource("3_ge432")
 
 [node name="Background" type="Sprite2D" parent="CharacterContainer"]
-position = Vector2(121, 52.5)
-texture = ExtResource("4_u4047")
+position = Vector2(120, 64)
+texture = ExtResource("4_01q8p")
 
 [node name="SpriteLocation" type="Node2D" parent="CharacterContainer"]
 position = Vector2(73, 55)
