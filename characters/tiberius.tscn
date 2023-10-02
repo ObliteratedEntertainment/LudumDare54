@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_pnn26"]
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_v71bn"]
-[ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_p2my2"]
 [ext_resource type="PackedScene" uid="uid://bpbmlg8wemqmw" path="res://quests/second_tutorial_quest.tscn" id="3_tny6o"]
+[ext_resource type="PackedScene" uid="uid://s0fh6pn5tkf1" path="res://quests/karate_tournament_quest.tscn" id="3_tijae"]
 
 [node name="Tiberius" instance=ExtResource("1_pnn26")]
 character = 1
@@ -33,5 +33,4 @@ region_enabled = true
 region_rect = Rect2(256, 88, 72, 104)
 
 [node name="SecondTutorialQuest" parent="Quest" index="0" instance=ExtResource("3_tny6o")]
-
-[node name="The Spidery Forest" parent="Quest" index="1" instance=ExtResource("3_p2my2")]
+[node name="KarateTournament" parent="Quest" index="0" instance=ExtResource("3_tijae")]

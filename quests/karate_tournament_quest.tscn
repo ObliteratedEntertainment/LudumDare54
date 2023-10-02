@@ -1,0 +1,84 @@
+[gd_scene load_steps=16 format=3 uid="uid://s0fh6pn5tkf1"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_1xspd"]
+[ext_resource type="PackedScene" uid="uid://d0hpc0ydkr37m" path="res://items/base/type_nunchuck.tscn" id="2_f4cm7"]
+[ext_resource type="PackedScene" uid="uid://b0poqhl4eocjp" path="res://items/base/type_pill.tscn" id="3_cpjoq"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="4_qwj6b"]
+[ext_resource type="PackedScene" uid="uid://dmeobr5c72nyy" path="res://items/amulet.tscn" id="5_3dlec"]
+[ext_resource type="PackedScene" path="res://items/big_sword.tscn" id="6_p5613"]
+[ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="7_cuym2"]
+[ext_resource type="PackedScene" uid="uid://6x8k7v20so14" path="res://items/boomerang.tscn" id="8_f2val"]
+[ext_resource type="PackedScene" path="res://items/boss_key.tscn" id="9_77l4g"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="10_e8hb1"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="11_r5j4e"]
+[ext_resource type="PackedScene" uid="uid://dasufswsifsqh" path="res://items/med_pill.tscn" id="12_4vgf1"]
+[ext_resource type="PackedScene" uid="uid://5vn3mpdyx2y3" path="res://items/nunchuck.tscn" id="13_rgwgc"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="14_jimhx"]
+[ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="15_fs6qk"]
+
+[node name="KarateTournament" instance=ExtResource("1_1xspd")]
+min_items = 10
+region = 3
+
+[node name="TypeNunchuck" parent="StatRequiements" index="0" instance=ExtResource("2_f4cm7")]
+amount = 8
+
+[node name="Pill" parent="StatRequiements" index="1" instance=ExtResource("3_cpjoq")]
+amount = 5
+
+[node name="Lore" parent="." index="2"]
+text = "A karate tournament is being held in the mountains nearby and they need supplies."
+
+[node name="karate" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("4_qwj6b")
+text = "Karate is a martial art involving strikes and use of traditional weapons."
+
+[node name="supplies" type="Node2D" parent="Lore" index="1"]
+script = ExtResource("4_qwj6b")
+text = "They have plenty of fists, feet, and other bodily weapons, but they would like some traditional weapons as well."
+
+[node name="traditional weapons" type="Node2D" parent="Lore/supplies" index="0"]
+script = ExtResource("4_qwj6b")
+text = "For some reason we have a great bounty of nunchucks. Too bad they don’t pack easily. But that’s why we hired you!"
+
+[node name="bodily" type="Node2D" parent="Lore/supplies" index="1"]
+script = ExtResource("4_qwj6b")
+text = "Karate is hard on the body. After packing all the nunchucks we can, we should fill the remaining space with pills to help with the pain."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("4_qwj6b")
+text = "The tournament was a sight to behold and will not soon be forgotten."
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("4_qwj6b")
+text = "The tournament organizers are disappointed and tell you to return with more supplies."
+
+[node name="disappointed" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("4_qwj6b")
+text = "They tell you could be much stronger if you carried a heavier load of goods up the mountain.  They might even let you compete!"
+
+[node name="supplies" type="Node2D" parent="Rewards/Failure/Lore" index="1"]
+script = ExtResource("4_qwj6b")
+text = "Judging from the participants, you think they need at least 8 nunchucks and 5 pills to make the event a success."
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("5_3dlec")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("6_p5613")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("7_cuym2")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("8_f2val")]
+
+[node name="Item5" parent="BaseItems" index="4" instance=ExtResource("9_77l4g")]
+
+[node name="Item6" parent="BaseItems" index="5" instance=ExtResource("10_e8hb1")]
+
+[node name="Item7" parent="BaseItems" index="6" instance=ExtResource("11_r5j4e")]
+
+[node name="Item8" parent="BaseItems" index="7" instance=ExtResource("12_4vgf1")]
+
+[node name="Item9" parent="BaseItems" index="8" instance=ExtResource("13_rgwgc")]
+
+[node name="Item10" parent="BaseItems" index="9" instance=ExtResource("14_jimhx")]
+
+[node name="Item11" parent="BaseItems" index="10" instance=ExtResource("15_fs6qk")]
