@@ -13,6 +13,7 @@
 
 [node name="WeaponMaster" instance=ExtResource("1_66jld")]
 min_items = 8
+region = 3
 
 [node name="TypeNunchuck" parent="StatRequiements" index="0" instance=ExtResource("2_jbnff")]
 amount = 2
