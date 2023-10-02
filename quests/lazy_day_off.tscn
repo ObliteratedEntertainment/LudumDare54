@@ -68,6 +68,20 @@ text = "Goldie’s friend needs his own set of supplies, but they could share th
 script = ExtResource("2_h8n5h")
 text = "Goldie really wanted to pack his favorite toy and lucky amulets."
 
+[node name="toy" type="Node2D" parent="Rewards/Failure/Lore/bag" index="0"]
+script = ExtResource("2_h8n5h")
+text = "Goldie really likes to chase after things that can be thrown."
+
+[node name="Item" parent="Rewards/Failure" index="1" instance=ExtResource("5_6xmxe")]
+
+[node name="Item2" parent="Rewards/Failure" index="2" instance=ExtResource("2_a4ugo")]
+
+[node name="Item3" parent="Rewards/Failure" index="3" instance=ExtResource("3_ahw18")]
+
+[node name="Item4" parent="Rewards/Failure" index="4" instance=ExtResource("6_cs7y4")]
+
+[node name="Item5" parent="Rewards/Failure" index="5" instance=ExtResource("2_cr1u7")]
+
 [node name="Item" parent="BaseItems" index="0" instance=ExtResource("2_a4ugo")]
 
 [node name="Item2" parent="BaseItems" index="1" instance=ExtResource("3_ahw18")]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://24cf2a0uynt4"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_66jld"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="2_akn1w"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_bq8ah"]
+[ext_resource type="PackedScene" uid="uid://dt7d4hfm20wrg" path="res://items/base/type_nunchuck.tscn" id="2_jbnff"]
+[ext_resource type="PackedScene" uid="uid://6x8k7v20so14" path="res://items/boomerang.tscn" id="3_mxlfx"]
+[ext_resource type="PackedScene" uid="uid://ctmeqvjw0clrl" path="res://items/base/type_boomerang.tscn" id="3_st7hy"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="4_4iija"]
+[ext_resource type="PackedScene" uid="uid://djnkyn4ajsk22" path="res://items/base/type_staff.tscn" id="4_q6w03"]
+[ext_resource type="PackedScene" uid="uid://dfr3iwpm6it4" path="res://items/base/type_sword.tscn" id="5_se1yq"]
+[ext_resource type="PackedScene" uid="uid://5vn3mpdyx2y3" path="res://items/nunchuck.tscn" id="5_xv0vh"]
+
+[node name="WeaponMaster" instance=ExtResource("1_66jld")]
+min_items = 8
+
+[node name="TypeNunchuck" parent="StatRequiements" index="0" instance=ExtResource("2_jbnff")]
+amount = 2
+
+[node name="TypeBoomerang" parent="StatRequiements" index="1" instance=ExtResource("3_st7hy")]
+amount = 2
+
+[node name="TypeStaff" parent="StatRequiements" index="2" instance=ExtResource("4_q6w03")]
+amount = 2
+
+[node name="TypeSword" parent="StatRequiements" index="3" instance=ExtResource("5_se1yq")]
+amount = 2
+
+[node name="Lore" parent="." index="2"]
+text = "Zofra is aiming to become the greatest weapon master in all of the lands. "
+
+[node name="weapon master" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_bq8ah")
+text = "Zofra needs at least two of each weapon before traveling to the mountains to train"
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("2_bq8ah")
+text = "After training intensely in the mountains for a month, Zofra emerges as a peak level weapon master. With the new ability to dual wield any type of weapon, Zofra is ready to take down the demon lord and his army."
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("2_bq8ah")
+text = "This defeat is a temporary setback for the determined Zofra. She will return to the mountains with two of each weapon to completely master their use in dual wielding."
+
+[node name="two of each weapon" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("2_bq8ah")
+text = "Zofra is determined to master dual wielding of all weapons."
+
+[node name="weapon" type="Node2D" parent="Rewards/Failure/Lore/two of each weapon" index="0"]
+script = ExtResource("2_bq8ah")
+text = "There are four types of weapons that Zofra wants to master."
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("2_akn1w")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("3_mxlfx")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("4_4iija")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("5_xv0vh")]
