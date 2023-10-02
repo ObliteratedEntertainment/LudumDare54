@@ -42,7 +42,7 @@ text = "Chicken brains are not very large, so only one emu can decimate a chicke
 
 [node name="dealt with" type="Node2D" parent="Lore" index="2"]
 script = ExtResource("4_jwnyx")
-text = "A team armed with traditional emu hunting weapons should be able to get the job done if they can communicate."
+text = "A team armed with long ranged traditional emu hunting weapons should be able to get the job done if they can communicate."
 
 [node name="communicate" type="Node2D" parent="Lore/dealt with" index="0"]
 script = ExtResource("4_jwnyx")
