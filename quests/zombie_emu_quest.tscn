@@ -1,0 +1,97 @@
+[gd_scene load_steps=15 format=3 uid="uid://jqj1aydh2ieb"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_kj5wx"]
+[ext_resource type="PackedScene" path="res://items/base/type_flag.tscn" id="2_wengv"]
+[ext_resource type="PackedScene" uid="uid://vi7ixej0pwqj" path="res://items/base/type_boomerang.tscn" id="3_2il54"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="4_jwnyx"]
+[ext_resource type="PackedScene" path="res://items/big_sword.tscn" id="5_4p0rq"]
+[ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="6_j63dh"]
+[ext_resource type="PackedScene" uid="uid://6x8k7v20so14" path="res://items/boomerang.tscn" id="7_cfiev"]
+[ext_resource type="PackedScene" path="res://items/boss_key.tscn" id="8_lrs70"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="9_dd5ye"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="10_xygf7"]
+[ext_resource type="PackedScene" uid="uid://dasufswsifsqh" path="res://items/med_pill.tscn" id="11_31f6s"]
+[ext_resource type="PackedScene" uid="uid://5vn3mpdyx2y3" path="res://items/nunchuck.tscn" id="12_d8bd0"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="13_30s1g"]
+[ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="14_yhik5"]
+
+[node name="ZombieEmuQuest" instance=ExtResource("1_kj5wx")]
+min_items = 8
+region = 1
+
+[node name="Flag" parent="StatRequiements" index="0" instance=ExtResource("2_wengv")]
+amount = 2
+
+[node name="TypeBoomerang" parent="StatRequiements" index="1" instance=ExtResource("3_2il54")]
+amount = 11
+
+[node name="Lore" parent="." index="2"]
+text = "Zombie Swamp Emus have become a menace and need to be dealt with!"
+
+[node name="Zombie Swamp Emus" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("4_jwnyx")
+text = "They are undead emus which infest the local swamp. Beware their poisonous beak."
+
+[node name="menace" type="Node2D" parent="Lore" index="1"]
+script = ExtResource("4_jwnyx")
+text = "They have developed a hunger for chicken brains."
+
+[node name="chicken brains" type="Node2D" parent="Lore/menace" index="0"]
+script = ExtResource("4_jwnyx")
+text = "Chicken brains are not very large, so only one emu can decimate a chicken population before it’s satisfied."
+
+[node name="dealt with" type="Node2D" parent="Lore" index="2"]
+script = ExtResource("4_jwnyx")
+text = "A team armed with traditional emu hunting weapons should be able to get the job done if they can communicate."
+
+[node name="communicate" type="Node2D" parent="Lore/dealt with" index="0"]
+script = ExtResource("4_jwnyx")
+text = "Local hunters are well versed in semaphore to share knowledge over long distances."
+
+[node name="semaphore" type="Node2D" parent="Lore/dealt with/communicate" index="0"]
+script = ExtResource("4_jwnyx")
+text = "It’s a system of communication using flags.  One might look foolish waving their arms around, but can’t argue with the results."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("4_jwnyx")
+text = "The Zombie Swamp Emus are no more."
+
+[node name="no more" type="Node2D" parent="Rewards/Success/Lore" index="0"]
+script = ExtResource("4_jwnyx")
+text = "It was a gruesome battle.  At least each missed throw means the boomerangs come back."
+
+[node name="gruesome" type="Node2D" parent="Rewards/Success/Lore/no more" index="0"]
+script = ExtResource("4_jwnyx")
+text = "What on earth are we supposed to do with all these bludgeoned to death zombie emu corpses…"
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("4_jwnyx")
+text = "We failed badly because we didn’t have both the right emu hunting weapons and communication gear."
+
+[node name="emu hunting weapons" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("4_jwnyx")
+text = "Good thing there’s a large supply of boomerangs. We’ll need as many as we can carry."
+
+[node name="communication gear" type="Node2D" parent="Rewards/Failure/Lore" index="1"]
+script = ExtResource("4_jwnyx")
+text = "Flags (and enough controlled arm flailing) can be used to send whole books (if you have the stamina)"
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("5_4p0rq")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("6_j63dh")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("7_cfiev")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("8_lrs70")]
+
+[node name="Item5" parent="BaseItems" index="4" instance=ExtResource("9_dd5ye")]
+
+[node name="Item6" parent="BaseItems" index="5" instance=ExtResource("10_xygf7")]
+
+[node name="Item7" parent="BaseItems" index="6" instance=ExtResource("11_31f6s")]
+
+[node name="Item8" parent="BaseItems" index="7" instance=ExtResource("12_d8bd0")]
+
+[node name="Item9" parent="BaseItems" index="8" instance=ExtResource("13_30s1g")]
+
+[node name="Item10" parent="BaseItems" index="9" instance=ExtResource("14_yhik5")]

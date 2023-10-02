@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctlql0mi8eihj" path="res://characters/base/character.tscn" id="1_ralo6"]
 [ext_resource type="Texture2D" uid="uid://bn22o2g7mrv35" path="res://characters/art/spritesheetfinal.png" id="2_pl1vg"]
-[ext_resource type="PackedScene" uid="uid://sran3dkhoeym" path="res://quests/forest_quest.tscn" id="3_6ykoc"]
+[ext_resource type="PackedScene" uid="uid://dgqn52ld34yqx" path="res://quests/pill_quest.tscn" id="3_n8ecq"]
 
 [node name="Goldie" instance=ExtResource("1_ralo6")]
 character = 2
@@ -32,4 +32,4 @@ texture = ExtResource("2_pl1vg")
 region_enabled = true
 region_rect = Rect2(248, 192, 85, 92)
 
-[node name="The Spidery Forest" parent="Quest" index="0" instance=ExtResource("3_6ykoc")]
+[node name="PillQuest" parent="Quest" index="0" instance=ExtResource("3_n8ecq")]
