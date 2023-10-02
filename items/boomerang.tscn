@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://6x8k7v20so14"]
+
+[ext_resource type="PackedScene" uid="uid://bobnpytkcupti" path="res://items/base/item.tscn" id="1_mak7k"]
+[ext_resource type="Texture2D" uid="uid://b1woknmis2bk4" path="res://sprites/boomerang_icon.png" id="2_lxoaw"]
+[ext_resource type="Texture2D" uid="uid://bntb2lsoclpdk" path="res://sprites/boomerang.png" id="3_xbmox"]
+
+[node name="Item" instance=ExtResource("1_mak7k")]
+cells = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0), Vector2i(0, 1)])
+
+[node name="Icon" parent="." index="0"]
+texture = ExtResource("2_lxoaw")
+
+[node name="Sprite" parent="." index="1"]
+texture = ExtResource("3_xbmox")
+offset = Vector2(8, 8)
