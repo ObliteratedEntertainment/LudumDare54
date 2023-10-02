@@ -14,6 +14,13 @@ enum Stat {
 	PILL,
 	BOOMERANG,
 	NUNCHUCK,
+	SHIELD,
+	ARMOR,
+	AMULET,
+	STAFF,
+	FISHING_ROD,
+	FOOD,
+	SWORD
 	
 }
 

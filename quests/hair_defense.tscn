@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://sk65jtusnljt"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_darcb"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_ehir6"]
+[ext_resource type="PackedScene" uid="uid://b0poqhl4eocjp" path="res://items/base/type_pill.tscn" id="2_l8pdb"]
+[ext_resource type="PackedScene" uid="uid://d0fwn8bg426t3" path="res://items/base/defense.tscn" id="3_0t6gw"]
+[ext_resource type="PackedScene" uid="uid://dasufswsifsqh" path="res://items/med_pill.tscn" id="3_xsuo0"]
+[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="4_o6qs3"]
+[ext_resource type="PackedScene" uid="uid://c66myqjo8qkl8" path="res://items/base/type_shield.tscn" id="4_tkf15"]
+[ext_resource type="PackedScene" uid="uid://b4nyfaij84ccd" path="res://items/base/type_armor.tscn" id="5_ga1a4"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="5_rin4f"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="6_1hkhb"]
+[ext_resource type="PackedScene" uid="uid://ckn8g6a6m7pw6" path="res://items/kebab.tscn" id="7_i8vsu"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="8_eopwy"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="9_8qdrx"]
+
+[node name="HairDefense" instance=ExtResource("1_darcb")]
+min_items = 8
+
+[node name="Pill" parent="StatRequiements" index="0" instance=ExtResource("2_l8pdb")]
+amount = 3
+
+[node name="Defense" parent="StatRequiements" index="1" instance=ExtResource("3_0t6gw")]
+
+[node name="TypeShield" parent="StatRequiements" index="2" instance=ExtResource("4_tkf15")]
+amount = 2
+
+[node name="TypeArmor" parent="StatRequiements" index="3" instance=ExtResource("5_ga1a4")]
+amount = 3
+
+[node name="Lore" parent="." index="2"]
+text = "Tiberius is well known in town for his majestic hair and he must protect it!"
+
+[node name="hair" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_ehir6")
+text = "There are some new products in PILL form that help keep your hair healthy."
+
+[node name="protect" type="Node2D" parent="Lore" index="1"]
+script = ExtResource("2_ehir6")
+text = "As much defense as possible will shield his hair while in combat."
+
+[node name="MedPill" parent="Rewards/Success" index="0" instance=ExtResource("3_xsuo0")]
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="1"]
+script = ExtResource("2_ehir6")
+text = "Tiberius was able to protect his bushy beard and magnificent mane. The people in town are further enchanted by his extraordinary hair."
+
+[node name="Item" parent="Rewards/Failure" index="0" instance=ExtResource("3_xsuo0")]
+
+[node name="Item2" parent="Rewards/Failure" index="1" instance=ExtResource("4_o6qs3")]
+
+[node name="Item3" parent="Rewards/Failure" index="2" instance=ExtResource("5_rin4f")]
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="3"]
+script = ExtResource("2_ehir6")
+text = "Tiberius is really worried about his hair now! He must protect it at all costs with medicine and all defensive products."
+
+[node name="medicine" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("2_ehir6")
+text = "Three hair treatment pills should do the trick!"
+
+[node name="defensive products" type="Node2D" parent="Rewards/Failure/Lore" index="1"]
+script = ExtResource("2_ehir6")
+text = "Tiberius likes to wear lots of armor and shields when he goes into battle. Hair protection from all angles!"
+
+[node name="protection" type="Node2D" parent="Rewards/Failure/Lore/defensive products" index="0"]
+script = ExtResource("2_ehir6")
+text = "Three breastplates and two shields should do the trick!"
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("3_xsuo0")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("4_o6qs3")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("5_rin4f")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("6_1hkhb")]
+
+[node name="Item5" parent="BaseItems" index="4" instance=ExtResource("7_i8vsu")]
+
+[node name="Item6" parent="BaseItems" index="5" instance=ExtResource("8_eopwy")]
+
+[node name="Item7" parent="BaseItems" index="6" instance=ExtResource("9_8qdrx")]

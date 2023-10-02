@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bob63c27f5ltm"]
+[gd_scene load_steps=17 format=3 uid="uid://bob63c27f5ltm"]
 
 [ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_f7h36"]
 [ext_resource type="PackedScene" uid="uid://da0itpwo2s5ah" path="res://items/base/holy.tscn" id="2_vt8qv"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://5vn3mpdyx2y3" path="res://items/nunchuck.tscn" id="13_p2rtd"]
 [ext_resource type="PackedScene" uid="uid://dmeobr5c72nyy" path="res://items/amulet.tscn" id="14_gblqu"]
 [ext_resource type="PackedScene" uid="uid://bgsyvxpvt6wbx" path="res://items/fishing_rod.tscn" id="15_230nh"]
+[ext_resource type="PackedScene" uid="uid://ckn8g6a6m7pw6" path="res://items/kebab.tscn" id="16_y1b0s"]
 
 [node name="Holy Quest to Town" instance=ExtResource("1_f7h36")]
 
@@ -77,3 +78,5 @@ text = "It's harsh, I know, but have you seen these rats?! They're HUGE!!!"
 [node name="Item11" parent="BaseItems" index="10" instance=ExtResource("14_gblqu")]
 
 [node name="Item12" parent="BaseItems" index="11" instance=ExtResource("15_230nh")]
+
+[node name="Item13" parent="BaseItems" index="12" instance=ExtResource("16_y1b0s")]

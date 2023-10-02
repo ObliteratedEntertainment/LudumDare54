@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8gv0ls5unl7v"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_2lk2g"]
+
+[node name="TypeFishing" type="Node2D"]
+script = ExtResource("1_2lk2g")
+stat = 14
+amount = 1
