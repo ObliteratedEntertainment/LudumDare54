@@ -20,7 +20,8 @@ func add_lore_text(lore:Lore):
 	lores.append(lore)
 	var richtext = lore.text
 	for s in ItemStats.Stat:
-			richtext = richtext.replacen(s, stat_template.replace(stat_pattern, s))
+		s = s.replace("_", " ")
+		richtext = richtext.replacen(s, stat_template.replace(stat_pattern, s))
 	for sub in lore.get_children():
 		richtext = richtext.replace(sub.name, meta_template.replace(lore_pattern, sub.name))
 		lores.append(sub)

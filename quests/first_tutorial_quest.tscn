@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://m21l1x8jbrvg"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_o4upk"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_564la"]
+[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="3_l1och"]
+
+[node name="FirstTutorialQuest" instance=ExtResource("1_o4upk")]
+min_items = 3
+
+[node name="Lore" parent="." index="2"]
+text = "Welcome to our humble store where we pack as many items into your limited bag space as possible! Click green links for more info."
+
+[node name="green links" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_564la")
+text = "This particular adventurer is looking to bring 3 pieces of armor into town."
+
+[node name="3 pieces of armor" type="Node2D" parent="Lore/green links" index="0"]
+script = ExtResource("2_564la")
+text = "Drag the armor piece from the guild inventory in the bottom right, into their inventory! Make sure to pack them tightly."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("2_564la")
+text = "You did great! Zofra was able to successfully complete her mission in town."
+
+[node name="BlueArmor" parent="Rewards/Success" index="1" instance=ExtResource("3_l1och")]
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("3_l1och")]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqv62rdbq6lkd"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_5bxx8"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_3shfj"]
+[ext_resource type="PackedScene" uid="uid://dfg6u6pn4ddh3" path="res://items/base/restore_health.tscn" id="2_gqjv4"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="3_i5cd8"]
+[ext_resource type="PackedScene" uid="uid://cvv4cdqdbyn2y" path="res://items/blue_armor.tscn" id="4_b7rae"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="5_w6g4h"]
+
+[node name="ThirdTutorialQuest" instance=ExtResource("1_5bxx8")]
+min_items = 3
+
+[node name="RestoreHealth" parent="StatRequiements" index="0" instance=ExtResource("2_gqjv4")]
+amount = 80
+
+[node name="Lore" parent="." index="2"]
+text = "Goldie wants to help out the town, but he doesn’t know what item he needs! "
+
+[node name="item" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_3shfj")
+text = "All he knows is that he wants to restore health to the weak. Orange text provide hints about items."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("2_3shfj")
+text = "The town was successfully healed. Goldie is such a good boy!"
+
+[node name="Item" parent="Rewards/Success" index="1" instance=ExtResource("5_w6g4h")]
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("2_3shfj")
+text = "Goldie wanted to bring as many items as possible that can restore health."
+
+[node name="items" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("2_3shfj")
+text = "You will need to put 8 green potions into Goldie's bag."
+
+[node name="Item" parent="Rewards/Failure" index="1" instance=ExtResource("5_w6g4h")]
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("3_i5cd8")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("4_b7rae")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("5_w6g4h")]

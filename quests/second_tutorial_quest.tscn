@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpbmlg8wemqmw"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_1f3cq"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_re17o"]
+[ext_resource type="PackedScene" uid="uid://xmjrcnyuptsy" path="res://items/big_sword.tscn" id="3_gp1y0"]
+
+[node name="SecondTutorialQuest" instance=ExtResource("1_1f3cq")]
+min_items = 5
+
+[node name="Lore" parent="." index="2"]
+text = "Zofra asked Tiberius to bring her 5 swords, but he doesn’t know how to carry them all!"
+
+[node name="5 swords" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_re17o")
+text = "While dragging an item, you can press the R key to rotate it."
+
+[node name="R key" type="Node2D" parent="Lore/5 swords" index="0"]
+script = ExtResource("2_re17o")
+text = "R for rotate!"
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("2_re17o")
+text = "Zofra is so glad Tiberius was able to bring all those swords to town. She will put them to good use."
+
+[node name="BigSword" parent="Rewards/Success" index="1" instance=ExtResource("3_gp1y0")]
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("3_gp1y0")]
