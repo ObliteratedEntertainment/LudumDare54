@@ -14,7 +14,6 @@ class_name Item
 
 @onready var slot_rotation := 0
 
-
 func get_stats() -> Array:
 	return stats.get_children()
 

@@ -25,7 +25,7 @@ func select_quest():
 			for r in GameManager.reward_items:
 				var exists = false
 				for i in items:
-					if i.icon == r.icon:
+					if i.scene_file_path == r.scene_file_path:
 						exists = true
 						break
 				if !exists:

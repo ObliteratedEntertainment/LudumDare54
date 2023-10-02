@@ -65,7 +65,7 @@ func _quest_accepted(quest, success):
 		if r is Item:
 			var exists = false
 			for i in reward_items:
-				if i.icon == r.icon:
+				if i.scene_file_path == r.scene_file_path:
 					exists = true
 					break
 			if !exists:
