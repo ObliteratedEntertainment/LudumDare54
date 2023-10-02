@@ -35,11 +35,11 @@ texture = ExtResource("2_obr7l")
 region_enabled = true
 region_rect = Rect2(256, 0, 64, 80)
 
-[node name="FirstTutorialQuest" parent="Quest" index="0" instance=ExtResource("3_m6asa")]
+[node name="Holy Quest to Town" parent="Quest" index="0" instance=ExtResource("3_vg03k")]
 
-[node name="ZombieEmuQuest" parent="Quest" index="1" instance=ExtResource("3_jxmp7")]
+[node name="FirstTutorialQuest" parent="Quest" index="1" instance=ExtResource("3_m6asa")]
 
-[node name="Holy Quest to Town" parent="Quest" index="2" instance=ExtResource("3_vg03k")]
+[node name="ZombieEmuQuest" parent="Quest" index="2" instance=ExtResource("3_jxmp7")]
 
 [node name="PillQuest" parent="Quest" index="3" instance=ExtResource("3_loj8h")]
 
