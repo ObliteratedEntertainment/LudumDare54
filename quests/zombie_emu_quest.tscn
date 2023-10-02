@@ -70,11 +70,11 @@ text = "We failed badly because we didn’t have both the right emu hunting weap
 
 [node name="emu hunting weapons" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
 script = ExtResource("4_jwnyx")
-text = "Good thing there’s a large supply of boomerangs. We’ll need as many as we can carry."
+text = "Good thing there’s a large supply of boomerangs. We’ll need as many as we can carry.  11 should do the trick."
 
 [node name="communication gear" type="Node2D" parent="Rewards/Failure/Lore" index="1"]
 script = ExtResource("4_jwnyx")
-text = "Flags (and enough controlled arm flailing) can be used to send whole books (if you have the stamina)"
+text = "2 Flags (and enough controlled arm flailing) can be used to send whole books (if you have the stamina)."
 
 [node name="Item" parent="BaseItems" index="0" instance=ExtResource("5_4p0rq")]
 
