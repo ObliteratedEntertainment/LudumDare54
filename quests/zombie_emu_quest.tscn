@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="14_yhik5"]
 
 [node name="ZombieEmuQuest" instance=ExtResource("1_kj5wx")]
-min_items = 8
+min_items = 10
 region = 1
 
 [node name="Flag" parent="StatRequiements" index="0" instance=ExtResource("2_wengv")]
