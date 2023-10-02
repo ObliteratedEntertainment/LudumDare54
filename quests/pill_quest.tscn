@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgqn52ld34yqx"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_ryifd"]
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="2_dc4b2"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="3_q0w1x"]
+[ext_resource type="PackedScene" path="res://items/big_sword.tscn" id="4_cgqke"]
+[ext_resource type="PackedScene" path="res://items/blue_armor.tscn" id="5_mdq4p"]
+[ext_resource type="PackedScene" uid="uid://6x8k7v20so14" path="res://items/boomerang.tscn" id="6_a4pxc"]
+[ext_resource type="PackedScene" path="res://items/boss_key.tscn" id="7_8riab"]
+[ext_resource type="PackedScene" uid="uid://cwm633a086jts" path="res://items/dark_staff.tscn" id="8_3tni5"]
+[ext_resource type="PackedScene" uid="uid://cxl8b58xwjmb2" path="res://items/green_potion.tscn" id="9_lomcb"]
+[ext_resource type="PackedScene" uid="uid://dasufswsifsqh" path="res://items/med_pill.tscn" id="10_5kt86"]
+[ext_resource type="PackedScene" uid="uid://7f5ydk4irjho" path="res://items/shield.tscn" id="11_rqxop"]
+[ext_resource type="PackedScene" path="res://items/white_flag.tscn" id="12_uhsce"]
+
+[node name="PillQuest" instance=ExtResource("1_ryifd")]
+min_items = 8
+
+[node name="Pill" type="Node2D" parent="StatRequiements" index="0"]
+script = ExtResource("2_dc4b2")
+stat = 7
+amount = 22
+
+[node name="Lore" parent="." index="2"]
+text = "The town's folks are experiencing an outbreak of Plagathian Plague Flu!"
+
+[node name="Plagathian Plague Flu" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("3_q0w1x")
+text = "You don’t even want to know what the symptoms are."
+
+[node name="symptoms" type="Node2D" parent="Lore/Plagathian Plague Flu" index="0"]
+script = ExtResource("3_q0w1x")
+text = "NO, ABSOLUTELY NOT!!! Some say even looking at those with the disease feel worse than those with the plague."
+
+[node name="outbreak" type="Node2D" parent="Lore" index="1"]
+script = ExtResource("3_q0w1x")
+text = "A great deal of medicine will be required to reduce symptoms."
+
+[node name="reduce" type="Node2D" parent="Lore/outbreak" index="0"]
+script = ExtResource("3_q0w1x")
+text = "The art of medicine consists in amusing the patient, while nature cures the disease (allegedly)."
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="0"]
+script = ExtResource("3_q0w1x")
+text = "The medicine worked and the town is saved! Now if only someone would clean up the water supply so this stops happening!"
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("3_q0w1x")
+text = "That wasn’t nearly enough of the right medicine to help the townsfolk rest and recover."
+
+[node name="medicine" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("3_q0w1x")
+text = "People expect medicine to come in pill form."
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("4_cgqke")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("5_mdq4p")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("6_a4pxc")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("7_8riab")]
+
+[node name="Item5" parent="BaseItems" index="4" instance=ExtResource("8_3tni5")]
+
+[node name="Item6" parent="BaseItems" index="5" instance=ExtResource("9_lomcb")]
+
+[node name="Item7" parent="BaseItems" index="6" instance=ExtResource("10_5kt86")]
+
+[node name="Item8" parent="BaseItems" index="7" instance=ExtResource("11_rqxop")]
+
+[node name="Item9" parent="BaseItems" index="8" instance=ExtResource("12_uhsce")]

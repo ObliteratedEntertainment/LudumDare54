@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dasufswsifsqh"]
+[gd_scene load_steps=5 format=3 uid="uid://dasufswsifsqh"]
 
 [ext_resource type="PackedScene" uid="uid://bobnpytkcupti" path="res://items/base/item.tscn" id="1_3prvx"]
 [ext_resource type="Texture2D" uid="uid://c1m5r4sfd57dr" path="res://sprites/med_pill_icon.png" id="2_ayv3j"]
 [ext_resource type="Texture2D" uid="uid://dc81fo5spngt4" path="res://sprites/med_pill.png" id="3_edngq"]
+[ext_resource type="PackedScene" uid="uid://b0poqhl4eocjp" path="res://items/base/type_pill.tscn" id="4_phhxw"]
 
 [node name="Item" instance=ExtResource("1_3prvx")]
 cells = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0)])
@@ -13,3 +14,5 @@ texture = ExtResource("2_ayv3j")
 [node name="Sprite" parent="." index="1"]
 texture = ExtResource("3_edngq")
 offset = Vector2(8, 0)
+
+[node name="Pill" parent="Stats" index="0" instance=ExtResource("4_phhxw")]

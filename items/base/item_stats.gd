@@ -11,6 +11,7 @@ enum Stat {
 	
 	KEY,
 	FLAG,
+	PILL
 	
 }
 

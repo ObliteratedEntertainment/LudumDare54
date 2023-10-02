@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0poqhl4eocjp"]
+
+[ext_resource type="Script" path="res://items/base/item_stats.gd" id="1_6j246"]
+
+[node name="Pill" type="Node2D"]
+script = ExtResource("1_6j246")
+stat = 7
+amount = 1
