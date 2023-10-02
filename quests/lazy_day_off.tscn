@@ -1,0 +1,79 @@
+[gd_scene load_steps=13 format=3 uid="uid://bxfqnfs7h7gmt"]
+
+[ext_resource type="PackedScene" uid="uid://ybgfquxsc5de" path="res://quests/base/quest.tscn" id="1_yj64y"]
+[ext_resource type="PackedScene" uid="uid://bgsyvxpvt6wbx" path="res://items/fishing_rod.tscn" id="2_a4ugo"]
+[ext_resource type="PackedScene" uid="uid://bkkymw1qarjpp" path="res://items/boss_key.tscn" id="2_cr1u7"]
+[ext_resource type="Script" path="res://quests/base/lore.gd" id="2_h8n5h"]
+[ext_resource type="PackedScene" uid="uid://imtcy35b3v55" path="res://items/base/type_key.tscn" id="2_nw3dt"]
+[ext_resource type="PackedScene" uid="uid://ckn8g6a6m7pw6" path="res://items/kebab.tscn" id="3_ahw18"]
+[ext_resource type="PackedScene" uid="uid://ch5h0ueo3cq7b" path="res://items/base/type_food.tscn" id="3_o3wyc"]
+[ext_resource type="PackedScene" uid="uid://c8gv0ls5unl7v" path="res://items/base/type_fishing.tscn" id="4_myj3x"]
+[ext_resource type="PackedScene" uid="uid://6x8k7v20so14" path="res://items/boomerang.tscn" id="5_6xmxe"]
+[ext_resource type="PackedScene" uid="uid://ctmeqvjw0clrl" path="res://items/base/type_boomerang.tscn" id="5_mskdf"]
+[ext_resource type="PackedScene" uid="uid://dmeobr5c72nyy" path="res://items/amulet.tscn" id="6_cs7y4"]
+[ext_resource type="PackedScene" uid="uid://umk0nrjyqss0" path="res://items/base/type_amulet.tscn" id="6_wtfsi"]
+
+[node name="LazyDayOff" instance=ExtResource("1_yj64y")]
+min_items = 9
+region = 2
+
+[node name="Key" parent="StatRequiements" index="0" instance=ExtResource("2_nw3dt")]
+
+[node name="TypeFood" parent="StatRequiements" index="1" instance=ExtResource("3_o3wyc")]
+amount = 2
+
+[node name="TypeFishing" parent="StatRequiements" index="2" instance=ExtResource("4_myj3x")]
+amount = 2
+
+[node name="TypeBoomerang" parent="StatRequiements" index="3" instance=ExtResource("5_mskdf")]
+amount = 2
+
+[node name="TypeAmulet" parent="StatRequiements" index="4" instance=ExtResource("6_wtfsi")]
+amount = 2
+
+[node name="Lore" parent="." index="2"]
+text = "Goldie and his friend heard about an awesome fishing spot in a nearby dungeon."
+
+[node name="friend" type="Node2D" parent="Lore" index="0"]
+script = ExtResource("2_h8n5h")
+text = "Goldie likes to pack two of everything so he can share with his friend."
+
+[node name="fishing spot" type="Node2D" parent="Lore" index="1"]
+script = ExtResource("2_h8n5h")
+text = "Nothing better than snacking on some food while waiting for something to bite!"
+
+[node name="dungeon" type="Node2D" parent="Lore" index="2"]
+script = ExtResource("2_h8n5h")
+text = "Goldie will probably need one key to get in!"
+
+[node name="Item" parent="Rewards/Success" index="0" instance=ExtResource("2_cr1u7")]
+
+[node name="Item2" parent="Rewards/Success" index="1" instance=ExtResource("3_ahw18")]
+
+[node name="Item3" parent="Rewards/Success" index="2" instance=ExtResource("2_a4ugo")]
+
+[node name="Lore" type="Node2D" parent="Rewards/Success" index="3"]
+script = ExtResource("2_h8n5h")
+text = "Goldie and his friend had an awesome fishing trip! The kebabs that Tiberius had made them really hit the spot after playing fetch all day long with his best buddy."
+
+[node name="Lore" type="Node2D" parent="Rewards/Failure" index="0"]
+script = ExtResource("2_h8n5h")
+text = "The fishing trip turned out to be a bust. Nothing was packed right in Goldie's bag!"
+
+[node name="fishing trip" type="Node2D" parent="Rewards/Failure/Lore" index="0"]
+script = ExtResource("2_h8n5h")
+text = "Goldie’s friend needs his own set of supplies, but they could share the key to the dungeon."
+
+[node name="bag" type="Node2D" parent="Rewards/Failure/Lore" index="1"]
+script = ExtResource("2_h8n5h")
+text = "Goldie really wanted to pack his favorite toy and lucky amulets."
+
+[node name="Item" parent="BaseItems" index="0" instance=ExtResource("2_a4ugo")]
+
+[node name="Item2" parent="BaseItems" index="1" instance=ExtResource("3_ahw18")]
+
+[node name="Item3" parent="BaseItems" index="2" instance=ExtResource("2_cr1u7")]
+
+[node name="Item4" parent="BaseItems" index="3" instance=ExtResource("5_6xmxe")]
+
+[node name="Item5" parent="BaseItems" index="4" instance=ExtResource("6_cs7y4")]
